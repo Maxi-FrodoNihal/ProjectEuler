@@ -1,6 +1,7 @@
 package p027;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.apache.commons.collections4.CollectionUtils;
 import util.IProblem;
@@ -60,7 +61,8 @@ public class Problem27 implements IProblem {
 
             return this.primNumbers.get(this.primNumbers.size() - 1) == number;
         } else {
-            return this.primNumbers.contains(number);
+
+            return Collections.binarySearch(this.primNumbers, number) > 0;
         }
     }
 
