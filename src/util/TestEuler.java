@@ -1,6 +1,6 @@
 package util;
 
-import p029.Problem29;
+import p30.Problem30;
 
 public class TestEuler {
 
@@ -9,7 +9,7 @@ public class TestEuler {
         final Runtime rt = Runtime.getRuntime();
         final long memory1 = rt.totalMemory() - rt.freeMemory();
 
-        final IProblem problem = new Problem29();
+        final IProblem problem = new Problem30();
 
         final long zeit1 = System.currentTimeMillis();
 
