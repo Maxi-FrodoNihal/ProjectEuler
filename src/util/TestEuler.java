@@ -1,6 +1,6 @@
 package util;
 
-import p30.Problem30;
+import p030.Problem30;
 
 public class TestEuler {
 
