@@ -14,32 +14,17 @@ public class Problem30 implements IProblem {
         final int borderNumber = (int)Math.pow(9, border) * border;
         final List<Integer> targetNumbers = new ArrayList<>();
 
-        int[] tmpArray = new int[1];
+        final int[] tmpArray = new int[1];
         tmpArray[0] = 1;
 
-        int tmpNumber = this.generateIntFromArray(tmpArray) + 1;
+        for (int i = 2; i < borderNumber; ++i) {
 
-        while (tmpNumber < borderNumber) {
-
-            if (tmpNumber == this.getPowSum(tmpArray, border)) {
-                targetNumbers.add(tmpNumber);
+            if (i == this.getPowSum(this.generateArrayFromInt(i), border)) {
+                targetNumbers.add(i);
             }
-
-            tmpArray = this.generateArrayFromInt(++tmpNumber);
         }
 
         return String.valueOf(targetNumbers.stream().collect(Collectors.summingInt(Integer::intValue)));
-    }
-
-    private int generateIntFromArray(final int[] array) {
-
-        int sum = 0;
-
-        for (int i = 0; i < array.length; ++i) {
-            sum += array[i] * Math.pow(10, array.length - 1 - i);
-        }
-
-        return sum;
     }
 
     private int[] generateArrayFromInt(final int number) {
