@@ -49,4 +49,9 @@ public class Problem30 implements IProblem {
 
         return sum;
     }
+
+    @Override
+    public int getIterations() {
+        return 30;
+    }
 }
