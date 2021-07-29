@@ -73,7 +73,7 @@ public class Problem31 implements IProblem {
         }
     }
 
-    public void dynamicForSolution(int depth, final Map<Money, Integer> valueMap) {
+    private void dynamicForSolution(int depth, final Map<Money, Integer> valueMap) {
 
         if (depth < Money.values().length) {
 
