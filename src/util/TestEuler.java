@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
-import p033.Problem33;
+import p034.Problem34;
 
 public class TestEuler {
 
@@ -17,7 +17,7 @@ public class TestEuler {
 
 		final Runtime rt = Runtime.getRuntime();
 
-		final IProblem problem = new Problem33();
+		final IProblem problem = new Problem34();
 
 		final int iterations = problem.getIterations();
 		final String averageString = iterations > 1 ? "Average " : "";
@@ -41,7 +41,7 @@ public class TestEuler {
 		} else if (oneEntry.size() > 1) {
 			System.out.println(oneEntry.get(0) + " Es gab mehrere Ergebnisse");
 		} else {
-			System.out.println("Es gab kein Ergebnis Bla");
+			System.out.println("Es gab kein Ergebnis");
 		}
 
 		System.out.println(averageString + "Time in Millis: "
