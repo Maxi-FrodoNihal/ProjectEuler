@@ -29,7 +29,7 @@ public class Problem38 implements IProblem {
 		return String.valueOf(targetNumber);
 	}
 
-	public int doPandigi(int number, int border) {
+	private int doPandigi(int number, int border) {
 
 		String panDigiString = "";
 
@@ -44,7 +44,7 @@ public class Problem38 implements IProblem {
 		}
 	}
 
-	public boolean contains1to9(int number) {
+	private boolean contains1to9(int number) {
 
 		String numberString = String.valueOf(number);
 		boolean containsAll = true;
