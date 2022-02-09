@@ -55,7 +55,7 @@ public class Problem39 implements IProblem {
 		return String.valueOf(u);
 	}
 
-	public Set<Integer> getABCSet(int a, int b, int c) {
+	private Set<Integer> getABCSet(int a, int b, int c) {
 		Set<Integer> threeDigits = new HashSet<>();
 		threeDigits.add(a);
 		threeDigits.add(b);
@@ -63,7 +63,7 @@ public class Problem39 implements IProblem {
 		return threeDigits;
 	}
 
-	public int pyhtagoras(int a, int b) {
+	private int pyhtagoras(int a, int b) {
 
 		int aSquare = (a * a);
 		int bSquare = (b * b);
