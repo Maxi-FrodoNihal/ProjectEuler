@@ -1,6 +1,7 @@
 package util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,12 +15,21 @@ public abstract class PrimProblem implements IProblem {
 
 		if (CollectionUtils.isEmpty(this.primNumbers) || this.primNumbers.get(this.primNumbers.size() - 1) < number) {
 
-			primNumbers = eratosthenes(number, primNumbers);
+			primNumbers = sieveOfAtkin(number, primNumbers);
 		}
 
 		return Collections.binarySearch(this.primNumbers, number) >= 0;
 	}
 
+	/**
+	 * Selbstgeschriebene Version vom Sieb des Eratosthenes. Ist nicht super
+	 * schnell, macht aber seinen Job.
+	 * 
+	 * @param border   Bis wohin sollen Primzahlen gesucht werden?
+	 * @param primList Die Liste an schon gefundenen Primzahlen. Welche erweitert
+	 *                 und wieder zurück gegeben wird.
+	 * @return Die vervollständigte Liste an Primzahlen bis zur Parametergrenze.
+	 */
 	private List<Integer> eratosthenes(final int border, List<Integer> primList) {
 
 		int actualNumber = 6;
@@ -50,6 +60,63 @@ public abstract class PrimProblem implements IProblem {
 			}
 
 			actualNumber++;
+		}
+
+		return primList;
+	}
+
+	/**
+	 * Diesen Algo zum Primzahlen bestimmen hab ich aus dem Internet kopiert und
+	 * angepasst. Er läuft schneller als mein selbstgeschriebener Algo.
+	 * 
+	 * @param border   Bis wohin sollen Primzahlen gesucht werden?
+	 * @param primList Die Liste an schon gefundenen Primzahlen. Welche erweitert
+	 *                 und wieder zurück gegeben wird.
+	 * @return Die vervollständigte Liste an Primzahlen bis zur Parametergrenze.
+	 */
+	public List<Integer> sieveOfAtkin(int border, List<Integer> primList) {
+
+		int limit = border;
+		boolean[] sieve = new boolean[limit + 1];
+		int limitSqrt = (int) Math.sqrt(limit);
+
+		Arrays.fill(sieve, false);
+
+		sieve[0] = false;
+		sieve[1] = false;
+		sieve[2] = true;
+		sieve[3] = true;
+
+		for (int x = 1; x <= limitSqrt; x++) {
+			for (int y = 1; y <= limitSqrt; y++) {
+				int n = (4 * x * x) + (y * y);
+				if (n <= limit && (n % 12 == 1 || n % 12 == 5)) {
+					sieve[n] = !sieve[n];
+				}
+				n = (3 * x * x) + (y * y);
+				if (n <= limit && (n % 12 == 7)) {
+					sieve[n] = !sieve[n];
+				}
+				n = (3 * x * x) - (y * y);
+				if (x > y && n <= limit && (n % 12 == 11)) {
+					sieve[n] = !sieve[n];
+				}
+			}
+		}
+
+		for (int n = 5; n <= limitSqrt; n++) {
+			if (sieve[n]) {
+				int x = n * n;
+				for (int i = x; i <= limit; i += x) {
+					sieve[i] = false;
+				}
+			}
+		}
+
+		for (int i = 0; i <= limit; i++) {
+			if (sieve[i] && Collections.binarySearch(this.primNumbers, i) <= 0) {
+				primList.add(i);
+			}
 		}
 
 		return primList;
