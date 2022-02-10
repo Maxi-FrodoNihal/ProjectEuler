@@ -15,7 +15,7 @@ public abstract class PrimProblem implements IProblem {
 
 		if (CollectionUtils.isEmpty(this.primNumbers) || this.primNumbers.get(this.primNumbers.size() - 1) < number) {
 
-			primNumbers = sieveOfAtkin(number, primNumbers);
+			primNumbers = sieveOfAtkin(number);
 		}
 
 		return Collections.binarySearch(this.primNumbers, number) >= 0;
@@ -74,8 +74,9 @@ public abstract class PrimProblem implements IProblem {
 	 *                 und wieder zurück gegeben wird.
 	 * @return Die vervollständigte Liste an Primzahlen bis zur Parametergrenze.
 	 */
-	public List<Integer> sieveOfAtkin(int border, List<Integer> primList) {
+	public List<Integer> sieveOfAtkin(int border) {
 
+		List<Integer> primList = new ArrayList<>();
 		int limit = border;
 		boolean[] sieve = new boolean[limit + 1];
 		int limitSqrt = (int) Math.sqrt(limit);
@@ -114,7 +115,7 @@ public abstract class PrimProblem implements IProblem {
 		}
 
 		for (int i = 0; i <= limit; i++) {
-			if (sieve[i] && Collections.binarySearch(this.primNumbers, i) <= 0) {
+			if (sieve[i]) {
 				primList.add(i);
 			}
 		}
