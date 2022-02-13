@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
-import p041.Problem41;
+import p041TOp050.p041.Problem41;
 
 public class TestEuler {
 
