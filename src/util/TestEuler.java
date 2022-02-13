@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
-import p011TOp020.p016.Problem16;
+import p011TOp020.p017.Problem17;
 
 public class TestEuler {
 
@@ -17,7 +17,7 @@ public class TestEuler {
 
 		final Runtime rt = Runtime.getRuntime();
 
-		final IProblem problem = new Problem16();
+		final IProblem problem = new Problem17();
 
 		final int iterations = problem.getIterations();
 		final String averageString = iterations > 1 ? "Average " : "";
