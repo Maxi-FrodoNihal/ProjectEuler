@@ -10,8 +10,7 @@ import java.util.List;
 
 public class Einleser {
 
-	private final File readFile = new File(
-			"C:\\Users\\frodo\\Desktop\\Anwendungen\\workspace\\ProjectEuler\\src\\p021TOp030\\p022\\p022_names.txt");
+	private final File readFile = new File(getClass().getResource("p022_names.txt").getFile());
 
 	public List<String> readNames() {
 
