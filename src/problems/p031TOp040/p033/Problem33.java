@@ -11,6 +11,11 @@ import util.IProblem;
 public class Problem33 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "100";
+	}
+
+	@Override
 	public String solve() {
 
 		final Set<Fraction> lsgSet = new HashSet<>();

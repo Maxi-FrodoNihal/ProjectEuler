@@ -8,6 +8,11 @@ import util.IProblem;
 public class Problem22 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "871198282";
+	}
+
+	@Override
 	public String solve() {
 
 		int resultSum = 0;

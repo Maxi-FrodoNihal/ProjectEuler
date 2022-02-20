@@ -7,6 +7,11 @@ import util.IProblem;
 public class Problem6 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "25164150";
+	}
+
+	@Override
 	public String solve() {
 
 		final double border = 100.0;

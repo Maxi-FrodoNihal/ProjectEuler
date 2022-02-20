@@ -16,6 +16,11 @@ public class Problem14 implements IProblem {
 	private final List<Future<long[]>> ergebnisListe = new ArrayList<>();
 
 	@Override
+	public String getSolution() {
+		return "837799";
+	}
+
+	@Override
 	public String solve() {
 
 		final ExecutorService executor = Executors.newFixedThreadPool(this.threadAnzahl);

@@ -8,6 +8,11 @@ import util.IProblem;
 public class Problem29 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "9183";
+	}
+
+	@Override
 	public String solve() {
 
 		final int border = 100;

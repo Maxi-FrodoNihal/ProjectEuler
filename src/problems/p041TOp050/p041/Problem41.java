@@ -5,6 +5,11 @@ import util.PrimProblem;
 public class Problem41 extends PrimProblem {
 
 	@Override
+	public String getSolution() {
+		return "7652413";
+	}
+
+	@Override
 	public String solve() {
 
 		this.isPrim(10000000);

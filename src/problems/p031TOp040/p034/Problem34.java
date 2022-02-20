@@ -11,6 +11,11 @@ import util.IProblem;
 public class Problem34 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "40730";
+	}
+
+	@Override
 	public String solve() {
 
 		List<Integer> targetList = new ArrayList<>();

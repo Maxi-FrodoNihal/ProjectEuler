@@ -5,6 +5,11 @@ import util.IProblem;
 public class Problem4 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "906609";
+	}
+
+	@Override
 	public String solve() {
 
 		int bossPalindrome = 0;

@@ -11,6 +11,11 @@ import util.IProblem;
 public class Problem32 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "45228";
+	}
+
+	@Override
 	public String solve() {
 
 		final String[] digitArray = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };

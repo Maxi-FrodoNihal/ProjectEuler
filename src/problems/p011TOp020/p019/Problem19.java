@@ -9,6 +9,11 @@ import util.IProblem;
 public class Problem19 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "171";
+	}
+
+	@Override
 	public String solve() {
 
 		final LocalDate start = LocalDate.parse("1901-01-01");

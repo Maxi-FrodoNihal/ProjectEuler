@@ -5,6 +5,11 @@ import util.IProblem;
 public class Problem10 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "142913828922";
+	}
+
+	@Override
 	public String solve() {
 
 		final int max = 2000000;

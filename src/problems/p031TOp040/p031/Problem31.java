@@ -12,9 +12,14 @@ public class Problem31 implements IProblem {
 	private final Set<Map<Money, Integer>> possibleCollections = new HashSet<>();
 
 	@Override
+	public String getSolution() {
+		return "73682";
+	}
+
+	@Override
 	public String solve() {
 
-		// this.dynamicForSolution(0, new EnumMap<Money, Integer>(Money.class));
+//		this.dynamicForSolution(0, new EnumMap<Money, Integer>(Money.class));
 		this.forSoultion();
 
 		return String.valueOf(this.possibleCollections.size());

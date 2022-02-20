@@ -12,6 +12,11 @@ import util.IProblem;
 
 public class Problem23 implements IProblem {
 
+	@Override
+	public String getSolution() {
+		return "4179871";
+	}
+
 	private Integer properDivisorsSum(final int number) {
 
 		int sum = 0;

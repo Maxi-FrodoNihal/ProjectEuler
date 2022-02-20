@@ -7,6 +7,11 @@ import util.IProblem;
 public class Problem20 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "648";
+	}
+
+	@Override
 	public String solve() {
 
 		final BigInteger hundert = new BigInteger("100");

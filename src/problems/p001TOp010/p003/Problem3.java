@@ -9,6 +9,11 @@ public class Problem3 implements IProblem {
 
 	private long result = 0;
 
+	@Override
+	public String getSolution() {
+		return "6857";
+	}
+
 	/**
 	 * Größter Primfaktor bei der Primfaktorzerlegung der Zahl 600851475143
 	 */
@@ -106,7 +111,7 @@ public class Problem3 implements IProblem {
 
 				primZahlErgebnis = primZahlErgebnis / tmpPrimzahl;
 
-				System.out.print(primZahlenListe.get(count) + " * ");
+//				System.out.print(primZahlenListe.get(count) + " * ");
 				count = 0;
 
 			} else {

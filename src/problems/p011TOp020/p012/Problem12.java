@@ -14,6 +14,11 @@ public class Problem12 implements ICListController<Integer, DivisorCallable>, IP
 	private Integer foundValue = null;
 
 	@Override
+	public String getSolution() {
+		return "76576500";
+	}
+
+	@Override
 	public DivisorCallable getNext() {
 
 		final int start = this.callCounter * this.pace + 1;

@@ -4,6 +4,11 @@ import util.IProblem;
 
 public class Problem21 implements IProblem {
 
+	@Override
+	public String getSolution() {
+		return "31626";
+	}
+
 	private static Integer properDivisors(final int number) {
 
 		int sum = 0;

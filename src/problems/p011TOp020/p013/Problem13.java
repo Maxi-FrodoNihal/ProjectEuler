@@ -12,6 +12,11 @@ import util.IProblem;
 
 public class Problem13 implements IProblem {
 
+	@Override
+	public String getSolution() {
+		return "5537376230";
+	}
+
 	private List<BigInteger> prepareBigNumberList() {
 
 		final List<BigInteger> bigNumberList = new ArrayList<>();

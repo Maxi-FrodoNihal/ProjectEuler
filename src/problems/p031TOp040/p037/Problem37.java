@@ -10,6 +10,11 @@ import util.PrimProblem;
 public class Problem37 extends PrimProblem {
 
 	@Override
+	public String getSolution() {
+		return "748317";
+	}
+
+	@Override
 	public String solve() {
 
 		List<Integer> searchedPrims = new ArrayList<>();

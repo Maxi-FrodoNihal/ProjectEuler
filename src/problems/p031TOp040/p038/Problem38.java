@@ -5,6 +5,11 @@ import util.IProblem;
 public class Problem38 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "932718654";
+	}
+
+	@Override
 	public String solve() {
 
 		int border = 10000;

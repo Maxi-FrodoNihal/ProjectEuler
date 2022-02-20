@@ -11,6 +11,11 @@ public class Problem15 implements IProblem {
 	private final int border = 20;
 
 	@Override
+	public String getSolution() {
+		return "137846528820";
+	}
+
+	@Override
 	public String solve() {
 
 		final ExecutorService exService = Executors.newFixedThreadPool(2);

@@ -7,6 +7,11 @@ public class Problem36 implements IProblem {
 	private StringBuilder strBuild = new StringBuilder();
 
 	@Override
+	public String getSolution() {
+		return "872187";
+	}
+
+	@Override
 	public String solve() {
 
 		int sumVar = 0;

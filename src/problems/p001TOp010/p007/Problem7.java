@@ -8,6 +8,11 @@ import util.IProblem;
 public class Problem7 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "104743";
+	}
+
+	@Override
 	public String solve() {
 		return String.valueOf(this.eratosthenes(10001));
 	}

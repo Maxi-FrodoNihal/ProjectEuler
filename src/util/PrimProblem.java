@@ -11,7 +11,9 @@ public abstract class PrimProblem implements IProblem {
 
 	protected List<Integer> primNumbers = new ArrayList<>();
 
-	protected boolean isPrim(final int number) {
+	protected boolean isPrim(int number) {
+
+		number = Math.abs(number);
 
 		if (CollectionUtils.isEmpty(this.primNumbers) || this.primNumbers.get(this.primNumbers.size() - 1) < number) {
 

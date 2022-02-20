@@ -12,6 +12,11 @@ public class Problem24 implements IProblem {
 	private final int oneMio = 1000000;
 
 	@Override
+	public String getSolution() {
+		return "2783915460";
+	}
+
+	@Override
 	public String solve() {
 
 		final List<String> testList = Arrays.asList(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" });

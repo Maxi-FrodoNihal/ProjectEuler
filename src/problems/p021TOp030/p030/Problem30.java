@@ -9,6 +9,11 @@ import util.IProblem;
 public class Problem30 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "443839";
+	}
+
+	@Override
 	public String solve() {
 
 		final int border = 5;
@@ -49,10 +54,5 @@ public class Problem30 implements IProblem {
 		}
 
 		return sum;
-	}
-
-	@Override
-	public int getIterations() {
-		return 30;
 	}
 }

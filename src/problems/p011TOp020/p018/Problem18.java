@@ -13,35 +13,41 @@ public class Problem18 implements IProblem {
 
 	// Level: 9 Summe: 7148
 
+	@Override
+	public String getSolution() {
+		return "1074";
+	}
+
 	private final List<BiLeave> pathToWalk = new ArrayList<>();
 
 	public static double pathCalculation(final BiLeave knot, final int level) {
-		// Math.pow(2, level);
-
 		double value = knot.getValue();
-
-		if (knot.getValue() > 80) {
-			value *= 2.5;
-		} else if (knot.getValue() > 70) {
-			value *= 2;
-		} else if (knot.getValue() > 60) {
-			value *= 1.5;
-		}
-
-		if (knot.getValue() < 10) {
-			value /= 2.5;
-		} else if (knot.getValue() < 20) {
-			value /= 2.0;
-		} else if (knot.getValue() < 30) {
-			value /= 1.5;
-		}
-
-		if (level > 9) {
-			return value / 1024;
-		} else {
-
-			return value / Math.pow(2, level);
-		}
+		return value / Math.pow(2, level);
+//
+//		double value = knot.getValue();
+//
+//		if (knot.getValue() > 80) {
+//			value *= 2.5;
+//		} else if (knot.getValue() > 70) {
+//			value *= 2;
+//		} else if (knot.getValue() > 60) {
+//			value *= 1.5;
+//		}
+//
+//		if (knot.getValue() < 10) {
+//			value /= 2.5;
+//		} else if (knot.getValue() < 20) {
+//			value /= 2.0;
+//		} else if (knot.getValue() < 30) {
+//			value /= 1.5;
+//		}
+//
+//		if (level > 9) {
+//			return value / 1024;
+//		} else {
+//
+//			return value / Math.pow(2, level);
+//		}
 	}
 
 	@Override

@@ -49,7 +49,7 @@ public class CalculationCallable implements Callable<List<Integer>> {
 			}
 		}
 
-		System.out.println("Bin fertig. Intervall von " + this.startIndex + " bis " + this.endIndex);
+//		System.out.println("Bin fertig. Intervall von " + this.startIndex + " bis " + this.endIndex);
 
 		return returnList;
 	}

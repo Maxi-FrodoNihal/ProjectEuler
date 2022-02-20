@@ -34,7 +34,7 @@ public class DivisorCallable implements Callable<Integer> {
 			}
 		}
 
-		System.out.println(finalTriangleNumber + "/" + highestDivisor);
+//		System.out.println(finalTriangleNumber + "/" + highestDivisor);
 
 		if (highestDivisor >= 500) {
 			return finalTriangleNumber;

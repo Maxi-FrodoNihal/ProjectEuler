@@ -6,6 +6,11 @@ import util.IProblem;
 
 public class Problem25 implements IProblem {
 
+	@Override
+	public String getSolution() {
+		return "4782";
+	}
+
 	private Integer fiboIter(final int digitLenght) {
 
 		int i = 2;

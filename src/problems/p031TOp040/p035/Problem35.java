@@ -8,6 +8,11 @@ import util.PrimProblem;
 public class Problem35 extends PrimProblem {
 
 	@Override
+	public String getSolution() {
+		return "55";
+	}
+
+	@Override
 	public String solve() {
 
 		int max = 1000000;
@@ -16,7 +21,7 @@ public class Problem35 extends PrimProblem {
 		this.isPrim(max);
 		Set<Integer> rotatePrimNumbers = new HashSet<Integer>();
 
-		for (int i = 0; primNumbers.get(i) <= max; ++i) {
+		for (int i = 0; i < primNumbers.size(); ++i) {
 
 			int tmpPrim = primNumbers.get(i);
 

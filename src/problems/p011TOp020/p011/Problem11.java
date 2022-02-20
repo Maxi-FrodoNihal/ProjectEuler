@@ -7,6 +7,11 @@ import util.IProblem;
 public class Problem11 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "70600674";
+	}
+
+	@Override
 	public String solve() {
 
 		// Die Lösung die hier ausgerechnet wird ist falsch

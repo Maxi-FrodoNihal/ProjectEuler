@@ -9,6 +9,11 @@ import util.IProblem;
 public class Problem28 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "669171001";
+	}
+
+	@Override
 	public String solve() {
 
 		final int matrixSize = 1001;

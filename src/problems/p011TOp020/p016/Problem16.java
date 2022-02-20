@@ -7,6 +7,11 @@ import util.IProblem;
 public class Problem16 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "1366";
+	}
+
+	@Override
 	public String solve() {
 
 		BigDecimal two = new BigDecimal(2);

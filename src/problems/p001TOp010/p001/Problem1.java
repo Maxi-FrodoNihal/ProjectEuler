@@ -5,6 +5,11 @@ import util.IProblem;
 public class Problem1 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "233168";
+	}
+
+	@Override
 	public String solve() {
 
 		int summe = 0;

@@ -5,6 +5,11 @@ import util.IProblem;
 public class Problem40 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "210";
+	}
+
+	@Override
 	public String solve() {
 
 		int[] stellen = { 1, 10, 100, 1000, 10000, 100000, 1000000 };

@@ -5,6 +5,11 @@ import util.IProblem;
 public class Problem9 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "31875000";
+	}
+
+	@Override
 	public String solve() {
 
 		int nb1 = 0;
@@ -23,9 +28,9 @@ public class Problem9 implements IProblem {
 			}
 		}
 
-		System.out.println(nb1 + " + " + nb2 + " + " + (oneT - nb1 - nb2) + " = 1000");
-		System.out.println("und");
-		System.out.println(nb1 + "² + " + nb2 + "² = " + (oneT - nb1 - nb2) + "²");
+//		System.out.println(nb1 + " + " + nb2 + " + " + (oneT - nb1 - nb2) + " = 1000");
+//		System.out.println("und");
+//		System.out.println(nb1 + "² + " + nb2 + "² = " + (oneT - nb1 - nb2) + "²");
 
 		return String.valueOf(nb1 * nb2 * (oneT - nb1 - nb2));
 	}

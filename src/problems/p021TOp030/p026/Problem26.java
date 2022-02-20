@@ -23,6 +23,11 @@ public class Problem26 implements
 	private final int threadAmount = 8;
 
 	@Override
+	public String getSolution() {
+		return "983";
+	}
+
+	@Override
 	public String solve() {
 
 		final CList<Triple<Integer, Integer, BigDecimal>, Callable<Triple<Integer, Integer, BigDecimal>>> clist = new CList<>(
@@ -49,7 +54,7 @@ public class Problem26 implements
 	public void callbackValue(final Triple<Integer, Integer, BigDecimal> o) {
 
 		if (o.getLeft() > this.biggestMusterLenght) {
-			System.out.println("Musterlänge: " + o.getLeft() + " Nenner: " + o.getMiddle());
+//			System.out.println("Musterlänge: " + o.getLeft() + " Nenner: " + o.getMiddle());
 			this.biggestD = o.getMiddle();
 			this.biggestMusterLenght = o.getLeft();
 		}

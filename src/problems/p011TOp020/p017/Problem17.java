@@ -10,6 +10,11 @@ public class Problem17 implements IProblem {
 	private Map<Integer, String> numberToWordMap = initNumberToWordMap();
 
 	@Override
+	public String getSolution() {
+		return "21124";
+	}
+
+	@Override
 	public String solve() {
 
 		StringBuilder strBu = new StringBuilder();

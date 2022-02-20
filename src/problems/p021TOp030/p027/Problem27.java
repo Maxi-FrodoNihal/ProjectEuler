@@ -5,6 +5,11 @@ import util.PrimProblem;
 public class Problem27 extends PrimProblem {
 
 	@Override
+	public String getSolution() {
+		return "-59231";
+	}
+
+	@Override
 	public String solve() {
 
 		int globalPrimSequenceNumber = 0;

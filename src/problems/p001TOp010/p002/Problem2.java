@@ -5,6 +5,11 @@ import util.IProblem;
 public class Problem2 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "4613732";
+	}
+
+	@Override
 	public String solve() {
 
 		int step = 1;
