@@ -14,7 +14,7 @@ import util.IProblem;
 
 public class DTestWriter {
 
-	private String[] bla = { "Problem12", "Problem15", "Problem18" };
+	private String[] bla = { "Problem18" };
 	private Set<String> langLaeufer = new HashSet<String>(Arrays.asList(bla));
 
 	public static void main(String[] args) {

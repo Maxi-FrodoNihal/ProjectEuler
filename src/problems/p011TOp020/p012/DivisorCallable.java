@@ -51,10 +51,13 @@ public class DivisorCallable implements Callable<Integer> {
 
 		int divisorAmount = 1;
 
-		for (int i = 1; i <= number / 2; ++i) {
+		if (number % 2 == 0 && number % 5 == 0 && number % 6 == 0) {
 
-			if (number % i == 0) {
-				++divisorAmount;
+			for (int i = 1; i <= number / 2; ++i) {
+
+				if (number % i == 0) {
+					++divisorAmount;
+				}
 			}
 		}
 

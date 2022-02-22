@@ -187,7 +187,7 @@ public class JUnitTest {
 				&& problem11.solve().equals(problem11.getSolution()));
 	}
 
-//	@Test
+	@Test
 	public void testProblem12() {
 
 		List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
@@ -223,7 +223,7 @@ public class JUnitTest {
 				&& problem14.solve().equals(problem14.getSolution()));
 	}
 
-//	@Test
+	@Test
 	public void testProblem15() {
 
 		List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
