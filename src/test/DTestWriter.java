@@ -14,8 +14,8 @@ import util.IProblem;
 
 public class DTestWriter {
 
-	private String[] bla = { "Problem18" };
-	private Set<String> langLaeufer = new HashSet<String>(Arrays.asList(bla));
+	private String[] exept = { "Problem18" };
+	private Set<String> problemKinder = new HashSet<String>(Arrays.asList(exept));
 
 	public static void main(String[] args) {
 		new DTestWriter().generateTestFile();
@@ -62,7 +62,7 @@ public class DTestWriter {
 	private StringBuffer generateProblemTestMethod(StringBuffer strBu, String problemName) {
 
 		String varName = problemName.toLowerCase();
-		String testOrNot = langLaeufer.contains(problemName) == false ? "\n	@Test\r\n" : "\n//	@Test\r\n";
+		String testOrNot = problemKinder.contains(problemName) == false ? "\n	@Test\r\n" : "\n//	@Test\r\n";
 
 		// @formatter:off
 		strBu.append(""+testOrNot
