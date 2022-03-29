@@ -6,45 +6,38 @@ import java.util.concurrent.Callable;
 
 public class PandigiCallable implements Callable<List<String>> {
 
-	private long start; 
-	private long end;
-	
-	public PandigiCallable(long start, long end) {
-		this.start = start;
-		this.end = end;
-	}
+	private List<String> work;
 
+	public PandigiCallable(List<String> work) {
+		this.work = work;
+	}
 
 	@Override
 	public List<String> call() throws Exception {
-		
+
 		List<String> pandigiNumbers = new ArrayList<String>();
-		
-		for(long i = start ; i < end ; ++i) {
-			
-			String strI = String.valueOf(i);
-			
-			if(strI.length() == 9) {
-				strI = "0"+strI;
-			}
-			
-			if(contains0to9(strI)) {
-				pandigiNumbers.add(strI);
+
+		for (String workElement : work) {
+			if (isPartialDivisible(workElement)) {
+				pandigiNumbers.add(workElement);
 			}
 		}
-		
+
 		return pandigiNumbers;
 	}
 
-	private boolean contains0to9(String number) {
+	public static boolean isPartialDivisible(String number) {
 
-		boolean containsAll = true;
+		boolean allIsDivisible = true;
 
-		for (int i = 0; i <= 9 && containsAll; ++i) {
-			containsAll &= number.contains(String.valueOf(i));
-		}
+		allIsDivisible &= Integer.parseInt(number.substring(1, 4)) % 2 == 0;
+		allIsDivisible &= Integer.parseInt(number.substring(2, 5)) % 3 == 0;
+		allIsDivisible &= Integer.parseInt(number.substring(3, 6)) % 5 == 0;
+		allIsDivisible &= Integer.parseInt(number.substring(4, 7)) % 7 == 0;
+		allIsDivisible &= Integer.parseInt(number.substring(5, 8)) % 11 == 0;
+		allIsDivisible &= Integer.parseInt(number.substring(6, 9)) % 13 == 0;
+		allIsDivisible &= Integer.parseInt(number.substring(7, 10)) % 17 == 0;
 
-		return containsAll;
+		return allIsDivisible;
 	}
-	
 }
