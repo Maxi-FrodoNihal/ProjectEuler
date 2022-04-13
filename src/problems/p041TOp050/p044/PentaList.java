@@ -1,63 +1,40 @@
 package problems.p041TOp050.p044;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PentaList {
 
-	private List<Integer> internList = new ArrayList<>();
+	private List<Long> internList = new ArrayList<>();
 
-	public PentaList() {
-		fillList(1, 1000);
+	public PentaList(Long border) {
+		fillList(1l, border);
 	}
 
-	public PentaList(int border) {
-		fillList(1, border);
-	}
-
-	private void fillList(int start, int border) {
-		for (int i = start; i <= border; ++i) {
+	private void fillList(Long start, Long border) {
+		for (Long i = start; i <= border; ++i) {
 			internList.add(function(i));
 		}
 	}
 
-	private int function(int n) {
-		return (n * (3 * n - 1)) / 2;
+	private Long function(Long n) {
+		return (n * (3l * n - 1l)) / 2l;
 	}
 
-	private Double deFunction(int n) {
-		return (1.0 / 6.0) * (Math.sqrt(24 * n + 1) + 1);
+	private Double deFunction(Long n) {
+		return (1.0 / 6.0) * (Math.sqrt(24l * n + 1l) + 1l);
 	}
 
-	public boolean containsMath(int number) {
+	public boolean containsMath(Long number) {
 		return deFunction(number) % 1 == 0;
 	}
 
-	public boolean containsList(int number) {
-		return Collections.binarySearch(internList, number) >= 0;
-	}
-
-	public boolean containsFill(int number) {
-
-		if (containsMath(number) && containsList(number) == false) {
-			fillList(internList.size() + 1, deFunction(number).intValue());
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public Integer get(int index) {
+	public Long get(Long index) {
 
 		if (index >= internList.size()) {
-			fillList(internList.size() + 1, index + 1);
+			fillList(internList.size() + 1l, index + 1l);
 		}
 
-		return internList.get(index);
-	}
-
-	public List<Integer> getInternList() {
-		return internList;
+		return internList.get(index.intValue());
 	}
 }
