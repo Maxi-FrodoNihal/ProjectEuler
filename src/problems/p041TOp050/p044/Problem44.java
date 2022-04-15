@@ -5,28 +5,28 @@ import util.IProblem;
 public class Problem44 implements IProblem {
 
 	@Override
+	public String getSolution() {
+		return "5482660";
+	}
+
+	@Override
 	public String solve() {
 
-		boolean breakVal = true;
-		Long border = 2200l;
+		Integer border = 2167;
 		Long D = 0l;
 
 		PentaList pentaList = new PentaList(border);
 
-		for (Long j = 0l; j < border && breakVal; ++j) {
+		for (Long j = 0l; j < border && D == 0l; ++j) {
 
 			Long pj = pentaList.get(j);
 
-			for (Long k = j + 1; k < border && breakVal; ++k) {
+			for (Long k = j + 1; k < border && D == 0l; ++k) {
 
 				Long pk = pentaList.get(k);
 
-				Long sumP = pj + pk;
-				Long subP = pk - pj;
-
-				if (pentaList.containsMath(subP) && pentaList.containsMath(sumP)) {
+				if (pentaList.containsMath(pk - pj) && pentaList.containsMath(pj + pk)) {
 					D = pk - pj;
-					breakVal = false;
 				}
 			}
 		}

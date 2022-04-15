@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.ListUtils;
 
 import util.CList;
@@ -24,6 +25,8 @@ public class Problem43 implements IProblem, ICListController<List<String>, Pandi
 
 	@Override
 	public String solve() {
+
+		bigList.clear();
 
 		int parts = Runtime.getRuntime().availableProcessors();
 
@@ -81,8 +84,10 @@ public class Problem43 implements IProblem, ICListController<List<String>, Pandi
 
 	@Override
 	public void callbackValue(List<String> o) {
-		bigList.addAll(o);
 
+		if (CollectionUtils.isNotEmpty(o)) {
+			bigList.addAll(o);
+		}
 	}
 
 	@Override
