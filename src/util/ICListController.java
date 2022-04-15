@@ -4,9 +4,9 @@ import java.util.concurrent.Callable;
 
 public interface ICListController<S, T extends Callable<S>> {
 
-    T getNext();
+	T getNext();
 
-    void callbackValue(S o);
+	void callbackValue(S o);
 
-    boolean continueCalculation();
+	boolean continueCalculation();
 }

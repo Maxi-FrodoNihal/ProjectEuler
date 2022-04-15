@@ -2,96 +2,105 @@ package util;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.stream.Collectors;
 
 public class CList<S, T extends Callable<S>> {
 
-    private final int space;
-    private final ExecutorService eService;
-    private final ICListController<S, T> controller;
+	private final int space;
+	private final ExecutorService eService;
+	private final ICListController<S, T> controller;
 
-    public CList(final int space, final ExecutorService eService, final ICListController<S, T> controller) {
-        this.space = space;
-        this.eService = eService;
-        this.controller = controller;
-    }
+	public CList(final int space, final ExecutorService eService, final ICListController<S, T> controller) {
+		this.space = space;
+		this.eService = eService;
+		this.controller = controller;
+	}
 
-    public void run() throws InterruptedException, ExecutionException {
+	public void run() throws InterruptedException, ExecutionException {
 
-        try {
+		try {
 
-            final List<Future<S>> futureList = this.kaltStart(this.space);
+			final List<Future<S>> futureList = this.kaltStart(this.space);
 
-            while (this.listIsWorking(futureList) || this.listIsWorking(futureList) == false && this.controller.continueCalculation()) {
+			while (this.controller.continueCalculation() || listIsWorking(futureList)) {
+				callbackDoneFutures(futureList);
+			}
 
-                final Future<S> doneFuture = this.findOneWhoIsDone(futureList);
+			if (listIsWorking(futureList) == false) {
+				// Nachlese von fertigen aber noch nicht abgeholten Ergebnissen.
+				callbackDoneFutures(futureList);
+			}
 
-                if (doneFuture != null) {
+		} catch (final Exception e) {
 
-                    this.controller.callbackValue(doneFuture.get());
+			if (e instanceof InterruptedException || e instanceof ExecutionException) {
+				throw e;
+			} else {
+				e.printStackTrace();
+			}
 
-                    futureList.remove(doneFuture);
-                    if (this.controller.continueCalculation()) {
-                        this.getNextCallableToListAndStart(futureList);
-                    }
-                }
-            }
+		} finally {
+			if (this.eService != null) {
+				this.eService.shutdown();
+			}
+		}
+	}
 
-        } catch (final Exception e) {
+	private void callbackDoneFutures(final List<Future<S>> futureList) throws InterruptedException, ExecutionException {
 
-            if (e instanceof InterruptedException || e instanceof ExecutionException) {
-                throw e;
-            } else {
-                e.printStackTrace();
-            }
+		List<Future<S>> doneFutures = findAllWhoAreDone(futureList);
 
-        } finally {
-            if (this.eService != null) {
-                this.eService.shutdown();
-            }
-        }
-    }
+		for (Future<S> doneFuture : doneFutures) {
 
-    private void getNextCallableToListAndStart(final List<Future<S>> futureList) {
+			if (doneFuture != null) {
 
-        final T nextCallable = this.controller.getNext();
+				this.controller.callbackValue(doneFuture.get());
 
-        if (nextCallable != null) {
-            futureList.add(this.eService.submit(nextCallable));
-        }
-    }
+				futureList.remove(doneFuture);
+				if (this.controller.continueCalculation()) {
+					this.getNextCallableToListAndStart(futureList);
+				}
+			}
+		}
+	}
 
-    private List<Future<S>> kaltStart(final int space) {
+	private void getNextCallableToListAndStart(final List<Future<S>> futureList) {
 
-        final List<Future<S>> futureList = new ArrayList<>(space);
+		final T nextCallable = this.controller.getNext();
 
-        for (int i = 0; i < space; ++i) {
+		if (nextCallable != null) {
+			futureList.add(this.eService.submit(nextCallable));
+		}
+	}
 
-            this.getNextCallableToListAndStart(futureList);
-        }
+	private List<Future<S>> kaltStart(final int space) {
 
-        return futureList;
-    }
+		final List<Future<S>> futureList = new ArrayList<>(space);
 
-    private Future<S> findOneWhoIsDone(final List<Future<S>> list) {
+		for (int i = 0; i < space; ++i) {
 
-        final Optional<Future<S>> doneFutureOptional = list.stream().filter(tmpFuture -> tmpFuture.isDone()).findFirst();
+			this.getNextCallableToListAndStart(futureList);
+		}
 
-        if (doneFutureOptional.isPresent()) {
-            return doneFutureOptional.get();
-        } else {
-            return null;
-        }
-    }
+		return futureList;
+	}
 
-    private boolean listIsWorking(final List<Future<S>> list) {
+	private List<Future<S>> findAllWhoAreDone(final List<Future<S>> list) {
 
-        final long workingFutures = list.stream().filter(tmpFuture -> tmpFuture.isDone() == false).count();
+		List<Future<S>> doneFutures = list.stream().filter(tmpFuture -> tmpFuture.isDone())
+				.collect(Collectors.toList());
 
-        return workingFutures > 0;
-    }
+		return doneFutures;
+	}
+
+	private boolean listIsWorking(final List<Future<S>> list) {
+
+		final long workingFutures = list.stream().filter(tmpFuture -> tmpFuture.isDone() == false).count();
+
+		return workingFutures > 0;
+	}
 }
