@@ -23,6 +23,19 @@ public abstract class PrimProblem implements IProblem {
 		return Collections.binarySearch(this.primNumbers, number) >= 0;
 	}
 
+	protected int getOrCalculate(int index) {
+
+		if (index < primNumbers.size()) {
+			return primNumbers.get(index);
+		} else {
+
+			isPrim(primNumbers.get(primNumbers.size() - 1) + 100);
+			getOrCalculate(index);
+		}
+
+		return -1;
+	}
+
 	/**
 	 * Selbstgeschriebene Version vom Sieb des Eratosthenes. Ist nicht super
 	 * schnell, macht aber seinen Job.
