@@ -10,6 +10,7 @@ import org.apache.commons.collections4.CollectionUtils;
 public abstract class PrimProblem implements IProblem {
 
 	protected List<Integer> primNumbers = new ArrayList<>();
+	private int jumpRange = 100;
 
 	protected boolean isPrim(int number) {
 
@@ -29,8 +30,12 @@ public abstract class PrimProblem implements IProblem {
 			return primNumbers.get(index);
 		} else {
 
-			isPrim(primNumbers.get(primNumbers.size() - 1) + 100);
-			getOrCalculate(index);
+			if (CollectionUtils.isEmpty(primNumbers)) {
+				isPrim(jumpRange);
+			} else {
+				isPrim(primNumbers.get(primNumbers.size() - 1) + jumpRange);
+				getOrCalculate(index);
+			}
 		}
 
 		return -1;

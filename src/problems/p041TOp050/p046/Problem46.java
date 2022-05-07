@@ -1,8 +1,5 @@
 package problems.p041TOp050.p046;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
-
 import util.PrimProblem;
 
 public class Problem46 extends PrimProblem {
@@ -15,18 +12,11 @@ public class Problem46 extends PrimProblem {
 	@Override
 	public String solve() {
 
-		int oldOddCompo = 9;
-		int nextOddCompo = -1;
+		int nextOddCompo = 9;
 
-		Pair<Integer, Integer> solution = null;
-
-		do {
-
-			nextOddCompo = getNextOddCompoNumber(oldOddCompo);
-			solution = isBuildable(nextOddCompo);
-			oldOddCompo = nextOddCompo;
-
-		} while (solution != null);
+		while (isBuildable(nextOddCompo)) {
+			nextOddCompo = getNextOddCompoNumber(nextOddCompo);
+		}
 
 		return String.valueOf(nextOddCompo);
 	}
@@ -45,7 +35,7 @@ public class Problem46 extends PrimProblem {
 		return nextOddCompo;
 	}
 
-	private Pair<Integer, Integer> isBuildable(int compoNum) {
+	private boolean isBuildable(int compoNum) {
 
 		for (int i = 0; this.getOrCalculate(i) < compoNum; ++i) {
 
@@ -56,13 +46,13 @@ public class Problem46 extends PrimProblem {
 				int summe = prim + 2 * j * j;
 
 				if (summe == compoNum) {
-					return new ImmutablePair<Integer, Integer>(prim, j);
+					return true;
 				} else if (summe > compoNum) {
 					break;
 				}
 			}
 		}
 
-		return null;
+		return false;
 	}
 }
