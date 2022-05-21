@@ -102,7 +102,7 @@ public abstract class PrimProblem implements IProblem {
 	 *                 und wieder zurück gegeben wird.
 	 * @return Die vervollständigte Liste an Primzahlen bis zur Parametergrenze.
 	 */
-	public List<Integer> sieveOfAtkin(int border) {
+	protected List<Integer> sieveOfAtkin(int border) {
 
 		List<Integer> primList = new ArrayList<>();
 		int limit = border;

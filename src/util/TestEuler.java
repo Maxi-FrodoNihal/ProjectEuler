@@ -48,6 +48,7 @@ public class TestEuler {
 				+ timeList.stream().collect(Collectors.averagingLong(Long::longValue)));
 		System.out.println(averageString + "Used RAM: "
 				+ ramList.stream().collect(Collectors.averagingDouble(Double::doubleValue)) + " MB");
+
 	}
 
 	public static Triple<Long, Double, String> solveProblemWithMetrics(final IProblem problem, final Runtime rt) {
