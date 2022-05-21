@@ -33,7 +33,15 @@ public abstract class PrimProblem implements IProblem {
 			if (CollectionUtils.isEmpty(primNumbers)) {
 				isPrim(jumpRange);
 			} else {
+
+				int pNumberSizeBefore = primNumbers.size();
 				isPrim(primNumbers.get(primNumbers.size() - 1) + jumpRange);
+				int pNumberSizeAfter = primNumbers.size();
+
+				if (pNumberSizeBefore == pNumberSizeAfter) {
+					jumpRange = jumpRange * 2;
+				}
+
 				getOrCalculate(index);
 			}
 		}
