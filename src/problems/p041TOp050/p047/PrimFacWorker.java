@@ -1,10 +1,10 @@
 package problems.p041TOp050.p047;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
-import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -16,7 +16,13 @@ public class PrimFacWorker implements Callable<List<Pair<Integer, Integer>>> {
 	private Problem47 primClass;
 
 	public PrimFacWorker(int from, int to, Problem47 primClass) {
+
 		this.from = from;
+
+		if (this.from > 10) {
+			this.from = this.from - 3;
+		}
+
 		this.to = to;
 		this.primClass = primClass;
 	}
@@ -36,12 +42,12 @@ public class PrimFacWorker implements Callable<List<Pair<Integer, Integer>>> {
 
 	private Set<Integer> distinctPrimFacts(int number) {
 
-		List<Integer> retList = new ArrayList<Integer>();
+		Set<Integer> retList = new HashSet<Integer>();
 		primFactorsRec(number, retList, 0);
-		return retList.stream().collect(Collectors.toSet());
+		return retList;
 	}
 
-	private void primFactorsRec(int number, List<Integer> retList, int depth) {
+	private void primFactorsRec(int number, Set<Integer> retList, int depth) {
 
 		if (primClass.isPrim(number)) {
 			retList.add(number);
