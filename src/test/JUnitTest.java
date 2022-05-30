@@ -54,6 +54,7 @@ import problems.p041TOp050.p044.Problem44;
 import problems.p041TOp050.p045.Problem45;
 import problems.p041TOp050.p046.Problem46;
 import problems.p041TOp050.p047.Problem47;
+import problems.p041TOp050.p048.Problem48;
 import util.DLoader;
 import util.IProblem;
 
@@ -623,5 +624,17 @@ public class JUnitTest {
 
 		assertTrue(problem47.getSolution().equals(defaultLsg) == false
 				&& problem47.solve().equals(problem47.getSolution()));
+	}
+
+	@Test
+	public void testProblem48() {
+
+		List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
+
+		IProblem problem48 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem48).findFirst()
+				.get();
+
+		assertTrue(problem48.getSolution().equals(defaultLsg) == false
+				&& problem48.solve().equals(problem48.getSolution()));
 	}
 }
