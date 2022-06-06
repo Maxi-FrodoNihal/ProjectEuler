@@ -3,8 +3,11 @@ package problems.p041TOp050.p049;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -53,10 +56,62 @@ public class Problem49 extends PrimProblem {
 //			System.out.println("Hallo");
 		}
 
-		List<Set<Integer>> threeElements = permuPrimes.stream().filter(tmpSet -> tmpSet.size() == 3)
-				.collect(Collectors.toList());
+		for (Set<Integer> tmpSet : permuPrimes) {
+
+			List<DistanceElement> distances = getDistances(tmpSet);
+
+			Map<Integer, List<DistanceElement>> distancesMap = new HashMap<>();
+
+			for (DistanceElement tmpDE : distances) {
+
+				if (distancesMap.containsKey(tmpDE.getDistance())) {
+					distancesMap.get(tmpDE.getDistance()).add(tmpDE);
+				} else {
+					List<DistanceElement> tmpMapList = new ArrayList<DistanceElement>();
+					tmpMapList.add(tmpDE);
+					distancesMap.put(tmpDE.getDistance(), tmpMapList);
+				}
+			}
+
+			Optional<List<DistanceElement>> findFirst = distancesMap.values().stream()
+					.filter(tmpList -> tmpList.size() >= 2).findFirst();
+
+			if (findFirst.isPresent()) {
+
+				Set<Integer> poles = new HashSet<Integer>();
+
+				for (DistanceElement pole : findFirst.get()) {
+					poles.add(pole.getFrom());
+					poles.add(pole.getToo());
+				}
+
+				if (poles.size() == 3) {
+					System.out.println(poles);
+				}
+			}
+		}
 
 		return null;
+	}
+
+	private List<DistanceElement> getDistances(Set<Integer> values) {
+
+		List<Integer> morphList = new ArrayList<Integer>();
+		morphList.addAll(values);
+
+		Set<DistanceElement> dSet = new HashSet<DistanceElement>();
+
+		for (int i = 0; i < morphList.size(); ++i) {
+			for (int j = 0; j < morphList.size(); ++j) {
+
+				if (i != j) {
+					dSet.add(new DistanceElement(morphList.get(i), morphList.get(j),
+							morphList.get(i) - morphList.get(j)));
+				}
+			}
+		}
+
+		return dSet.stream().collect(Collectors.toList());
 	}
 
 	private List<Integer> getPermutedInts(int number) {
