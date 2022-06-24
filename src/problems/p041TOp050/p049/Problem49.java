@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import org.apache.commons.collections4.ListUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import util.Permutor;
 import util.PrimProblem;
@@ -20,22 +20,66 @@ import util.PrimProblem;
 public class Problem49 extends PrimProblem {
 
 	@Override
+	public String getSolution() {
+		return "296962999629";
+	}
+
+	@Override
 	public String solve() {
 
-		this.isPrim(9999);
+		String solution = "";
+		List<Integer> allRelevantPrimes = getRelevantPrimes();
+		Set<Set<Integer>> permuPrimes = getPermuPrimes(allRelevantPrimes);
 
-		List<Integer> allPrimes = new ArrayList<>();
-		allPrimes.addAll(this.primNumbers);
+		for (Set<Integer> tmpSet : permuPrimes) {
 
-		List<Integer> allSmallPrimes = new ArrayList<Integer>();
+			Map<Integer, List<DistanceElement>> distancesMap = mapByDistance(tmpSet);
 
-		for (Integer prime : allPrimes) {
-			if (prime < 1000) {
-				allSmallPrimes.add(prime);
+			Optional<List<DistanceElement>> findFirst = distancesMap.values().stream()
+					.filter(tmpList -> tmpList.size() >= 2).findFirst();
+
+			if (findFirst.isPresent()) {
+
+				Set<String> poles = new TreeSet<>();
+
+				for (DistanceElement pole : findFirst.get()) {
+					poles.add(String.valueOf(pole.getFrom()));
+					poles.add(String.valueOf(pole.getToo()));
+				}
+
+				if (poles.size() == 3 && StringUtils.isBlank(solution)) {
+					solution = String.join("", poles);
+				}
 			}
 		}
 
-		List<Integer> allRelevantPrimes = ListUtils.subtract(allPrimes, allSmallPrimes);
+		return solution;
+	}
+
+	private Map<Integer, List<DistanceElement>> mapByDistance(Set<Integer> permuPrimeSet) {
+
+		List<DistanceElement> distances = getDistances(permuPrimeSet);
+
+		Map<Integer, List<DistanceElement>> distancesMap = new HashMap<>();
+
+		for (DistanceElement tmpDE : distances) {
+
+			Integer distance = tmpDE.getDistance();
+
+			if (distancesMap.containsKey(distance)) {
+				distancesMap.get(distance).add(tmpDE);
+			} else {
+				List<DistanceElement> tmpMapList = new ArrayList<DistanceElement>();
+				tmpMapList.add(tmpDE);
+				distancesMap.put(distance, tmpMapList);
+			}
+		}
+
+		return distancesMap;
+	}
+
+	private Set<Set<Integer>> getPermuPrimes(List<Integer> allRelevantPrimes) {
+
 		Set<Set<Integer>> permuPrimes = new HashSet<Set<Integer>>();
 
 		for (Integer tmpPrime : allRelevantPrimes) {
@@ -52,46 +96,16 @@ public class Problem49 extends PrimProblem {
 			}
 
 			permuPrimes.add(primeSet);
-
-//			System.out.println("Hallo");
 		}
 
-		for (Set<Integer> tmpSet : permuPrimes) {
+		return permuPrimes;
+	}
 
-			List<DistanceElement> distances = getDistances(tmpSet);
+	private List<Integer> getRelevantPrimes() {
 
-			Map<Integer, List<DistanceElement>> distancesMap = new HashMap<>();
+		this.isPrim(9999);
 
-			for (DistanceElement tmpDE : distances) {
-
-				if (distancesMap.containsKey(tmpDE.getDistance())) {
-					distancesMap.get(tmpDE.getDistance()).add(tmpDE);
-				} else {
-					List<DistanceElement> tmpMapList = new ArrayList<DistanceElement>();
-					tmpMapList.add(tmpDE);
-					distancesMap.put(tmpDE.getDistance(), tmpMapList);
-				}
-			}
-
-			Optional<List<DistanceElement>> findFirst = distancesMap.values().stream()
-					.filter(tmpList -> tmpList.size() >= 2).findFirst();
-
-			if (findFirst.isPresent()) {
-
-				Set<Integer> poles = new HashSet<Integer>();
-
-				for (DistanceElement pole : findFirst.get()) {
-					poles.add(pole.getFrom());
-					poles.add(pole.getToo());
-				}
-
-				if (poles.size() == 3) {
-					System.out.println(poles);
-				}
-			}
-		}
-
-		return null;
+		return this.primNumbers.stream().filter(tmpPrim -> tmpPrim >= 1000).collect(Collectors.toList());
 	}
 
 	private List<DistanceElement> getDistances(Set<Integer> values) {
@@ -124,13 +138,9 @@ public class Problem49 extends PrimProblem {
 		List<List<String>> permuteStrings = per.permute(permuElement);
 
 		for (List<String> tmpPermuteString : permuteStrings) {
-
-			String listVal = tmpPermuteString.toString().replace(",", "").replace("[", "").replace("]", "").replace(" ",
-					"");
-			permuteInts.add(Integer.parseInt(listVal));
+			permuteInts.add(Integer.parseInt(String.join("", tmpPermuteString)));
 		}
 
 		return permuteInts;
 	}
-
 }
