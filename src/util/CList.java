@@ -2,6 +2,7 @@ package util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -70,7 +71,12 @@ public class CList<S, T extends Callable<S>> {
 
 	private void getNextCallableToListAndStart(final List<Future<S>> futureList) {
 
-		final T nextCallable = this.controller.getNext();
+		T nextCallable = null;
+
+		try {
+			nextCallable = this.controller.getNext();
+		} catch (NoSuchElementException e) {
+		}
 
 		if (nextCallable != null) {
 			futureList.add(this.eService.submit(nextCallable));
