@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.apache.commons.math3.util.CombinatoricsUtils;
-
 import util.IProblem;
 
 public class Problem34 implements IProblem {
@@ -38,9 +36,16 @@ public class Problem34 implements IProblem {
 
 			String digitString = targetNumber.substring(i, i + 1);
 			int digit = Integer.parseInt(digitString);
-			facSum += CombinatoricsUtils.factorial(digit);
+			facSum += factorial(digit);
 		}
 
 		return facSum;
+	}
+
+	private int factorial(int n) {
+		if (n <= 1)
+			return 1;
+		else
+			return factorial(n - 1) * n;
 	}
 }
