@@ -1,4 +1,4 @@
-package problems.p051TOp60.p051;
+package problems.p051TOp060.p051;
 
 import java.util.ArrayList;
 import java.util.HashSet;

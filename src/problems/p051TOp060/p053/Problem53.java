@@ -1,4 +1,4 @@
-package problems.p051TOp60.p053;
+package problems.p051TOp060.p053;
 
 import java.math.BigInteger;
 

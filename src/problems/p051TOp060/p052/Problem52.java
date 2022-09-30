@@ -1,4 +1,4 @@
-package problems.p051TOp60.p052;
+package problems.p051TOp060.p052;
 
 import util.IProblem;
 
