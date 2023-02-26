@@ -1,11 +1,6 @@
 package test;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
-
 import problems.PathSlave;
 import problems.p001TOp010.p001.Problem1;
 import problems.p001TOp010.p002.Problem2;
@@ -60,13 +55,16 @@ import problems.p041TOp050.p050.Problem50;
 import problems.p051TOp060.p051.Problem51;
 import problems.p051TOp060.p052.Problem52;
 import problems.p051TOp060.p053.Problem53;
+import problems.p051TOp060.p055.Problem55;
 import util.DLoader;
 import util.IProblem;
 
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 public class JUnitTest {
 
 	private String defaultLsg = String.valueOf(Integer.MIN_VALUE);
-
 	@Test
 	public void testProblem1() {
 
@@ -75,10 +73,8 @@ public class JUnitTest {
 		IProblem problem1 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem1).findFirst()
 				.get();
 
-		assertTrue(
-				problem1.getSolution().equals(defaultLsg) == false && problem1.solve().equals(problem1.getSolution()));
+		assertTrue(problem1.getSolution().equals(defaultLsg) == false && problem1.solve().equals(problem1.getSolution()));
 	}
-
 	@Test
 	public void testProblem2() {
 
@@ -87,10 +83,8 @@ public class JUnitTest {
 		IProblem problem2 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem2).findFirst()
 				.get();
 
-		assertTrue(
-				problem2.getSolution().equals(defaultLsg) == false && problem2.solve().equals(problem2.getSolution()));
+		assertTrue(problem2.getSolution().equals(defaultLsg) == false && problem2.solve().equals(problem2.getSolution()));
 	}
-
 	@Test
 	public void testProblem3() {
 
@@ -99,10 +93,8 @@ public class JUnitTest {
 		IProblem problem3 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem3).findFirst()
 				.get();
 
-		assertTrue(
-				problem3.getSolution().equals(defaultLsg) == false && problem3.solve().equals(problem3.getSolution()));
+		assertTrue(problem3.getSolution().equals(defaultLsg) == false && problem3.solve().equals(problem3.getSolution()));
 	}
-
 	@Test
 	public void testProblem4() {
 
@@ -111,10 +103,8 @@ public class JUnitTest {
 		IProblem problem4 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem4).findFirst()
 				.get();
 
-		assertTrue(
-				problem4.getSolution().equals(defaultLsg) == false && problem4.solve().equals(problem4.getSolution()));
+		assertTrue(problem4.getSolution().equals(defaultLsg) == false && problem4.solve().equals(problem4.getSolution()));
 	}
-
 	@Test
 	public void testProblem5() {
 
@@ -123,10 +113,8 @@ public class JUnitTest {
 		IProblem problem5 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem5).findFirst()
 				.get();
 
-		assertTrue(
-				problem5.getSolution().equals(defaultLsg) == false && problem5.solve().equals(problem5.getSolution()));
+		assertTrue(problem5.getSolution().equals(defaultLsg) == false && problem5.solve().equals(problem5.getSolution()));
 	}
-
 	@Test
 	public void testProblem6() {
 
@@ -135,10 +123,8 @@ public class JUnitTest {
 		IProblem problem6 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem6).findFirst()
 				.get();
 
-		assertTrue(
-				problem6.getSolution().equals(defaultLsg) == false && problem6.solve().equals(problem6.getSolution()));
+		assertTrue(problem6.getSolution().equals(defaultLsg) == false && problem6.solve().equals(problem6.getSolution()));
 	}
-
 	@Test
 	public void testProblem7() {
 
@@ -147,10 +133,8 @@ public class JUnitTest {
 		IProblem problem7 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem7).findFirst()
 				.get();
 
-		assertTrue(
-				problem7.getSolution().equals(defaultLsg) == false && problem7.solve().equals(problem7.getSolution()));
+		assertTrue(problem7.getSolution().equals(defaultLsg) == false && problem7.solve().equals(problem7.getSolution()));
 	}
-
 	@Test
 	public void testProblem8() {
 
@@ -159,10 +143,8 @@ public class JUnitTest {
 		IProblem problem8 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem8).findFirst()
 				.get();
 
-		assertTrue(
-				problem8.getSolution().equals(defaultLsg) == false && problem8.solve().equals(problem8.getSolution()));
+		assertTrue(problem8.getSolution().equals(defaultLsg) == false && problem8.solve().equals(problem8.getSolution()));
 	}
-
 	@Test
 	public void testProblem9() {
 
@@ -171,10 +153,8 @@ public class JUnitTest {
 		IProblem problem9 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem9).findFirst()
 				.get();
 
-		assertTrue(
-				problem9.getSolution().equals(defaultLsg) == false && problem9.solve().equals(problem9.getSolution()));
+		assertTrue(problem9.getSolution().equals(defaultLsg) == false && problem9.solve().equals(problem9.getSolution()));
 	}
-
 	@Test
 	public void testProblem10() {
 
@@ -183,10 +163,8 @@ public class JUnitTest {
 		IProblem problem10 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem10).findFirst()
 				.get();
 
-		assertTrue(problem10.getSolution().equals(defaultLsg) == false
-				&& problem10.solve().equals(problem10.getSolution()));
+		assertTrue(problem10.getSolution().equals(defaultLsg) == false && problem10.solve().equals(problem10.getSolution()));
 	}
-
 	@Test
 	public void testProblem11() {
 
@@ -195,10 +173,8 @@ public class JUnitTest {
 		IProblem problem11 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem11).findFirst()
 				.get();
 
-		assertTrue(problem11.getSolution().equals(defaultLsg) == false
-				&& problem11.solve().equals(problem11.getSolution()));
+		assertTrue(problem11.getSolution().equals(defaultLsg) == false && problem11.solve().equals(problem11.getSolution()));
 	}
-
 	@Test
 	public void testProblem12() {
 
@@ -207,10 +183,8 @@ public class JUnitTest {
 		IProblem problem12 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem12).findFirst()
 				.get();
 
-		assertTrue(problem12.getSolution().equals(defaultLsg) == false
-				&& problem12.solve().equals(problem12.getSolution()));
+		assertTrue(problem12.getSolution().equals(defaultLsg) == false && problem12.solve().equals(problem12.getSolution()));
 	}
-
 	@Test
 	public void testProblem13() {
 
@@ -219,10 +193,8 @@ public class JUnitTest {
 		IProblem problem13 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem13).findFirst()
 				.get();
 
-		assertTrue(problem13.getSolution().equals(defaultLsg) == false
-				&& problem13.solve().equals(problem13.getSolution()));
+		assertTrue(problem13.getSolution().equals(defaultLsg) == false && problem13.solve().equals(problem13.getSolution()));
 	}
-
 	@Test
 	public void testProblem14() {
 
@@ -231,10 +203,8 @@ public class JUnitTest {
 		IProblem problem14 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem14).findFirst()
 				.get();
 
-		assertTrue(problem14.getSolution().equals(defaultLsg) == false
-				&& problem14.solve().equals(problem14.getSolution()));
+		assertTrue(problem14.getSolution().equals(defaultLsg) == false && problem14.solve().equals(problem14.getSolution()));
 	}
-
 	@Test
 	public void testProblem15() {
 
@@ -243,10 +213,8 @@ public class JUnitTest {
 		IProblem problem15 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem15).findFirst()
 				.get();
 
-		assertTrue(problem15.getSolution().equals(defaultLsg) == false
-				&& problem15.solve().equals(problem15.getSolution()));
+		assertTrue(problem15.getSolution().equals(defaultLsg) == false && problem15.solve().equals(problem15.getSolution()));
 	}
-
 	@Test
 	public void testProblem16() {
 
@@ -255,10 +223,8 @@ public class JUnitTest {
 		IProblem problem16 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem16).findFirst()
 				.get();
 
-		assertTrue(problem16.getSolution().equals(defaultLsg) == false
-				&& problem16.solve().equals(problem16.getSolution()));
+		assertTrue(problem16.getSolution().equals(defaultLsg) == false && problem16.solve().equals(problem16.getSolution()));
 	}
-
 	@Test
 	public void testProblem17() {
 
@@ -267,11 +233,9 @@ public class JUnitTest {
 		IProblem problem17 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem17).findFirst()
 				.get();
 
-		assertTrue(problem17.getSolution().equals(defaultLsg) == false
-				&& problem17.solve().equals(problem17.getSolution()));
+		assertTrue(problem17.getSolution().equals(defaultLsg) == false && problem17.solve().equals(problem17.getSolution()));
 	}
-
-//	@Test
+	//	@Test
 	public void testProblem18() {
 
 		List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
@@ -279,10 +243,8 @@ public class JUnitTest {
 		IProblem problem18 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem18).findFirst()
 				.get();
 
-		assertTrue(problem18.getSolution().equals(defaultLsg) == false
-				&& problem18.solve().equals(problem18.getSolution()));
+		assertTrue(problem18.getSolution().equals(defaultLsg) == false && problem18.solve().equals(problem18.getSolution()));
 	}
-
 	@Test
 	public void testProblem19() {
 
@@ -291,10 +253,8 @@ public class JUnitTest {
 		IProblem problem19 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem19).findFirst()
 				.get();
 
-		assertTrue(problem19.getSolution().equals(defaultLsg) == false
-				&& problem19.solve().equals(problem19.getSolution()));
+		assertTrue(problem19.getSolution().equals(defaultLsg) == false && problem19.solve().equals(problem19.getSolution()));
 	}
-
 	@Test
 	public void testProblem20() {
 
@@ -303,10 +263,8 @@ public class JUnitTest {
 		IProblem problem20 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem20).findFirst()
 				.get();
 
-		assertTrue(problem20.getSolution().equals(defaultLsg) == false
-				&& problem20.solve().equals(problem20.getSolution()));
+		assertTrue(problem20.getSolution().equals(defaultLsg) == false && problem20.solve().equals(problem20.getSolution()));
 	}
-
 	@Test
 	public void testProblem21() {
 
@@ -315,10 +273,8 @@ public class JUnitTest {
 		IProblem problem21 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem21).findFirst()
 				.get();
 
-		assertTrue(problem21.getSolution().equals(defaultLsg) == false
-				&& problem21.solve().equals(problem21.getSolution()));
+		assertTrue(problem21.getSolution().equals(defaultLsg) == false && problem21.solve().equals(problem21.getSolution()));
 	}
-
 	@Test
 	public void testProblem22() {
 
@@ -327,10 +283,8 @@ public class JUnitTest {
 		IProblem problem22 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem22).findFirst()
 				.get();
 
-		assertTrue(problem22.getSolution().equals(defaultLsg) == false
-				&& problem22.solve().equals(problem22.getSolution()));
+		assertTrue(problem22.getSolution().equals(defaultLsg) == false && problem22.solve().equals(problem22.getSolution()));
 	}
-
 	@Test
 	public void testProblem23() {
 
@@ -339,10 +293,8 @@ public class JUnitTest {
 		IProblem problem23 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem23).findFirst()
 				.get();
 
-		assertTrue(problem23.getSolution().equals(defaultLsg) == false
-				&& problem23.solve().equals(problem23.getSolution()));
+		assertTrue(problem23.getSolution().equals(defaultLsg) == false && problem23.solve().equals(problem23.getSolution()));
 	}
-
 	@Test
 	public void testProblem24() {
 
@@ -351,10 +303,8 @@ public class JUnitTest {
 		IProblem problem24 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem24).findFirst()
 				.get();
 
-		assertTrue(problem24.getSolution().equals(defaultLsg) == false
-				&& problem24.solve().equals(problem24.getSolution()));
+		assertTrue(problem24.getSolution().equals(defaultLsg) == false && problem24.solve().equals(problem24.getSolution()));
 	}
-
 	@Test
 	public void testProblem25() {
 
@@ -363,10 +313,8 @@ public class JUnitTest {
 		IProblem problem25 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem25).findFirst()
 				.get();
 
-		assertTrue(problem25.getSolution().equals(defaultLsg) == false
-				&& problem25.solve().equals(problem25.getSolution()));
+		assertTrue(problem25.getSolution().equals(defaultLsg) == false && problem25.solve().equals(problem25.getSolution()));
 	}
-
 	@Test
 	public void testProblem26() {
 
@@ -375,10 +323,8 @@ public class JUnitTest {
 		IProblem problem26 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem26).findFirst()
 				.get();
 
-		assertTrue(problem26.getSolution().equals(defaultLsg) == false
-				&& problem26.solve().equals(problem26.getSolution()));
+		assertTrue(problem26.getSolution().equals(defaultLsg) == false && problem26.solve().equals(problem26.getSolution()));
 	}
-
 	@Test
 	public void testProblem27() {
 
@@ -387,10 +333,8 @@ public class JUnitTest {
 		IProblem problem27 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem27).findFirst()
 				.get();
 
-		assertTrue(problem27.getSolution().equals(defaultLsg) == false
-				&& problem27.solve().equals(problem27.getSolution()));
+		assertTrue(problem27.getSolution().equals(defaultLsg) == false && problem27.solve().equals(problem27.getSolution()));
 	}
-
 	@Test
 	public void testProblem28() {
 
@@ -399,10 +343,8 @@ public class JUnitTest {
 		IProblem problem28 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem28).findFirst()
 				.get();
 
-		assertTrue(problem28.getSolution().equals(defaultLsg) == false
-				&& problem28.solve().equals(problem28.getSolution()));
+		assertTrue(problem28.getSolution().equals(defaultLsg) == false && problem28.solve().equals(problem28.getSolution()));
 	}
-
 	@Test
 	public void testProblem29() {
 
@@ -411,10 +353,8 @@ public class JUnitTest {
 		IProblem problem29 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem29).findFirst()
 				.get();
 
-		assertTrue(problem29.getSolution().equals(defaultLsg) == false
-				&& problem29.solve().equals(problem29.getSolution()));
+		assertTrue(problem29.getSolution().equals(defaultLsg) == false && problem29.solve().equals(problem29.getSolution()));
 	}
-
 	@Test
 	public void testProblem30() {
 
@@ -423,10 +363,8 @@ public class JUnitTest {
 		IProblem problem30 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem30).findFirst()
 				.get();
 
-		assertTrue(problem30.getSolution().equals(defaultLsg) == false
-				&& problem30.solve().equals(problem30.getSolution()));
+		assertTrue(problem30.getSolution().equals(defaultLsg) == false && problem30.solve().equals(problem30.getSolution()));
 	}
-
 	@Test
 	public void testProblem31() {
 
@@ -435,10 +373,8 @@ public class JUnitTest {
 		IProblem problem31 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem31).findFirst()
 				.get();
 
-		assertTrue(problem31.getSolution().equals(defaultLsg) == false
-				&& problem31.solve().equals(problem31.getSolution()));
+		assertTrue(problem31.getSolution().equals(defaultLsg) == false && problem31.solve().equals(problem31.getSolution()));
 	}
-
 	@Test
 	public void testProblem32() {
 
@@ -447,10 +383,8 @@ public class JUnitTest {
 		IProblem problem32 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem32).findFirst()
 				.get();
 
-		assertTrue(problem32.getSolution().equals(defaultLsg) == false
-				&& problem32.solve().equals(problem32.getSolution()));
+		assertTrue(problem32.getSolution().equals(defaultLsg) == false && problem32.solve().equals(problem32.getSolution()));
 	}
-
 	@Test
 	public void testProblem33() {
 
@@ -459,10 +393,8 @@ public class JUnitTest {
 		IProblem problem33 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem33).findFirst()
 				.get();
 
-		assertTrue(problem33.getSolution().equals(defaultLsg) == false
-				&& problem33.solve().equals(problem33.getSolution()));
+		assertTrue(problem33.getSolution().equals(defaultLsg) == false && problem33.solve().equals(problem33.getSolution()));
 	}
-
 	@Test
 	public void testProblem34() {
 
@@ -471,10 +403,8 @@ public class JUnitTest {
 		IProblem problem34 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem34).findFirst()
 				.get();
 
-		assertTrue(problem34.getSolution().equals(defaultLsg) == false
-				&& problem34.solve().equals(problem34.getSolution()));
+		assertTrue(problem34.getSolution().equals(defaultLsg) == false && problem34.solve().equals(problem34.getSolution()));
 	}
-
 	@Test
 	public void testProblem35() {
 
@@ -483,10 +413,8 @@ public class JUnitTest {
 		IProblem problem35 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem35).findFirst()
 				.get();
 
-		assertTrue(problem35.getSolution().equals(defaultLsg) == false
-				&& problem35.solve().equals(problem35.getSolution()));
+		assertTrue(problem35.getSolution().equals(defaultLsg) == false && problem35.solve().equals(problem35.getSolution()));
 	}
-
 	@Test
 	public void testProblem36() {
 
@@ -495,10 +423,8 @@ public class JUnitTest {
 		IProblem problem36 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem36).findFirst()
 				.get();
 
-		assertTrue(problem36.getSolution().equals(defaultLsg) == false
-				&& problem36.solve().equals(problem36.getSolution()));
+		assertTrue(problem36.getSolution().equals(defaultLsg) == false && problem36.solve().equals(problem36.getSolution()));
 	}
-
 	@Test
 	public void testProblem37() {
 
@@ -507,10 +433,8 @@ public class JUnitTest {
 		IProblem problem37 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem37).findFirst()
 				.get();
 
-		assertTrue(problem37.getSolution().equals(defaultLsg) == false
-				&& problem37.solve().equals(problem37.getSolution()));
+		assertTrue(problem37.getSolution().equals(defaultLsg) == false && problem37.solve().equals(problem37.getSolution()));
 	}
-
 	@Test
 	public void testProblem38() {
 
@@ -519,10 +443,8 @@ public class JUnitTest {
 		IProblem problem38 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem38).findFirst()
 				.get();
 
-		assertTrue(problem38.getSolution().equals(defaultLsg) == false
-				&& problem38.solve().equals(problem38.getSolution()));
+		assertTrue(problem38.getSolution().equals(defaultLsg) == false && problem38.solve().equals(problem38.getSolution()));
 	}
-
 	@Test
 	public void testProblem39() {
 
@@ -531,10 +453,8 @@ public class JUnitTest {
 		IProblem problem39 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem39).findFirst()
 				.get();
 
-		assertTrue(problem39.getSolution().equals(defaultLsg) == false
-				&& problem39.solve().equals(problem39.getSolution()));
+		assertTrue(problem39.getSolution().equals(defaultLsg) == false && problem39.solve().equals(problem39.getSolution()));
 	}
-
 	@Test
 	public void testProblem40() {
 
@@ -543,10 +463,8 @@ public class JUnitTest {
 		IProblem problem40 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem40).findFirst()
 				.get();
 
-		assertTrue(problem40.getSolution().equals(defaultLsg) == false
-				&& problem40.solve().equals(problem40.getSolution()));
+		assertTrue(problem40.getSolution().equals(defaultLsg) == false && problem40.solve().equals(problem40.getSolution()));
 	}
-
 	@Test
 	public void testProblem41() {
 
@@ -555,10 +473,8 @@ public class JUnitTest {
 		IProblem problem41 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem41).findFirst()
 				.get();
 
-		assertTrue(problem41.getSolution().equals(defaultLsg) == false
-				&& problem41.solve().equals(problem41.getSolution()));
+		assertTrue(problem41.getSolution().equals(defaultLsg) == false && problem41.solve().equals(problem41.getSolution()));
 	}
-
 	@Test
 	public void testProblem42() {
 
@@ -567,10 +483,8 @@ public class JUnitTest {
 		IProblem problem42 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem42).findFirst()
 				.get();
 
-		assertTrue(problem42.getSolution().equals(defaultLsg) == false
-				&& problem42.solve().equals(problem42.getSolution()));
+		assertTrue(problem42.getSolution().equals(defaultLsg) == false && problem42.solve().equals(problem42.getSolution()));
 	}
-
 	@Test
 	public void testProblem43() {
 
@@ -579,10 +493,8 @@ public class JUnitTest {
 		IProblem problem43 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem43).findFirst()
 				.get();
 
-		assertTrue(problem43.getSolution().equals(defaultLsg) == false
-				&& problem43.solve().equals(problem43.getSolution()));
+		assertTrue(problem43.getSolution().equals(defaultLsg) == false && problem43.solve().equals(problem43.getSolution()));
 	}
-
 	@Test
 	public void testProblem44() {
 
@@ -591,10 +503,8 @@ public class JUnitTest {
 		IProblem problem44 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem44).findFirst()
 				.get();
 
-		assertTrue(problem44.getSolution().equals(defaultLsg) == false
-				&& problem44.solve().equals(problem44.getSolution()));
+		assertTrue(problem44.getSolution().equals(defaultLsg) == false && problem44.solve().equals(problem44.getSolution()));
 	}
-
 	@Test
 	public void testProblem45() {
 
@@ -603,10 +513,8 @@ public class JUnitTest {
 		IProblem problem45 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem45).findFirst()
 				.get();
 
-		assertTrue(problem45.getSolution().equals(defaultLsg) == false
-				&& problem45.solve().equals(problem45.getSolution()));
+		assertTrue(problem45.getSolution().equals(defaultLsg) == false && problem45.solve().equals(problem45.getSolution()));
 	}
-
 	@Test
 	public void testProblem46() {
 
@@ -615,10 +523,8 @@ public class JUnitTest {
 		IProblem problem46 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem46).findFirst()
 				.get();
 
-		assertTrue(problem46.getSolution().equals(defaultLsg) == false
-				&& problem46.solve().equals(problem46.getSolution()));
+		assertTrue(problem46.getSolution().equals(defaultLsg) == false && problem46.solve().equals(problem46.getSolution()));
 	}
-
 	@Test
 	public void testProblem47() {
 
@@ -627,10 +533,8 @@ public class JUnitTest {
 		IProblem problem47 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem47).findFirst()
 				.get();
 
-		assertTrue(problem47.getSolution().equals(defaultLsg) == false
-				&& problem47.solve().equals(problem47.getSolution()));
+		assertTrue(problem47.getSolution().equals(defaultLsg) == false && problem47.solve().equals(problem47.getSolution()));
 	}
-
 	@Test
 	public void testProblem48() {
 
@@ -639,10 +543,8 @@ public class JUnitTest {
 		IProblem problem48 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem48).findFirst()
 				.get();
 
-		assertTrue(problem48.getSolution().equals(defaultLsg) == false
-				&& problem48.solve().equals(problem48.getSolution()));
+		assertTrue(problem48.getSolution().equals(defaultLsg) == false && problem48.solve().equals(problem48.getSolution()));
 	}
-
 	@Test
 	public void testProblem49() {
 
@@ -651,10 +553,8 @@ public class JUnitTest {
 		IProblem problem49 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem49).findFirst()
 				.get();
 
-		assertTrue(problem49.getSolution().equals(defaultLsg) == false
-				&& problem49.solve().equals(problem49.getSolution()));
+		assertTrue(problem49.getSolution().equals(defaultLsg) == false && problem49.solve().equals(problem49.getSolution()));
 	}
-
 	@Test
 	public void testProblem50() {
 
@@ -663,10 +563,8 @@ public class JUnitTest {
 		IProblem problem50 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem50).findFirst()
 				.get();
 
-		assertTrue(problem50.getSolution().equals(defaultLsg) == false
-				&& problem50.solve().equals(problem50.getSolution()));
+		assertTrue(problem50.getSolution().equals(defaultLsg) == false && problem50.solve().equals(problem50.getSolution()));
 	}
-
 	@Test
 	public void testProblem51() {
 
@@ -675,10 +573,8 @@ public class JUnitTest {
 		IProblem problem51 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem51).findFirst()
 				.get();
 
-		assertTrue(problem51.getSolution().equals(defaultLsg) == false
-				&& problem51.solve().equals(problem51.getSolution()));
+		assertTrue(problem51.getSolution().equals(defaultLsg) == false && problem51.solve().equals(problem51.getSolution()));
 	}
-
 	@Test
 	public void testProblem52() {
 
@@ -687,10 +583,8 @@ public class JUnitTest {
 		IProblem problem52 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem52).findFirst()
 				.get();
 
-		assertTrue(problem52.getSolution().equals(defaultLsg) == false
-				&& problem52.solve().equals(problem52.getSolution()));
+		assertTrue(problem52.getSolution().equals(defaultLsg) == false && problem52.solve().equals(problem52.getSolution()));
 	}
-
 	@Test
 	public void testProblem53() {
 
@@ -699,7 +593,15 @@ public class JUnitTest {
 		IProblem problem53 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem53).findFirst()
 				.get();
 
-		assertTrue(problem53.getSolution().equals(defaultLsg) == false
-				&& problem53.solve().equals(problem53.getSolution()));
+		assertTrue(problem53.getSolution().equals(defaultLsg) == false && problem53.solve().equals(problem53.getSolution()));
 	}
-}
+	@Test
+	public void testProblem55() {
+
+		List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
+
+		IProblem problem55 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem55).findFirst()
+				.get();
+
+		assertTrue(problem55.getSolution().equals(defaultLsg) == false && problem55.solve().equals(problem55.getSolution()));
+	}}
