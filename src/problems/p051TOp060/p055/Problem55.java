@@ -6,7 +6,7 @@ import java.math.BigInteger;
 
 public class Problem55 implements IProblem {
 
-    private StringBuilder strBuild = new StringBuilder();
+    private final StringBuilder strBuild = new StringBuilder();
 
     @Override
     public String getSolution() {
@@ -20,15 +20,15 @@ public class Problem55 implements IProblem {
 
         for(int i = 1 ; i < 10000 ; ++i){
 
-            BigInteger soultion = new BigInteger(String.valueOf(i));
+            BigInteger solution = new BigInteger(String.valueOf(i));
             int counter = 0;
 
             do{
 
-                soultion = soultion.add(revert(soultion));
+                solution = solution.add(revert(solution));
                 ++counter;
 
-            }while(!isPalindrome(soultion) && counter < 50);
+            }while(!isPalindrome(solution) && counter < 50);
 
             if(counter >= 50){
                 ++lNumberCounter;
