@@ -1,7 +1,13 @@
 package test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
-import problems.PathSlave;
+
+import problems.*;
 import problems.p001TOp010.p001.Problem1;
 import problems.p001TOp010.p002.Problem2;
 import problems.p001TOp010.p003.Problem3;
@@ -56,12 +62,9 @@ import problems.p051TOp060.p051.Problem51;
 import problems.p051TOp060.p052.Problem52;
 import problems.p051TOp060.p053.Problem53;
 import problems.p051TOp060.p055.Problem55;
+import problems.p051TOp060.p056.Problem56;
 import util.DLoader;
 import util.IProblem;
-
-import java.util.List;
-
-import static org.junit.Assert.assertTrue;
 public class JUnitTest {
 
 	private String defaultLsg = String.valueOf(Integer.MIN_VALUE);
@@ -604,4 +607,14 @@ public class JUnitTest {
 				.get();
 
 		assertTrue(problem55.getSolution().equals(defaultLsg) == false && problem55.solve().equals(problem55.getSolution()));
+	}
+	@Test
+	public void testProblem56() {
+
+		List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
+
+		IProblem problem56 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem56).findFirst()
+				.get();
+
+		assertTrue(problem56.getSolution().equals(defaultLsg) == false && problem56.solve().equals(problem56.getSolution()));
 	}}

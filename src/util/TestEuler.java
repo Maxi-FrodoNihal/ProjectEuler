@@ -11,6 +11,7 @@ import org.apache.commons.lang3.tuple.Triple;
 
 import problems.p051TOp060.p053.Problem53;
 import problems.p051TOp060.p055.Problem55;
+import problems.p051TOp060.p056.Problem56;
 
 public class TestEuler {
 
@@ -18,7 +19,7 @@ public class TestEuler {
 
 		final Runtime rt = Runtime.getRuntime();
 
-		final IProblem problem = new Problem55();
+		final IProblem problem = new Problem56();
 
 		final int iterations = problem.getIterations();
 		final String averageString = iterations > 1 ? "Average " : "";
