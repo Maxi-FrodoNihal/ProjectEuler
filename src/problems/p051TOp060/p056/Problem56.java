@@ -4,7 +4,6 @@ import util.IProblem;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class Problem56 implements IProblem {
 
@@ -20,15 +19,15 @@ public class Problem56 implements IProblem {
         int noChanges = 0;
         long biggestQuerSumme = 0L;
 
-        for(int i = 99 ; i > 0 && noChanges < noChangesBorder; --i){
-            for(int j = 99 ; j > 0; --j){
+        for (int i = 99; i > 0 && noChanges < noChangesBorder; --i) {
+            for (int j = 99; j > 0; --j) {
 
                 Long querSumme = querSumme(new BigInteger(String.valueOf(i)).pow(j));
 
-                if(querSumme > biggestQuerSumme){
+                if (querSumme > biggestQuerSumme) {
                     biggestQuerSumme = querSumme;
                     noChanges = 0;
-                }else{
+                } else {
                     noChanges++;
                 }
             }
@@ -37,7 +36,7 @@ public class Problem56 implements IProblem {
         return Long.toString(biggestQuerSumme);
     }
 
-    private Long querSumme(BigInteger number){
+    private Long querSumme(BigInteger number) {
         return Arrays.stream(number.toString().split("")).mapToLong(Long::valueOf).sum();
     }
 }
