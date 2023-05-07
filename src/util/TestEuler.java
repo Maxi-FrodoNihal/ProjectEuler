@@ -2,7 +2,7 @@ package util;
 
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
-import problems.p051TOp060.p057.Problem57;
+import problems.p051TOp060.p058.Problem58;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,7 +16,7 @@ public class TestEuler {
 
         final Runtime rt = Runtime.getRuntime();
 
-        final IProblem problem = new Problem57();
+        final IProblem problem = new Problem58();
 
         final int iterations = problem.getIterations();
         final String averageString = iterations > 1 ? "Average " : "";
