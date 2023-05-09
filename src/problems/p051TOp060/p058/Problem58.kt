@@ -5,56 +5,47 @@ import util.PrimProblem
 class Problem58 : PrimProblem() {
    override fun solve(): String {
 
-      val size = 3
-      val middle = MatrixPoint(size/2,size/2)
-      val stream = NumberStream()
-      val matrix = QMatrix(size)
+      isPrim(10)
 
-      matrix.set(middle,stream)
-      fillSpiral(matrix,MatrixPoint(matrix.size()-2, matrix.size()-2), stream)
+      var i = 1
+      var odd = 0
+      var primSum = 0
+      var total = 0
 
-      var dioFactor = 0.0
-      var counter = 0
+      var primeFactor = 0.0
 
       do {
-         matrix.expand()
-         val size = matrix.size()
-         fillSpiral(matrix,MatrixPoint(matrix.size()-2, matrix.size()-2), stream)
 
-         val diagonalPrimCount = matrix.getDiagonalElements().count(::isPrim)
+         odd = getOdd(++i)
 
-         dioFactor = diagonalPrimCount.toDouble()/matrix.getDiagonalElements().size.toDouble()
+         val pair = diagonalPrims(odd)
+         primSum += pair.first
+         total += pair.second
 
-            println("$dioFactor $size")
+         primeFactor = primSum.toDouble() / total
+         val lastPrim = this.primNumbers.last()
+         if (i % 40 == 0)
+            println("$odd -> $primeFactor prim $lastPrim")
 
-         ++counter
+      } while (primeFactor > 0.10)
 
-      }while (dioFactor>0.10)
 
-      return matrix.size().toString()
+      return odd.toString()
    }
 
-   private fun fillSpiral(matrix: QMatrix, startPoint: MatrixPoint, stream: NumberStream) {
+   fun diagonalPrims(size: Int): Pair<Int, Int> {
+      val list = mutableListOf<Int>()
 
-      val times = matrix.size()-1
-      var changePoint = startPoint;
+      list.add(size * size)
 
-      val directionVector =
-         listOf(
-            Direction.NORTH,
-            Direction.WEST,
-            Direction.SOUTH,
-            Direction.EAST
-         )
-
-         changePoint = matrix.set(changePoint, Direction.EAST, 1, stream)
-
-         for (direction in directionVector) {
-            changePoint = if (direction == Direction.NORTH) {
-               matrix.set(changePoint, direction, times - 1, stream)
-            } else {
-               matrix.set(changePoint, direction, times, stream)
-            }
+      if (size > 1) {
+         for (i in 0 until 3) {
+            list.add(list.last() - (size - 1))
          }
+      }
+
+      return Pair(list.count(::isPrim), list.size)
    }
+
+   fun getOdd(step: Int) = step * 2 - 1
 }
