@@ -25,7 +25,7 @@ class QMatrix(size: Int) {
 
    fun size(): Int = rawMatrix.size
 
-   private fun getMaxValue(): Int = rawMatrix.flatten().max()
+   fun getMaxValue(): Int = rawMatrix.flatten().max()
 
    override fun toString(): String {
 
@@ -54,4 +54,18 @@ class QMatrix(size: Int) {
       rawMatrix.add(0, MutableList(newSize){0})
       rawMatrix.add( MutableList(newSize){0})
    }
+
+   fun getDiagonalElements():Set<Int>{
+
+      val diagonalElements = mutableSetOf<Int>()
+
+      for(i in 0 until this.size()){
+         diagonalElements.add(rawMatrix.get(i).get(i));
+         diagonalElements.add(rawMatrix.get(i).get(size()-1-i));
+      }
+
+      return diagonalElements;
+   }
+
+   fun getAllElements() = rawMatrix.flatten().toList()
 }

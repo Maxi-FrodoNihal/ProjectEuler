@@ -1,34 +1,43 @@
 package problems.p051TOp060.p058
 
-import util.IProblem
+import util.PrimProblem
 
-class Problem58 : IProblem {
+class Problem58 : PrimProblem() {
    override fun solve(): String {
 
       val size = 3
       val middle = MatrixPoint(size/2,size/2)
       val stream = NumberStream()
-
       val matrix = QMatrix(size)
-      fillSpiral(matrix,middle, stream)
-      matrix.expand()
+
+      matrix.set(middle,stream)
       fillSpiral(matrix,MatrixPoint(matrix.size()-2, matrix.size()-2), stream)
 
-      return matrix.toString()
+      var dioFactor = 0.0
+      var counter = 0
+
+      do {
+         matrix.expand()
+         val size = matrix.size()
+         fillSpiral(matrix,MatrixPoint(matrix.size()-2, matrix.size()-2), stream)
+
+         val diagonalPrimCount = matrix.getDiagonalElements().count(::isPrim)
+
+         dioFactor = diagonalPrimCount.toDouble()/matrix.getDiagonalElements().size.toDouble()
+
+            println("$dioFactor $size")
+
+         ++counter
+
+      }while (dioFactor>0.10)
+
+      return matrix.size().toString()
    }
 
-   private fun fillSpiral(matrix: QMatrix, startPoint: MatrixPoint, stream: NumberStream): QMatrix {
+   private fun fillSpiral(matrix: QMatrix, startPoint: MatrixPoint, stream: NumberStream) {
 
-      val middle = matrix.size() / 2
-      val middlePoint = MatrixPoint(middle, middle);
-
+      val times = matrix.size()-1
       var changePoint = startPoint;
-      var startIndex = startPoint.x-1
-
-      if(middlePoint == startPoint) {
-         matrix.set(middlePoint, stream)
-         startIndex = middlePoint.x
-      }
 
       val directionVector =
          listOf(
@@ -38,9 +47,8 @@ class Problem58 : IProblem {
             Direction.EAST
          )
 
-      for (i in startIndex until middle + 1) {
          changePoint = matrix.set(changePoint, Direction.EAST, 1, stream)
-         val times = i * 2
+
          for (direction in directionVector) {
             changePoint = if (direction == Direction.NORTH) {
                matrix.set(changePoint, direction, times - 1, stream)
@@ -48,8 +56,5 @@ class Problem58 : IProblem {
                matrix.set(changePoint, direction, times, stream)
             }
          }
-      }
-
-      return matrix
    }
 }
