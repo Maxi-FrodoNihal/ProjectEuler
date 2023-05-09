@@ -2,22 +2,22 @@ package problems.p051TOp060.p058
 
 class QMatrix(size: Int) {
 
-   private var rawMatrix: MutableList<MutableList<Int>> = MutableList(size) { MutableList(size) { 0 } }
+   private val rawMatrix: MutableList<MutableList<Int>> = MutableList(size) { MutableList(size) { 0 } }
 
-   fun set(point: MatrixPoint, value: Int): MatrixPoint {
-      rawMatrix.get(point.x).set(point.y, value)
+   fun set(point: MatrixPoint, stream: NumberStream): MatrixPoint {
+      rawMatrix.get(point.x).set(point.y, stream.next())
       return point
    }
 
-   fun set(point: MatrixPoint, direction: Direction, value: Int): MatrixPoint =
-      set(direction.change.invoke(point), value)
+   fun set(point: MatrixPoint, direction: Direction, stream: NumberStream): MatrixPoint =
+      set(direction.change.invoke(point), stream)
 
    fun set(point: MatrixPoint, direction: Direction, times: Int, stream: NumberStream): MatrixPoint {
 
       var internPoint = point
 
       for (i in 0 until times) {
-         internPoint = set(internPoint, direction, stream.next())
+         internPoint = set(internPoint, direction, stream)
       }
 
       return internPoint
@@ -25,7 +25,7 @@ class QMatrix(size: Int) {
 
    fun size(): Int = rawMatrix.size
 
-   fun getMaxValue(): Int = rawMatrix.flatten().max()
+   private fun getMaxValue(): Int = rawMatrix.flatten().max()
 
    override fun toString(): String {
 
@@ -42,10 +42,16 @@ class QMatrix(size: Int) {
       return returnString
    }
 
-   enum class Direction(val change: (MatrixPoint) -> (MatrixPoint)) {
-      NORTH({ e -> MatrixPoint(e.x - 1, e.y) }),
-      SOUTH({ e -> MatrixPoint(e.x + 1, e.y) }),
-      EAST({ e -> MatrixPoint(e.x, e.y + 1) }),
-      WEST({ e -> MatrixPoint(e.x, e.y - 1) });
+   fun expand(){
+
+      val newSize = this.size()+2;
+
+      rawMatrix.forEach { e ->
+         e.add(0, 0)
+         e.add(0)
+      }
+
+      rawMatrix.add(0, MutableList(newSize){0})
+      rawMatrix.add( MutableList(newSize){0})
    }
 }
