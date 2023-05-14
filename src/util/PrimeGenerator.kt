@@ -1,17 +1,54 @@
 package util
 
-import java.lang.Exception
 import java.util.*
+import kotlin.math.sqrt
 
-fun main(){
+fun main() {
    PrimeGenerator().maxPrimes()
+//
+//   var check = false
+//   var border = Int.MAX_VALUE
+//
+//   while (check == false) {
+//      check = intCheck(border)
+//      --border
+//
+//      if (check == false) {
+//
+//         if (border % 20 == 0) {
+//            println(border)
+//         }
+//
+//      } else {
+//         println(border)
+//      }
+//
+//   }
+
+}
+
+
+fun intCheck(border: Int): Boolean {
+   val limitSqrt = sqrt(border.toDouble()).toInt()
+
+   val exBorder1: Long = 4 * limitSqrt.toLong() * limitSqrt.toLong() + limitSqrt.toLong() * limitSqrt.toLong()
+   val exBorder2: Long = 3 * limitSqrt.toLong() * limitSqrt.toLong() + limitSqrt.toLong() * limitSqrt.toLong()
+   val exBorder3: Long = 3 * limitSqrt.toLong() * limitSqrt.toLong() - limitSqrt.toLong() * limitSqrt.toLong()
+   val exBorder4: Long = limitSqrt.toLong() * limitSqrt.toLong()
+   val exList = listOf(exBorder1, exBorder2, exBorder3, exBorder4)
+
+   if (exList.count { e -> e > Int.MAX_VALUE } > 0) {
+      return false
+   }
+
+   return true
 }
 
 class PrimeGenerator {
 
-   fun maxPrimes(){
+   fun maxPrimes() {
 
-      var maxParam = Int.MAX_VALUE
+      var maxParam = 429525624
       var datList = listOf<Int>()
 
       while (datList.isEmpty()) {
@@ -20,20 +57,31 @@ class PrimeGenerator {
          } catch (e: Throwable) {
             maxParam--
             datList = listOf<Int>()
-            println("$maxParam -> "+e::class.simpleName)
+            println("$maxParam -> " + e::class.simpleName)
          }
       }
 
-      for(i in 0 until 5){
-         println(datList.get(i))
-      }
+      println(datList.size)
+      println(datList.last())
       println("DONE :)")
    }
 
    private fun sieveOfAtkin(border: Int): List<Int> {
       val primList: MutableList<Int> = ArrayList()
       val sieve = BooleanArray(border + 1)
-      val limitSqrt = Math.sqrt(border.toDouble()).toInt()
+      val limitSqrt = sqrt(border.toDouble()).toInt()
+
+//      val exBorder1: Long = 4 * limitSqrt.toLong() * limitSqrt.toLong() + limitSqrt.toLong() * limitSqrt.toLong()
+//      val exBorder2: Long = 3 * limitSqrt.toLong() * limitSqrt.toLong() + limitSqrt.toLong() * limitSqrt.toLong()
+//      val exBorder3: Long = 3 * limitSqrt.toLong() * limitSqrt.toLong() - limitSqrt.toLong() * limitSqrt.toLong()
+//      val exBorder4: Long = limitSqrt.toLong() * limitSqrt.toLong()
+//      val exList = listOf(exBorder1, exBorder2, exBorder3, exBorder4)
+//
+//      if (exList.count { e -> e > Int.MAX_VALUE } > 0) {
+//         throw Exception("Hallo")
+//      }
+
+
       Arrays.fill(sieve, false)
       sieve[0] = false
       sieve[1] = false
