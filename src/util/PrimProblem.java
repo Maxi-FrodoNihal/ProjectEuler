@@ -12,7 +12,9 @@ public abstract class PrimProblem implements IProblem {
 	protected List<Integer> primNumbers = new ArrayList<>();
 	private int jumpRange = 100;
 
+
 	protected boolean isPrim(int number) {
+		//	Max calculated Value without infinity loop = 800 mio
 
 		number = Math.abs(number);
 

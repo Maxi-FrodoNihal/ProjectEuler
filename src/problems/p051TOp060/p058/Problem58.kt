@@ -3,9 +3,12 @@ package problems.p051TOp060.p058
 import util.PrimProblem
 
 class Problem58 : PrimProblem() {
+
+//   private var primeList = PrimeList()
+
    override fun solve(): String {
 
-      isPrim(10)
+      isPrim(688590081)
 
       var i = 1
       var odd = 0
@@ -23,9 +26,6 @@ class Problem58 : PrimProblem() {
          total += pair.second
 
          primeFactor = primSum.toDouble() / total
-         val lastPrim = this.primNumbers.last()
-         if (i % 40 == 0)
-            println("$odd -> $primeFactor prim $lastPrim")
 
       } while (primeFactor > 0.10)
 
@@ -33,7 +33,7 @@ class Problem58 : PrimProblem() {
       return odd.toString()
    }
 
-   fun diagonalPrims(size: Int): Pair<Int, Int> {
+   private fun diagonalPrims(size: Int): Pair<Int, Int> {
       val list = mutableListOf<Int>()
 
       list.add(size * size)
@@ -47,5 +47,5 @@ class Problem58 : PrimProblem() {
       return Pair(list.count(::isPrim), list.size)
    }
 
-   fun getOdd(step: Int) = step * 2 - 1
+   private fun getOdd(step: Int) = step * 2 - 1
 }
