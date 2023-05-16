@@ -11,7 +11,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import util.CList;
 import util.ICListController;
-import util.PrimProblem;
+import util.prime.PrimProblem;
 
 public class Problem50 extends PrimProblem implements ICListController<Pair<Integer, List<Integer>>, PrimSumCallable> {
 

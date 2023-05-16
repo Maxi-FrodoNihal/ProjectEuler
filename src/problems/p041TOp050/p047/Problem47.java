@@ -8,7 +8,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import util.CList;
 import util.ICListController;
-import util.PrimProblem;
+import util.prime.PrimProblem;
 
 public class Problem47 extends PrimProblem implements ICListController<List<Pair<Integer, Integer>>, PrimFacWorker> {
 

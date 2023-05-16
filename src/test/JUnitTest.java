@@ -1,7 +1,13 @@
 package test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
-import problems.PathSlave;
+
+import problems.*;
 import problems.p001TOp010.p001.Problem1;
 import problems.p001TOp010.p002.Problem2;
 import problems.p001TOp010.p003.Problem3;
@@ -58,17 +64,12 @@ import problems.p051TOp060.p053.Problem53;
 import problems.p051TOp060.p055.Problem55;
 import problems.p051TOp060.p056.Problem56;
 import problems.p051TOp060.p057.Problem57;
+import problems.p051TOp060.p058.Problem58;
 import util.DLoader;
 import util.IProblem;
-
-import java.util.List;
-
-import static org.junit.Assert.assertTrue;
-
 public class JUnitTest {
 
     private String defaultLsg = String.valueOf(Integer.MIN_VALUE);
-
     @Test
     public void testProblem1() {
 
@@ -79,7 +80,6 @@ public class JUnitTest {
 
         assertTrue(problem1.getSolution().equals(defaultLsg) == false && problem1.solve().equals(problem1.getSolution()));
     }
-
     @Test
     public void testProblem2() {
 
@@ -90,7 +90,6 @@ public class JUnitTest {
 
         assertTrue(problem2.getSolution().equals(defaultLsg) == false && problem2.solve().equals(problem2.getSolution()));
     }
-
     @Test
     public void testProblem3() {
 
@@ -101,7 +100,6 @@ public class JUnitTest {
 
         assertTrue(problem3.getSolution().equals(defaultLsg) == false && problem3.solve().equals(problem3.getSolution()));
     }
-
     @Test
     public void testProblem4() {
 
@@ -112,7 +110,6 @@ public class JUnitTest {
 
         assertTrue(problem4.getSolution().equals(defaultLsg) == false && problem4.solve().equals(problem4.getSolution()));
     }
-
     @Test
     public void testProblem5() {
 
@@ -123,7 +120,6 @@ public class JUnitTest {
 
         assertTrue(problem5.getSolution().equals(defaultLsg) == false && problem5.solve().equals(problem5.getSolution()));
     }
-
     @Test
     public void testProblem6() {
 
@@ -134,7 +130,6 @@ public class JUnitTest {
 
         assertTrue(problem6.getSolution().equals(defaultLsg) == false && problem6.solve().equals(problem6.getSolution()));
     }
-
     @Test
     public void testProblem7() {
 
@@ -145,7 +140,6 @@ public class JUnitTest {
 
         assertTrue(problem7.getSolution().equals(defaultLsg) == false && problem7.solve().equals(problem7.getSolution()));
     }
-
     @Test
     public void testProblem8() {
 
@@ -156,7 +150,6 @@ public class JUnitTest {
 
         assertTrue(problem8.getSolution().equals(defaultLsg) == false && problem8.solve().equals(problem8.getSolution()));
     }
-
     @Test
     public void testProblem9() {
 
@@ -167,7 +160,6 @@ public class JUnitTest {
 
         assertTrue(problem9.getSolution().equals(defaultLsg) == false && problem9.solve().equals(problem9.getSolution()));
     }
-
     @Test
     public void testProblem10() {
 
@@ -178,7 +170,6 @@ public class JUnitTest {
 
         assertTrue(problem10.getSolution().equals(defaultLsg) == false && problem10.solve().equals(problem10.getSolution()));
     }
-
     @Test
     public void testProblem11() {
 
@@ -189,7 +180,6 @@ public class JUnitTest {
 
         assertTrue(problem11.getSolution().equals(defaultLsg) == false && problem11.solve().equals(problem11.getSolution()));
     }
-
     @Test
     public void testProblem12() {
 
@@ -200,7 +190,6 @@ public class JUnitTest {
 
         assertTrue(problem12.getSolution().equals(defaultLsg) == false && problem12.solve().equals(problem12.getSolution()));
     }
-
     @Test
     public void testProblem13() {
 
@@ -211,7 +200,6 @@ public class JUnitTest {
 
         assertTrue(problem13.getSolution().equals(defaultLsg) == false && problem13.solve().equals(problem13.getSolution()));
     }
-
     @Test
     public void testProblem14() {
 
@@ -222,7 +210,6 @@ public class JUnitTest {
 
         assertTrue(problem14.getSolution().equals(defaultLsg) == false && problem14.solve().equals(problem14.getSolution()));
     }
-
     @Test
     public void testProblem15() {
 
@@ -233,7 +220,6 @@ public class JUnitTest {
 
         assertTrue(problem15.getSolution().equals(defaultLsg) == false && problem15.solve().equals(problem15.getSolution()));
     }
-
     @Test
     public void testProblem16() {
 
@@ -244,7 +230,6 @@ public class JUnitTest {
 
         assertTrue(problem16.getSolution().equals(defaultLsg) == false && problem16.solve().equals(problem16.getSolution()));
     }
-
     @Test
     public void testProblem17() {
 
@@ -255,7 +240,6 @@ public class JUnitTest {
 
         assertTrue(problem17.getSolution().equals(defaultLsg) == false && problem17.solve().equals(problem17.getSolution()));
     }
-
     //	@Test
     public void testProblem18() {
 
@@ -266,7 +250,6 @@ public class JUnitTest {
 
         assertTrue(problem18.getSolution().equals(defaultLsg) == false && problem18.solve().equals(problem18.getSolution()));
     }
-
     @Test
     public void testProblem19() {
 
@@ -277,7 +260,6 @@ public class JUnitTest {
 
         assertTrue(problem19.getSolution().equals(defaultLsg) == false && problem19.solve().equals(problem19.getSolution()));
     }
-
     @Test
     public void testProblem20() {
 
@@ -288,7 +270,6 @@ public class JUnitTest {
 
         assertTrue(problem20.getSolution().equals(defaultLsg) == false && problem20.solve().equals(problem20.getSolution()));
     }
-
     @Test
     public void testProblem21() {
 
@@ -299,7 +280,6 @@ public class JUnitTest {
 
         assertTrue(problem21.getSolution().equals(defaultLsg) == false && problem21.solve().equals(problem21.getSolution()));
     }
-
     @Test
     public void testProblem22() {
 
@@ -310,7 +290,6 @@ public class JUnitTest {
 
         assertTrue(problem22.getSolution().equals(defaultLsg) == false && problem22.solve().equals(problem22.getSolution()));
     }
-
     @Test
     public void testProblem23() {
 
@@ -321,7 +300,6 @@ public class JUnitTest {
 
         assertTrue(problem23.getSolution().equals(defaultLsg) == false && problem23.solve().equals(problem23.getSolution()));
     }
-
     @Test
     public void testProblem24() {
 
@@ -332,7 +310,6 @@ public class JUnitTest {
 
         assertTrue(problem24.getSolution().equals(defaultLsg) == false && problem24.solve().equals(problem24.getSolution()));
     }
-
     @Test
     public void testProblem25() {
 
@@ -343,7 +320,6 @@ public class JUnitTest {
 
         assertTrue(problem25.getSolution().equals(defaultLsg) == false && problem25.solve().equals(problem25.getSolution()));
     }
-
     @Test
     public void testProblem26() {
 
@@ -354,7 +330,6 @@ public class JUnitTest {
 
         assertTrue(problem26.getSolution().equals(defaultLsg) == false && problem26.solve().equals(problem26.getSolution()));
     }
-
     @Test
     public void testProblem27() {
 
@@ -365,7 +340,6 @@ public class JUnitTest {
 
         assertTrue(problem27.getSolution().equals(defaultLsg) == false && problem27.solve().equals(problem27.getSolution()));
     }
-
     @Test
     public void testProblem28() {
 
@@ -376,7 +350,6 @@ public class JUnitTest {
 
         assertTrue(problem28.getSolution().equals(defaultLsg) == false && problem28.solve().equals(problem28.getSolution()));
     }
-
     @Test
     public void testProblem29() {
 
@@ -387,7 +360,6 @@ public class JUnitTest {
 
         assertTrue(problem29.getSolution().equals(defaultLsg) == false && problem29.solve().equals(problem29.getSolution()));
     }
-
     @Test
     public void testProblem30() {
 
@@ -398,7 +370,6 @@ public class JUnitTest {
 
         assertTrue(problem30.getSolution().equals(defaultLsg) == false && problem30.solve().equals(problem30.getSolution()));
     }
-
     @Test
     public void testProblem31() {
 
@@ -409,7 +380,6 @@ public class JUnitTest {
 
         assertTrue(problem31.getSolution().equals(defaultLsg) == false && problem31.solve().equals(problem31.getSolution()));
     }
-
     @Test
     public void testProblem32() {
 
@@ -420,7 +390,6 @@ public class JUnitTest {
 
         assertTrue(problem32.getSolution().equals(defaultLsg) == false && problem32.solve().equals(problem32.getSolution()));
     }
-
     @Test
     public void testProblem33() {
 
@@ -431,7 +400,6 @@ public class JUnitTest {
 
         assertTrue(problem33.getSolution().equals(defaultLsg) == false && problem33.solve().equals(problem33.getSolution()));
     }
-
     @Test
     public void testProblem34() {
 
@@ -442,7 +410,6 @@ public class JUnitTest {
 
         assertTrue(problem34.getSolution().equals(defaultLsg) == false && problem34.solve().equals(problem34.getSolution()));
     }
-
     @Test
     public void testProblem35() {
 
@@ -453,7 +420,6 @@ public class JUnitTest {
 
         assertTrue(problem35.getSolution().equals(defaultLsg) == false && problem35.solve().equals(problem35.getSolution()));
     }
-
     @Test
     public void testProblem36() {
 
@@ -464,7 +430,6 @@ public class JUnitTest {
 
         assertTrue(problem36.getSolution().equals(defaultLsg) == false && problem36.solve().equals(problem36.getSolution()));
     }
-
     @Test
     public void testProblem37() {
 
@@ -475,7 +440,6 @@ public class JUnitTest {
 
         assertTrue(problem37.getSolution().equals(defaultLsg) == false && problem37.solve().equals(problem37.getSolution()));
     }
-
     @Test
     public void testProblem38() {
 
@@ -486,7 +450,6 @@ public class JUnitTest {
 
         assertTrue(problem38.getSolution().equals(defaultLsg) == false && problem38.solve().equals(problem38.getSolution()));
     }
-
     @Test
     public void testProblem39() {
 
@@ -497,7 +460,6 @@ public class JUnitTest {
 
         assertTrue(problem39.getSolution().equals(defaultLsg) == false && problem39.solve().equals(problem39.getSolution()));
     }
-
     @Test
     public void testProblem40() {
 
@@ -508,7 +470,6 @@ public class JUnitTest {
 
         assertTrue(problem40.getSolution().equals(defaultLsg) == false && problem40.solve().equals(problem40.getSolution()));
     }
-
     @Test
     public void testProblem41() {
 
@@ -519,7 +480,6 @@ public class JUnitTest {
 
         assertTrue(problem41.getSolution().equals(defaultLsg) == false && problem41.solve().equals(problem41.getSolution()));
     }
-
     @Test
     public void testProblem42() {
 
@@ -530,7 +490,6 @@ public class JUnitTest {
 
         assertTrue(problem42.getSolution().equals(defaultLsg) == false && problem42.solve().equals(problem42.getSolution()));
     }
-
     @Test
     public void testProblem43() {
 
@@ -541,7 +500,6 @@ public class JUnitTest {
 
         assertTrue(problem43.getSolution().equals(defaultLsg) == false && problem43.solve().equals(problem43.getSolution()));
     }
-
     @Test
     public void testProblem44() {
 
@@ -552,7 +510,6 @@ public class JUnitTest {
 
         assertTrue(problem44.getSolution().equals(defaultLsg) == false && problem44.solve().equals(problem44.getSolution()));
     }
-
     @Test
     public void testProblem45() {
 
@@ -563,7 +520,6 @@ public class JUnitTest {
 
         assertTrue(problem45.getSolution().equals(defaultLsg) == false && problem45.solve().equals(problem45.getSolution()));
     }
-
     @Test
     public void testProblem46() {
 
@@ -574,7 +530,6 @@ public class JUnitTest {
 
         assertTrue(problem46.getSolution().equals(defaultLsg) == false && problem46.solve().equals(problem46.getSolution()));
     }
-
     @Test
     public void testProblem47() {
 
@@ -585,7 +540,6 @@ public class JUnitTest {
 
         assertTrue(problem47.getSolution().equals(defaultLsg) == false && problem47.solve().equals(problem47.getSolution()));
     }
-
     @Test
     public void testProblem48() {
 
@@ -596,7 +550,6 @@ public class JUnitTest {
 
         assertTrue(problem48.getSolution().equals(defaultLsg) == false && problem48.solve().equals(problem48.getSolution()));
     }
-
     @Test
     public void testProblem49() {
 
@@ -607,7 +560,6 @@ public class JUnitTest {
 
         assertTrue(problem49.getSolution().equals(defaultLsg) == false && problem49.solve().equals(problem49.getSolution()));
     }
-
     @Test
     public void testProblem50() {
 
@@ -618,7 +570,6 @@ public class JUnitTest {
 
         assertTrue(problem50.getSolution().equals(defaultLsg) == false && problem50.solve().equals(problem50.getSolution()));
     }
-
     @Test
     public void testProblem51() {
 
@@ -629,7 +580,6 @@ public class JUnitTest {
 
         assertTrue(problem51.getSolution().equals(defaultLsg) == false && problem51.solve().equals(problem51.getSolution()));
     }
-
     @Test
     public void testProblem52() {
 
@@ -640,7 +590,6 @@ public class JUnitTest {
 
         assertTrue(problem52.getSolution().equals(defaultLsg) == false && problem52.solve().equals(problem52.getSolution()));
     }
-
     @Test
     public void testProblem53() {
 
@@ -651,7 +600,6 @@ public class JUnitTest {
 
         assertTrue(problem53.getSolution().equals(defaultLsg) == false && problem53.solve().equals(problem53.getSolution()));
     }
-
     @Test
     public void testProblem55() {
 
@@ -662,7 +610,6 @@ public class JUnitTest {
 
         assertTrue(problem55.getSolution().equals(defaultLsg) == false && problem55.solve().equals(problem55.getSolution()));
     }
-
     @Test
     public void testProblem56() {
 
@@ -673,7 +620,6 @@ public class JUnitTest {
 
         assertTrue(problem56.getSolution().equals(defaultLsg) == false && problem56.solve().equals(problem56.getSolution()));
     }
-
     @Test
     public void testProblem57() {
 
@@ -684,4 +630,13 @@ public class JUnitTest {
 
         assertTrue(problem57.getSolution().equals(defaultLsg) == false && problem57.solve().equals(problem57.getSolution()));
     }
-}
+    @Test
+    public void testProblem58() {
+
+        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
+
+        IProblem problem58 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem58).findFirst()
+                .get();
+
+        assertTrue(problem58.getSolution().equals(defaultLsg) == false && problem58.solve().equals(problem58.getSolution()));
+    }}

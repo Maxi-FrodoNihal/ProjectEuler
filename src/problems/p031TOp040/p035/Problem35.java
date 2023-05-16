@@ -3,7 +3,7 @@ package problems.p031TOp040.p035;
 import java.util.HashSet;
 import java.util.Set;
 
-import util.PrimProblem;
+import util.prime.PrimProblem;
 
 public class Problem35 extends PrimProblem {
 

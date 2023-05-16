@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import util.PrimProblem;
+import util.prime.PrimProblem;
 
 public class Problem51 extends PrimProblem {
 

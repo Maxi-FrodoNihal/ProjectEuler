@@ -1,13 +1,13 @@
-package util.primelist
+package util.prime.list
 
 import net.lingala.zip4j.ZipFile
 import java.io.File
 
-class PrimeList {
+class BigPrimeList {
 
-   private val list:List<Int>
+   private var list:List<Int> = listOf()
 
-   init {
+   private fun load(){
       println("Start Loading.....")
       val tempDir = kotlin.io.path.createTempDirectory("tempDir").toFile()
       val firstZipFile = File(javaClass.getResource("data/master.zip.001").file)
@@ -20,7 +20,11 @@ class PrimeList {
       println("Done with loading :-)")
    }
 
-   fun isPrime(number:Int):Boolean{
+   fun isPrim(number:Int):Boolean{
+
+      if(list.isEmpty()){
+         load()
+      }
 
       if(number > list.last()){
          throw IllegalArgumentException("Param to big :(")

@@ -1,4 +1,4 @@
-package util;
+package util.prime;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
+import util.IProblem;
 
 public abstract class PrimProblem implements IProblem {
 
@@ -14,13 +15,11 @@ public abstract class PrimProblem implements IProblem {
 
 
 	protected boolean isPrim(int number) {
-		//	Max calculated Value without infinity loop = 800 mio
 
 		number = Math.abs(number);
 
 		if (CollectionUtils.isEmpty(this.primNumbers) || this.primNumbers.get(this.primNumbers.size() - 1) < number) {
-
-			primNumbers = sieveOfAtkin(number);
+			primNumbers = this.sieveOfAtkin(number);
 		}
 
 		return Collections.binarySearch(this.primNumbers, number) >= 0;
@@ -51,63 +50,9 @@ public abstract class PrimProblem implements IProblem {
 		return -1;
 	}
 
-	/**
-	 * Selbstgeschriebene Version vom Sieb des Eratosthenes. Ist nicht super
-	 * schnell, macht aber seinen Job.
-	 * 
-	 * @param border   Bis wohin sollen Primzahlen gesucht werden?
-	 * @param primList Die Liste an schon gefundenen Primzahlen. Welche erweitert
-	 *                 und wieder zurück gegeben wird.
-	 * @return Die vervollständigte Liste an Primzahlen bis zur Parametergrenze.
-	 */
-	private List<Integer> eratosthenes(final int border, List<Integer> primList) {
-
-		int actualNumber = 6;
-
-		if (CollectionUtils.isEmpty(primList)) {
-			primList.add(2);
-			primList.add(3);
-			primList.add(5);
-		} else {
-			actualNumber = primList.get(primList.size() - 1);
-		}
-
-		while (primList.get(primList.size() - 1) < border) {
-
-			int counter = 0;
-
-			for (final Integer primNumber : primList) {
-
-				if (actualNumber % primNumber != 0) {
-					counter++;
-				} else {
-					break;
-				}
-			}
-
-			if (counter == primList.size()) {
-				primList.add(actualNumber);
-			}
-
-			actualNumber++;
-		}
-
-		return primList;
-	}
-
-	/**
-	 * Diesen Algo zum Primzahlen bestimmen hab ich aus dem Internet kopiert und
-	 * angepasst. Er läuft schneller als mein selbstgeschriebener Algo.
-	 * 
-	 * @param border   Bis wohin sollen Primzahlen gesucht werden?
-	 * @param primList Die Liste an schon gefundenen Primzahlen. Welche erweitert
-	 *                 und wieder zurück gegeben wird.
-	 * @return Die vervollständigte Liste an Primzahlen bis zur Parametergrenze.
-	 */
-	protected List<Integer> sieveOfAtkin(int border) {
+	public List<Integer> sieveOfAtkin(int limit) {
 
 		List<Integer> primList = new ArrayList<>();
-		int limit = border;
 		boolean[] sieve = new boolean[limit + 1];
 		int limitSqrt = (int) Math.sqrt(limit);
 
@@ -151,5 +96,19 @@ public abstract class PrimProblem implements IProblem {
 		}
 
 		return primList;
+	}
+
+	public boolean simpleFastIsPrim(int n){
+		if(n < 2) return false;
+		if(n == 2) return true;
+		if(n % 2 == 0) return false;
+
+		var m = 3;
+		while (m < Math.sqrt(n) + 1) {
+			if (n % m == 0) return false;
+			m += 2;
+		}
+
+		return true;
 	}
 }

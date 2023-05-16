@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 
 import util.Permutor;
-import util.PrimProblem;
+import util.prime.PrimProblem;
 
 public class Problem49 extends PrimProblem {
 
