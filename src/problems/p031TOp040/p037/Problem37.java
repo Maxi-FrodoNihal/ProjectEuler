@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import util.PrimProblem;
+import util.prime.PrimProblem;
 
 public class Problem37 extends PrimProblem {
 

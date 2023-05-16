@@ -1,6 +1,6 @@
 package problems.p041TOp050.p046;
 
-import util.PrimProblem;
+import util.prime.PrimProblem;
 
 public class Problem46 extends PrimProblem {
 
