@@ -1,5 +1,6 @@
 package problems.p051TOp060.p059
 
+import kotlinx.coroutines.*
 import util.IProblem
 import java.io.File
 import java.math.BigInteger
@@ -8,6 +9,7 @@ import kotlin.streams.toList
 class Problem59:IProblem{
 
    private val bitLenght = 8
+   private val coroutinesAmount = 1000
 
    override fun getSolution(): String {
       return "129448"
@@ -19,25 +21,52 @@ class Problem59:IProblem{
       val cypherText = File(javaClass.getResource("0059_cipher.txt").file).readText()
       val cypherBStrings = cypherText.split(",").map { e-> this.intToBString(e.toInt()) }.toList()
 
-      for (key in permuKeys()) {
+      val permuKeys = permuKeys()
+      val workList = permuKeys.chunked(permuKeys.size / coroutinesAmount)
 
-         readableString = getRaedableString(key, cypherBStrings)
+      runBlocking {
 
-         if(readableString.contains("the ", true) && readableString.contains("is ", true)){
-//            println(readableString)
-            break
+         val mutableList = mutableListOf<Deferred<List<String>>>();
+
+         workList.forEach{keys ->
+            mutableList.add( async(Dispatchers.Default) {
+               getRedableStrings(keys, cypherBStrings)
+            })
          }
+
+         while (readableString.isBlank()) {
+            readableString = mutableList.find (::isCompletedAndNotEmpty)?.getCompleted()?.find(String::isNotBlank).orEmpty()
+            mutableList.removeIf (::isCompletedAndEmpty)
+         }
+
+         mutableList.forEach (Job::cancel)
       }
 
       return readableString.chars().sum().toString()
    }
 
-   private fun getRaedableString(key:String, cypherBStrings:List<String>):String  {
-      val bkey = key.chars().toList().joinToString("") { e -> this.intToBString(e) }
-      val totalCypherBytes = cypherBStrings.joinToString("")
+   private fun isCompletedAndEmpty(list:Deferred<List<String>>)=list.isCompleted && list.getCompleted().find { e -> e.isNotBlank() }.orEmpty().isEmpty()
+   private fun isCompletedAndNotEmpty(list:Deferred<List<String>>)=list.isCompleted && list.getCompleted().find { e -> e.isNotBlank() }.orEmpty().isNotBlank()
 
-      val decryptRaw = xor(totalCypherBytes, expandKeyBytes(bkey, totalCypherBytes.length))
-      return convertToStrByteToString(decryptRaw, cypherBStrings.size)
+   private fun getRedableStrings(keys:List<String>, cypherBStrings:List<String>):List<String>  {
+
+      val readableStrings = mutableListOf<String>()
+
+      for (key in keys) {
+         val bkey = key.chars().toList().joinToString("") { e -> this.intToBString(e) }
+         val totalCypherBytes = cypherBStrings.joinToString("")
+
+         val decryptRaw = xor(totalCypherBytes, expandKeyBytes(bkey, totalCypherBytes.length))
+         val wantedString = convertToStrByteToString(decryptRaw, cypherBStrings.size)
+
+         if(wantedString.contains("the ", true) && wantedString.contains("is ", true)){
+            readableStrings.add(wantedString)
+         }else{
+            readableStrings.add("")
+         }
+      }
+
+      return readableStrings
    }
 
    private fun permuKeys():List<String> {
