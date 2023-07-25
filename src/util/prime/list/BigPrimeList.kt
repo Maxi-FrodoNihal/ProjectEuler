@@ -5,7 +5,7 @@ import java.io.File
 
 class BigPrimeList {
 
-   private var list:List<Int> = listOf()
+   var list:List<Int> = listOf()
 
    private fun load(){
       println("Start Loading.....")

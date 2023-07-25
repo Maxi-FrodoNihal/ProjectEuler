@@ -33,6 +33,7 @@ public abstract class PrimProblem implements IProblem {
 
 			if (CollectionUtils.isEmpty(primNumbers)) {
 				isPrim(jumpRange);
+				return getOrCalculate(index);
 			} else {
 
 				int pNumberSizeBefore = primNumbers.size();
@@ -43,11 +44,9 @@ public abstract class PrimProblem implements IProblem {
 					jumpRange = jumpRange * 2;
 				}
 
-				getOrCalculate(index);
+				return getOrCalculate(index);
 			}
 		}
-
-		return -1;
 	}
 
 	public List<Integer> sieveOfAtkin(int limit) {
