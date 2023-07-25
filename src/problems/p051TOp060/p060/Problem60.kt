@@ -1,50 +1,66 @@
 package problems.p051TOp060.p060
 
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
 import util.prime.PrimProblem
 import java.math.BigInteger
+import java.util.Optional
 
 class Problem60: PrimProblem() {
 
    val border = 1000
    val elementBorder = 4
 
-   override fun solve() = crawlPrimes(mutableListOf(), ::getOrCalculate , 0, 0).joinToString(";")
+   override fun solve(): String {
 
-   fun crawlPrimes(foundPrimes:MutableList<Int>, primes: (input: Int) -> Int , index:Int, clearTimes:Int):List<Int>{
+      var foundPrimes = mutableListOf<Int>()
 
-      var internalClearTimes = clearTimes
-      var internalIndex = index
+      for (i in 1..border ){
 
-      if(internalIndex < border){
          if(foundPrimes.isEmpty()){
-            foundPrimes.add(primes.invoke(internalIndex))
-            return crawlPrimes(foundPrimes,primes,++internalIndex,clearTimes)
-         }
-         val nextPrime = primes.invoke(internalIndex)
-         foundPrimes.add(nextPrime)
-
-         if(!concPrimesFromList(foundPrimes)){
-          foundPrimes.removeLast()
+            foundPrimes.add(this.getOrCalculate(i))
+            println(foundPrimes.last())
          }
 
-         if(foundPrimes.size < elementBorder) {
-            crawlPrimes(foundPrimes, primes, ++internalIndex, clearTimes)
-         }
+         innerMethod(i,foundPrimes).ifPresent{e->foundPrimes = e}
 
-      }else{
-         foundPrimes.clear()
-         ++internalClearTimes
-         crawlPrimes(foundPrimes,primes,internalClearTimes, internalClearTimes)
+         if(concPrimesFromList(foundPrimes) && foundPrimes.size == elementBorder){
+            break
+         }else{
+            foundPrimes.clear()
+         }
       }
 
-      return foundPrimes
+      return foundPrimes.joinToString(";")
    }
 
-   fun concPrimesToPrimes(prime1:Int,prime2:Int) =
+
+   private fun innerMethod(externIndex:Int, foundPrimes:MutableList<Int>):Optional<MutableList<Int>>{
+
+      for (j in 0..border ){
+         if(externIndex != j){
+            foundPrimes.add(getOrCalculate(j))
+
+            if(!concPrimesFromList(foundPrimes)){
+               foundPrimes.removeLast()
+            }
+
+            if(foundPrimes.size == elementBorder) {
+               return Optional.of(foundPrimes)
+            }
+         }
+      }
+
+      return Optional.empty();
+   }
+
+   private fun concPrimesToPrimes(prime1:Int,prime2:Int) =
                  BigInteger(prime1.toString()+prime2.toString()).isProbablePrime(Int.MAX_VALUE)
               && BigInteger(prime2.toString()+prime1.toString()).isProbablePrime(Int.MAX_VALUE)
 
-   fun concPrimesFromList(primes: List<Int>):Boolean{
+   private fun concPrimesFromList(primes: List<Int>):Boolean{
 
       var check = true
 
