@@ -25,7 +25,7 @@ public abstract class PrimProblem implements IProblem {
 		return Collections.binarySearch(this.primNumbers, number) >= 0;
 	}
 
-	protected int getOrCalculate(int index) {
+	public int getOrCalculate(int index) {
 
 		if (index < primNumbers.size()) {
 			return primNumbers.get(index);

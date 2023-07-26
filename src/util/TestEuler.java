@@ -5,6 +5,7 @@ import org.apache.commons.lang3.tuple.Triple;
 import problems.p051TOp060.p058.Problem58;
 import problems.p051TOp060.p059.Problem59;
 import problems.p051TOp060.p060.Problem60;
+import problems.p051TOp060.p060.Problem60Co;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,7 +19,7 @@ public class TestEuler {
 
         final Runtime rt = Runtime.getRuntime();
 
-        final IProblem problem = new Problem60();
+        final IProblem problem = new Problem60Co();
 
         final int iterations = problem.getIterations();
         final String averageString = iterations > 1 ? "Average " : "";

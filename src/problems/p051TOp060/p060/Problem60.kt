@@ -14,7 +14,7 @@ class Problem60: PrimProblem() {
    val elementBorder = 4
 
    override fun solve(): String {
-
+      this.getOrCalculate(border)
       var foundPrimes = mutableListOf<Int>()
 
       for (i in 1..border ){
