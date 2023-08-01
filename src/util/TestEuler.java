@@ -19,7 +19,7 @@ public class TestEuler {
 
         final Runtime rt = Runtime.getRuntime();
 
-        final IProblem problem = new Problem60Co();
+        final IProblem problem = new Problem60();
 
         final int iterations = problem.getIterations();
         final String averageString = iterations > 1 ? "Average " : "";

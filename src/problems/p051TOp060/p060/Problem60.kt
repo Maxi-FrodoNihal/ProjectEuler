@@ -9,58 +9,53 @@ import java.math.BigInteger
 import java.util.Optional
 
 class Problem60: PrimProblem() {
+//   3;7;823;121441;912763
 
-   val border = 1000
-   val elementBorder = 4
+   val border = 100000
+   val elementBorder = 5
 
    override fun solve(): String {
       this.getOrCalculate(border)
-      var foundPrimes = mutableListOf<Int>()
+      var foundPrimes = mutableSetOf<Int>()
 
-      for (i in 1..border ){
+      work(foundPrimes, 1).ifPresent{e->foundPrimes=e}
 
-         if(foundPrimes.isEmpty()){
-            foundPrimes.add(this.getOrCalculate(i))
-            println(foundPrimes.last())
-         }
-
-         innerMethod(i,foundPrimes).ifPresent{e->foundPrimes = e}
-
-         if(concPrimesFromList(foundPrimes) && foundPrimes.size == elementBorder){
-            break
-         }else{
-            foundPrimes.clear()
-         }
-      }
 
       return foundPrimes.joinToString(";")
    }
 
 
-   private fun innerMethod(externIndex:Int, foundPrimes:MutableList<Int>):Optional<MutableList<Int>>{
+   private fun work(foundPrimes:MutableSet<Int>, runningIndex:Int):Optional<MutableSet<Int>>{
 
-      for (j in 0..border ){
-         if(externIndex != j){
-            foundPrimes.add(getOrCalculate(j))
+      println(foundPrimes.joinToString(";"))
 
-            if(!concPrimesFromList(foundPrimes)){
-               foundPrimes.removeLast()
-            }
-
-            if(foundPrimes.size == elementBorder) {
-               return Optional.of(foundPrimes)
-            }
-         }
+      if(foundPrimes.size == elementBorder && concPrimesFromList(foundPrimes)){
+         return Optional.of(foundPrimes)
       }
 
-      return Optional.empty();
+      for(i in runningIndex until border){
+
+         val nextPrime = this.getOrCalculate(i)
+         foundPrimes.add(nextPrime)
+
+         if(concPrimesFromList(foundPrimes)){
+            val evtlFoundPrimes = work(foundPrimes, i + 1)
+            if(evtlFoundPrimes.isPresent){
+               return evtlFoundPrimes
+            }
+         }
+
+         foundPrimes.remove(nextPrime)
+      }
+
+      return Optional.empty()
    }
 
    private fun concPrimesToPrimes(prime1:Int,prime2:Int) =
                  BigInteger(prime1.toString()+prime2.toString()).isProbablePrime(Int.MAX_VALUE)
               && BigInteger(prime2.toString()+prime1.toString()).isProbablePrime(Int.MAX_VALUE)
 
-   private fun concPrimesFromList(primes: List<Int>):Boolean{
+   private fun concPrimesFromList(primes: Set<Int>):Boolean{
 
       var check = true
 
