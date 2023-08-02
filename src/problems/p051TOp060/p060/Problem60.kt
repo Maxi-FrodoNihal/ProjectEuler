@@ -7,6 +7,7 @@ import kotlinx.coroutines.runBlocking
 import util.prime.PrimProblem
 import java.math.BigInteger
 import java.util.Optional
+import java.util.stream.Collector
 
 class Problem60: PrimProblem() {
 //   3;7;823;121441;912763
@@ -14,14 +15,13 @@ class Problem60: PrimProblem() {
    val border = 100000
    val elementBorder = 5
 
-   override fun solve(): String {
-      this.getOrCalculate(border)
+   override fun solve():String {
       var foundPrimes = mutableSetOf<Int>()
 
       work(foundPrimes, 1).ifPresent{e->foundPrimes=e}
 
-
-      return foundPrimes.joinToString(";")
+      println("solution: "+foundPrimes.joinToString(";"))
+      return foundPrimes.sum().toString()
    }
 
 
@@ -52,25 +52,31 @@ class Problem60: PrimProblem() {
    }
 
    private fun concPrimesToPrimes(prime1:Int,prime2:Int) =
-                 BigInteger(prime1.toString()+prime2.toString()).isProbablePrime(Int.MAX_VALUE)
-              && BigInteger(prime2.toString()+prime1.toString()).isProbablePrime(Int.MAX_VALUE)
+                  checkIfBigIsPrime(prime1.toString()+prime2.toString())
+               && checkIfBigIsPrime(prime2.toString()+prime1.toString())
 
-   private fun concPrimesFromList(primes: Set<Int>):Boolean{
 
-      var check = true
+   private fun checkIfBigIsPrime(bigNumber:String):Boolean{
+      if(bigNumber.length <= 9 && bigNumber.toInt() < this.primNumbers.last()){
+         return this.isPrim(bigNumber.toInt())
+      }else{
+         return BigInteger(bigNumber).isProbablePrime(Int.MAX_VALUE)
+      }
+   }
 
-      if(primes.isEmpty() || primes.size == 1){
-         return check
+   private fun concPrimesFromList(primes: Set<Int>): Boolean {
+      if (primes.size <= 1) {
+         return true
       }
 
       primes.forEach { prime1 ->
          primes.forEach { prime2 ->
-           if(prime1 != prime2){
-            check = check && concPrimesToPrimes(prime1,prime2)
-           }
+            if (prime1 != prime2 && !concPrimesToPrimes(prime1, prime2)) {
+               return false
+            }
          }
       }
 
-      return check;
+      return true
    }
 }
