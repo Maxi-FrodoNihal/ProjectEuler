@@ -13,8 +13,15 @@ public abstract class PrimProblem implements IProblem {
 	protected List<Integer> primNumbers = new ArrayList<>();
 	private int jumpRange = 100;
 
+	public Integer getLastFromPrimList(){
+		if(CollectionUtils.isNotEmpty(primNumbers)){
+			return primNumbers.get(primNumbers.size()-1);
+		}else{
+			return 0;
+		}
+	}
 
-	protected boolean isPrim(int number) {
+	public boolean isPrim(int number) {
 
 		number = Math.abs(number);
 
@@ -25,7 +32,7 @@ public abstract class PrimProblem implements IProblem {
 		return Collections.binarySearch(this.primNumbers, number) >= 0;
 	}
 
-	protected int getOrCalculate(int index) {
+	public int getOrCalculate(int index) {
 
 		if (index < primNumbers.size()) {
 			return primNumbers.get(index);
@@ -33,6 +40,7 @@ public abstract class PrimProblem implements IProblem {
 
 			if (CollectionUtils.isEmpty(primNumbers)) {
 				isPrim(jumpRange);
+				return getOrCalculate(index);
 			} else {
 
 				int pNumberSizeBefore = primNumbers.size();
@@ -43,11 +51,9 @@ public abstract class PrimProblem implements IProblem {
 					jumpRange = jumpRange * 2;
 				}
 
-				getOrCalculate(index);
+				return getOrCalculate(index);
 			}
 		}
-
-		return -1;
 	}
 
 	public List<Integer> sieveOfAtkin(int limit) {
