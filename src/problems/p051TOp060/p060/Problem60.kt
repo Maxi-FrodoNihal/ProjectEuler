@@ -1,36 +1,40 @@
 package problems.p051TOp060.p060
 
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
 import util.prime.PrimProblem
+import util.prime.list.BigPrimeList
 import java.math.BigInteger
 import java.util.Optional
-import java.util.stream.Collector
 
 class Problem60: PrimProblem() {
-//   3;7;823;121441;912763
+//   13;5197;5701;6733;8389 (26033)
 
-   val border = 100000
+   val border = 10000
    val elementBorder = 5
+   var solutionList = mutableListOf<Int>()
 
-   override fun solve():String {
-      var foundPrimes = mutableSetOf<Int>()
-
-      work(foundPrimes, 1).ifPresent{e->foundPrimes=e}
-
-      println("solution: "+foundPrimes.joinToString(";"))
-      return foundPrimes.sum().toString()
+   override fun getSolution(): String {
+      return "26033"
    }
 
+   override fun solve():String {
 
-   private fun work(foundPrimes:MutableSet<Int>, runningIndex:Int):Optional<MutableSet<Int>>{
+      val bigPrimeList = BigPrimeList.getInstance()
+      this.primNumbers = bigPrimeList.list
 
-      println(foundPrimes.joinToString(";"))
+      work(mutableListOf<Int>(), 1, 1)
+
+      return solutionList.sum().toString()
+   }
+
+   private fun work(foundPrimes:MutableList<Int>, runningIndex:Int, level: Int){
 
       if(foundPrimes.size == elementBorder && concPrimesFromList(foundPrimes)){
-         return Optional.of(foundPrimes)
+
+         if (solutionList.sum() > foundPrimes.sum() || solutionList.isEmpty()){
+            solutionList = foundPrimes.toMutableList()
+         }
+
+         foundPrimes.removeLast()
       }
 
       for(i in runningIndex until border){
@@ -38,17 +42,17 @@ class Problem60: PrimProblem() {
          val nextPrime = this.getOrCalculate(i)
          foundPrimes.add(nextPrime)
 
+         if(solutionList.isNotEmpty() && foundPrimes.sum() > solutionList.sum()){
+            foundPrimes.removeLast()
+            break
+         }
+
          if(concPrimesFromList(foundPrimes)){
-            val evtlFoundPrimes = work(foundPrimes, i + 1)
-            if(evtlFoundPrimes.isPresent){
-               return evtlFoundPrimes
-            }
+            work(foundPrimes, i + 1, level+1)
          }
 
          foundPrimes.remove(nextPrime)
       }
-
-      return Optional.empty()
    }
 
    private fun concPrimesToPrimes(prime1:Int,prime2:Int) =
@@ -64,7 +68,7 @@ class Problem60: PrimProblem() {
       }
    }
 
-   private fun concPrimesFromList(primes: Set<Int>): Boolean {
+   private fun concPrimesFromList(primes: List<Int>): Boolean {
       if (primes.size <= 1) {
          return true
       }

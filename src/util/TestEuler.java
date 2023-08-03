@@ -2,10 +2,7 @@ package util;
 
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
-import problems.p051TOp060.p058.Problem58;
-import problems.p051TOp060.p059.Problem59;
 import problems.p051TOp060.p060.Problem60;
-import problems.p051TOp060.p060.Problem60Co;
 
 import java.util.ArrayList;
 import java.util.HashSet;

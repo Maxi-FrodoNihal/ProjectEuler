@@ -13,8 +13,15 @@ public abstract class PrimProblem implements IProblem {
 	protected List<Integer> primNumbers = new ArrayList<>();
 	private int jumpRange = 100;
 
+	public Integer getLastFromPrimList(){
+		if(CollectionUtils.isNotEmpty(primNumbers)){
+			return primNumbers.get(primNumbers.size()-1);
+		}else{
+			return 0;
+		}
+	}
 
-	protected boolean isPrim(int number) {
+	public boolean isPrim(int number) {
 
 		number = Math.abs(number);
 
