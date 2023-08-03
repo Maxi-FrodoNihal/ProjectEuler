@@ -1,9 +1,14 @@
 package problems.p051TOp060.p060
 
+import kotlinx.coroutines.*
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import org.apache.commons.math3.util.MathUtils
 import util.prime.PrimProblem
 import util.prime.list.BigPrimeList
 import java.math.BigInteger
 import java.util.Optional
+import java.util.concurrent.atomic.AtomicReference
 
 class Problem60: PrimProblem() {
 //   13;5197;5701;6733;8389 (26033)
@@ -11,9 +16,16 @@ class Problem60: PrimProblem() {
    val border = 10000
    val elementBorder = 5
    var solutionList = mutableListOf<Int>()
+   val mutex = Mutex()
 
    override fun getSolution(): String {
       return "26033"
+   }
+
+   private suspend fun updateSolution(list:MutableList<Int>){
+      mutex.withLock {
+         solutionList = list
+      }
    }
 
    override fun solve():String {
@@ -21,17 +33,22 @@ class Problem60: PrimProblem() {
       val bigPrimeList = BigPrimeList.getInstance()
       this.primNumbers = bigPrimeList.list
 
-      work(mutableListOf<Int>(), 1, 1)
+      runBlocking {
+         for (i in 1 until border) {
+            val prim = getOrCalculate(i)
+            launch(Dispatchers.Default) { work(mutableListOf<Int>(prim), i + 1, 2) }
+         }
+      }
 
       return solutionList.sum().toString()
    }
 
-   private fun work(foundPrimes:MutableList<Int>, runningIndex:Int, level: Int){
+   private suspend fun work(foundPrimes:MutableList<Int>, runningIndex:Int, level: Int){
 
       if(foundPrimes.size == elementBorder && concPrimesFromList(foundPrimes)){
 
          if (solutionList.sum() > foundPrimes.sum() || solutionList.isEmpty()){
-            solutionList = foundPrimes.toMutableList()
+            updateSolution(foundPrimes.toMutableList())
          }
 
          foundPrimes.removeLast()
