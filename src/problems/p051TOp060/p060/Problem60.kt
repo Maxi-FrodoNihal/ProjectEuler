@@ -13,10 +13,10 @@ import java.util.concurrent.atomic.AtomicReference
 class Problem60: PrimProblem() {
 //   13;5197;5701;6733;8389 (26033)
 
-   val border = 10000
-   val elementBorder = 5
-   var solutionList = mutableListOf<Int>()
-   val mutex = Mutex()
+   private val border = 10000
+   private val elementBorder = 5
+   private var solutionList = mutableListOf<Int>()
+   private val mutex = Mutex()
 
    override fun getSolution(): String {
       return "26033"
@@ -30,14 +30,13 @@ class Problem60: PrimProblem() {
 
    override fun solve():String {
 
-      val bigPrimeList = BigPrimeList.getInstance()
-      this.primNumbers = bigPrimeList.list
+      this.primNumbers = BigPrimeList.getInstance().list
 
       runBlocking {
-         for (i in 1 until border) {
+         (1 until border).map { i ->
             val prim = getOrCalculate(i)
-            launch(Dispatchers.Default) { work(mutableListOf<Int>(prim), i + 1, 2) }
-         }
+            async(Dispatchers.Default) { work(mutableListOf(prim), i + 1, 2) }
+         }.awaitAll()
       }
 
       return solutionList.sum().toString()
