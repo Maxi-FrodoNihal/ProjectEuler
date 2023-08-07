@@ -9,6 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import util.CList;
 import util.ICListController;
 import util.prime.PrimProblem;
+import util.prime.list.BigPrimeList;
 
 public class Problem47 extends PrimProblem implements ICListController<List<Pair<Integer, Integer>>, PrimFacWorker> {
 
@@ -24,6 +25,8 @@ public class Problem47 extends PrimProblem implements ICListController<List<Pair
 
 	@Override
 	public String solve() {
+
+		this.primNumbers = BigPrimeList.getInstance().getList();
 
 		int parts = Runtime.getRuntime().availableProcessors();
 

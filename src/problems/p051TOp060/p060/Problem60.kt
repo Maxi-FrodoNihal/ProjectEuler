@@ -24,7 +24,9 @@ class Problem60: PrimProblem() {
 
    private suspend fun updateSolution(list:MutableList<Int>){
       mutex.withLock {
-         solutionList = list
+         if (solutionList.sum() > list.sum() || solutionList.isEmpty()) {
+            solutionList = list
+         }
       }
    }
 
@@ -46,9 +48,7 @@ class Problem60: PrimProblem() {
 
       if(foundPrimes.size == elementBorder && concPrimesFromList(foundPrimes)){
 
-         if (solutionList.sum() > foundPrimes.sum() || solutionList.isEmpty()){
-            updateSolution(foundPrimes.toMutableList())
-         }
+         updateSolution(foundPrimes.toMutableList())
 
          foundPrimes.removeLast()
       }
