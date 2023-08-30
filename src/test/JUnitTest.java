@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import problems.*;
@@ -68,14 +67,12 @@ import problems.p051TOp060.p057.Problem57;
 import problems.p051TOp060.p058.Problem58;
 import problems.p051TOp060.p059.Problem59;
 import problems.p051TOp060.p060.Problem60;
+import problems.p061TOp070.p061.Problem61;
 import util.DLoader;
 import util.IProblem;
-import util.prime.list.BigPrimeList;
-
 public class JUnitTest {
 
     private String defaultLsg = String.valueOf(Integer.MIN_VALUE);
-
     @Test
     public void testProblem1() {
 
@@ -665,4 +662,14 @@ public class JUnitTest {
                 .get();
 
         assertTrue(problem60.getSolution().equals(defaultLsg) == false && problem60.solve().equals(problem60.getSolution()));
+    }
+    @Test
+    public void testProblem61() {
+
+        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
+
+        IProblem problem61 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem61).findFirst()
+                .get();
+
+        assertTrue(problem61.getSolution().equals(defaultLsg) == false && problem61.solve().equals(problem61.getSolution()));
     }}
