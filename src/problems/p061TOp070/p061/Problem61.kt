@@ -1,7 +1,6 @@
 package problems.p061TOp070.p061
 
 import util.IProblem
-import java.util.Collections
 
 class Problem61:IProblem {
 
@@ -12,8 +11,6 @@ class Problem61:IProblem {
    private class ValueAndMarker(var value:Int, var parentMarker:Int)
    private class VAndMGroupElement(val value:Int){
       val group = mutableSetOf<ValueAndMarker>()
-      val pre = value.toString().substring(0,2).toInt()
-      val suf = value.toString().substring(2,4).toInt()
    }
 
    private fun triangle(n:Int)   = n*(n+1)/2
