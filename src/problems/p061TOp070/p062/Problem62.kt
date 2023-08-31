@@ -2,7 +2,7 @@ package problems.p061TOp070.p062
 
 import util.IProblem
 
-class Problem62 : IProblem{
+class Problem62 : IProblem {
 
    private val border = 10000
    private val pairs = 5
@@ -12,13 +12,13 @@ class Problem62 : IProblem{
    }
 
    override fun solve() =
-      List(border){it.toLong()*it.toLong()*it.toLong()}
-         .groupBy{
-            it.toString().split("")
-               .filter(String::isNotBlank)
-               .map(String::toInt)
+      List(border) { it.toLong() * it.toLong() * it.toLong() }
+         .groupBy {
+            it.toString()
+               .split("")
                .sorted()
-            }
+               .joinToString("")
+         }
          .entries.filter { it.value.size == pairs }
          .map { it.value }
          .flatten()
