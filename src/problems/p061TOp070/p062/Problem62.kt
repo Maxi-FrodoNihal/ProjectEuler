@@ -4,30 +4,24 @@ import util.IProblem
 
 class Problem62 : IProblem{
 
+   private val border = 10000
+   private val pairs = 5
+
    override fun getSolution(): String {
       return "127035954683"
    }
 
-   override fun solve(): String {
-
-      val cubeList = MutableList(10000){CubeElement(it.toLong()*it.toLong()*it.toLong())}
-      var solutionList:List<CubeElement> ?= null
-
-      for(cubeElement in cubeList){
-
-         val wantedList = cubeList.filter { e -> e.qSum == cubeElement.qSum && e.digitList == cubeElement.digitList }
-
-         if (wantedList.size == 5) {
-            solutionList = wantedList
-            break
-         }
-      }
-
-      return solutionList?.minOfOrNull(CubeElement::value).toString()
-   }
-
-   private class CubeElement(val value:Long){
-       val digitList = value.toString().split("").filter(String::isNotBlank).map(String::toInt).sorted().toList()
-       val qSum = value.toString().split("").filter(String::isNotBlank).map(String::toInt).sum()
-   }
+   override fun solve() =
+      List(border){it.toLong()*it.toLong()*it.toLong()}
+         .groupBy{
+            it.toString().split("")
+               .filter(String::isNotBlank)
+               .map(String::toInt)
+               .sorted()
+            }
+         .entries.filter { it.value.size == pairs }
+         .map { it.value }
+         .flatten()
+         .min()
+         .toString()
 }
