@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import problems.*;
@@ -69,6 +70,7 @@ import problems.p051TOp060.p059.Problem59;
 import problems.p051TOp060.p060.Problem60;
 import problems.p061TOp070.p061.Problem61;
 import problems.p061TOp070.p062.Problem62;
+import problems.p061TOp070.p063.Problem63;
 import util.DLoader;
 import util.IProblem;
 public class JUnitTest {
@@ -76,611 +78,745 @@ public class JUnitTest {
     private String defaultLsg = String.valueOf(Integer.MIN_VALUE);
     @Test
     public void testProblem1() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem1 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem1).findFirst()
-                .get();
-
-        assertTrue(problem1.getSolution().equals(defaultLsg) == false && problem1.solve().equals(problem1.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem1.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem1 ->
+                                Assertions.assertTrue(
+                                        !problem1.getSolution().equals(defaultLsg)
+                                                && problem1.solve().equals(problem1.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem2() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem2 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem2).findFirst()
-                .get();
-
-        assertTrue(problem2.getSolution().equals(defaultLsg) == false && problem2.solve().equals(problem2.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem2.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem2 ->
+                                Assertions.assertTrue(
+                                        !problem2.getSolution().equals(defaultLsg)
+                                                && problem2.solve().equals(problem2.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem3() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem3 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem3).findFirst()
-                .get();
-
-        assertTrue(problem3.getSolution().equals(defaultLsg) == false && problem3.solve().equals(problem3.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem3.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem3 ->
+                                Assertions.assertTrue(
+                                        !problem3.getSolution().equals(defaultLsg)
+                                                && problem3.solve().equals(problem3.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem4() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem4 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem4).findFirst()
-                .get();
-
-        assertTrue(problem4.getSolution().equals(defaultLsg) == false && problem4.solve().equals(problem4.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem4.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem4 ->
+                                Assertions.assertTrue(
+                                        !problem4.getSolution().equals(defaultLsg)
+                                                && problem4.solve().equals(problem4.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem5() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem5 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem5).findFirst()
-                .get();
-
-        assertTrue(problem5.getSolution().equals(defaultLsg) == false && problem5.solve().equals(problem5.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem5.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem5 ->
+                                Assertions.assertTrue(
+                                        !problem5.getSolution().equals(defaultLsg)
+                                                && problem5.solve().equals(problem5.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem6() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem6 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem6).findFirst()
-                .get();
-
-        assertTrue(problem6.getSolution().equals(defaultLsg) == false && problem6.solve().equals(problem6.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem6.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem6 ->
+                                Assertions.assertTrue(
+                                        !problem6.getSolution().equals(defaultLsg)
+                                                && problem6.solve().equals(problem6.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem7() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem7 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem7).findFirst()
-                .get();
-
-        assertTrue(problem7.getSolution().equals(defaultLsg) == false && problem7.solve().equals(problem7.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem7.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem7 ->
+                                Assertions.assertTrue(
+                                        !problem7.getSolution().equals(defaultLsg)
+                                                && problem7.solve().equals(problem7.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem8() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem8 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem8).findFirst()
-                .get();
-
-        assertTrue(problem8.getSolution().equals(defaultLsg) == false && problem8.solve().equals(problem8.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem8.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem8 ->
+                                Assertions.assertTrue(
+                                        !problem8.getSolution().equals(defaultLsg)
+                                                && problem8.solve().equals(problem8.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem9() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem9 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem9).findFirst()
-                .get();
-
-        assertTrue(problem9.getSolution().equals(defaultLsg) == false && problem9.solve().equals(problem9.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem9.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem9 ->
+                                Assertions.assertTrue(
+                                        !problem9.getSolution().equals(defaultLsg)
+                                                && problem9.solve().equals(problem9.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem10() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem10 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem10).findFirst()
-                .get();
-
-        assertTrue(problem10.getSolution().equals(defaultLsg) == false && problem10.solve().equals(problem10.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem10.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem10 ->
+                                Assertions.assertTrue(
+                                        !problem10.getSolution().equals(defaultLsg)
+                                                && problem10.solve().equals(problem10.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem11() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem11 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem11).findFirst()
-                .get();
-
-        assertTrue(problem11.getSolution().equals(defaultLsg) == false && problem11.solve().equals(problem11.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem11.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem11 ->
+                                Assertions.assertTrue(
+                                        !problem11.getSolution().equals(defaultLsg)
+                                                && problem11.solve().equals(problem11.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem12() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem12 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem12).findFirst()
-                .get();
-
-        assertTrue(problem12.getSolution().equals(defaultLsg) == false && problem12.solve().equals(problem12.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem12.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem12 ->
+                                Assertions.assertTrue(
+                                        !problem12.getSolution().equals(defaultLsg)
+                                                && problem12.solve().equals(problem12.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem13() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem13 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem13).findFirst()
-                .get();
-
-        assertTrue(problem13.getSolution().equals(defaultLsg) == false && problem13.solve().equals(problem13.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem13.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem13 ->
+                                Assertions.assertTrue(
+                                        !problem13.getSolution().equals(defaultLsg)
+                                                && problem13.solve().equals(problem13.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem14() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem14 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem14).findFirst()
-                .get();
-
-        assertTrue(problem14.getSolution().equals(defaultLsg) == false && problem14.solve().equals(problem14.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem14.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem14 ->
+                                Assertions.assertTrue(
+                                        !problem14.getSolution().equals(defaultLsg)
+                                                && problem14.solve().equals(problem14.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem15() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem15 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem15).findFirst()
-                .get();
-
-        assertTrue(problem15.getSolution().equals(defaultLsg) == false && problem15.solve().equals(problem15.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem15.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem15 ->
+                                Assertions.assertTrue(
+                                        !problem15.getSolution().equals(defaultLsg)
+                                                && problem15.solve().equals(problem15.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem16() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem16 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem16).findFirst()
-                .get();
-
-        assertTrue(problem16.getSolution().equals(defaultLsg) == false && problem16.solve().equals(problem16.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem16.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem16 ->
+                                Assertions.assertTrue(
+                                        !problem16.getSolution().equals(defaultLsg)
+                                                && problem16.solve().equals(problem16.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem17() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem17 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem17).findFirst()
-                .get();
-
-        assertTrue(problem17.getSolution().equals(defaultLsg) == false && problem17.solve().equals(problem17.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem17.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem17 ->
+                                Assertions.assertTrue(
+                                        !problem17.getSolution().equals(defaultLsg)
+                                                && problem17.solve().equals(problem17.getSolution())),
+                        Assertions::fail);
     }
     //	@Test
     public void testProblem18() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem18 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem18).findFirst()
-                .get();
-
-        assertTrue(problem18.getSolution().equals(defaultLsg) == false && problem18.solve().equals(problem18.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem18.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem18 ->
+                                Assertions.assertTrue(
+                                        !problem18.getSolution().equals(defaultLsg)
+                                                && problem18.solve().equals(problem18.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem19() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem19 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem19).findFirst()
-                .get();
-
-        assertTrue(problem19.getSolution().equals(defaultLsg) == false && problem19.solve().equals(problem19.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem19.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem19 ->
+                                Assertions.assertTrue(
+                                        !problem19.getSolution().equals(defaultLsg)
+                                                && problem19.solve().equals(problem19.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem20() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem20 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem20).findFirst()
-                .get();
-
-        assertTrue(problem20.getSolution().equals(defaultLsg) == false && problem20.solve().equals(problem20.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem20.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem20 ->
+                                Assertions.assertTrue(
+                                        !problem20.getSolution().equals(defaultLsg)
+                                                && problem20.solve().equals(problem20.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem21() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem21 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem21).findFirst()
-                .get();
-
-        assertTrue(problem21.getSolution().equals(defaultLsg) == false && problem21.solve().equals(problem21.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem21.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem21 ->
+                                Assertions.assertTrue(
+                                        !problem21.getSolution().equals(defaultLsg)
+                                                && problem21.solve().equals(problem21.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem22() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem22 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem22).findFirst()
-                .get();
-
-        assertTrue(problem22.getSolution().equals(defaultLsg) == false && problem22.solve().equals(problem22.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem22.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem22 ->
+                                Assertions.assertTrue(
+                                        !problem22.getSolution().equals(defaultLsg)
+                                                && problem22.solve().equals(problem22.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem23() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem23 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem23).findFirst()
-                .get();
-
-        assertTrue(problem23.getSolution().equals(defaultLsg) == false && problem23.solve().equals(problem23.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem23.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem23 ->
+                                Assertions.assertTrue(
+                                        !problem23.getSolution().equals(defaultLsg)
+                                                && problem23.solve().equals(problem23.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem24() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem24 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem24).findFirst()
-                .get();
-
-        assertTrue(problem24.getSolution().equals(defaultLsg) == false && problem24.solve().equals(problem24.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem24.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem24 ->
+                                Assertions.assertTrue(
+                                        !problem24.getSolution().equals(defaultLsg)
+                                                && problem24.solve().equals(problem24.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem25() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem25 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem25).findFirst()
-                .get();
-
-        assertTrue(problem25.getSolution().equals(defaultLsg) == false && problem25.solve().equals(problem25.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem25.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem25 ->
+                                Assertions.assertTrue(
+                                        !problem25.getSolution().equals(defaultLsg)
+                                                && problem25.solve().equals(problem25.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem26() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem26 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem26).findFirst()
-                .get();
-
-        assertTrue(problem26.getSolution().equals(defaultLsg) == false && problem26.solve().equals(problem26.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem26.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem26 ->
+                                Assertions.assertTrue(
+                                        !problem26.getSolution().equals(defaultLsg)
+                                                && problem26.solve().equals(problem26.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem27() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem27 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem27).findFirst()
-                .get();
-
-        assertTrue(problem27.getSolution().equals(defaultLsg) == false && problem27.solve().equals(problem27.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem27.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem27 ->
+                                Assertions.assertTrue(
+                                        !problem27.getSolution().equals(defaultLsg)
+                                                && problem27.solve().equals(problem27.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem28() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem28 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem28).findFirst()
-                .get();
-
-        assertTrue(problem28.getSolution().equals(defaultLsg) == false && problem28.solve().equals(problem28.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem28.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem28 ->
+                                Assertions.assertTrue(
+                                        !problem28.getSolution().equals(defaultLsg)
+                                                && problem28.solve().equals(problem28.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem29() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem29 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem29).findFirst()
-                .get();
-
-        assertTrue(problem29.getSolution().equals(defaultLsg) == false && problem29.solve().equals(problem29.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem29.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem29 ->
+                                Assertions.assertTrue(
+                                        !problem29.getSolution().equals(defaultLsg)
+                                                && problem29.solve().equals(problem29.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem30() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem30 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem30).findFirst()
-                .get();
-
-        assertTrue(problem30.getSolution().equals(defaultLsg) == false && problem30.solve().equals(problem30.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem30.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem30 ->
+                                Assertions.assertTrue(
+                                        !problem30.getSolution().equals(defaultLsg)
+                                                && problem30.solve().equals(problem30.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem31() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem31 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem31).findFirst()
-                .get();
-
-        assertTrue(problem31.getSolution().equals(defaultLsg) == false && problem31.solve().equals(problem31.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem31.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem31 ->
+                                Assertions.assertTrue(
+                                        !problem31.getSolution().equals(defaultLsg)
+                                                && problem31.solve().equals(problem31.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem32() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem32 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem32).findFirst()
-                .get();
-
-        assertTrue(problem32.getSolution().equals(defaultLsg) == false && problem32.solve().equals(problem32.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem32.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem32 ->
+                                Assertions.assertTrue(
+                                        !problem32.getSolution().equals(defaultLsg)
+                                                && problem32.solve().equals(problem32.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem33() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem33 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem33).findFirst()
-                .get();
-
-        assertTrue(problem33.getSolution().equals(defaultLsg) == false && problem33.solve().equals(problem33.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem33.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem33 ->
+                                Assertions.assertTrue(
+                                        !problem33.getSolution().equals(defaultLsg)
+                                                && problem33.solve().equals(problem33.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem34() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem34 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem34).findFirst()
-                .get();
-
-        assertTrue(problem34.getSolution().equals(defaultLsg) == false && problem34.solve().equals(problem34.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem34.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem34 ->
+                                Assertions.assertTrue(
+                                        !problem34.getSolution().equals(defaultLsg)
+                                                && problem34.solve().equals(problem34.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem35() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem35 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem35).findFirst()
-                .get();
-
-        assertTrue(problem35.getSolution().equals(defaultLsg) == false && problem35.solve().equals(problem35.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem35.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem35 ->
+                                Assertions.assertTrue(
+                                        !problem35.getSolution().equals(defaultLsg)
+                                                && problem35.solve().equals(problem35.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem36() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem36 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem36).findFirst()
-                .get();
-
-        assertTrue(problem36.getSolution().equals(defaultLsg) == false && problem36.solve().equals(problem36.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem36.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem36 ->
+                                Assertions.assertTrue(
+                                        !problem36.getSolution().equals(defaultLsg)
+                                                && problem36.solve().equals(problem36.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem37() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem37 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem37).findFirst()
-                .get();
-
-        assertTrue(problem37.getSolution().equals(defaultLsg) == false && problem37.solve().equals(problem37.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem37.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem37 ->
+                                Assertions.assertTrue(
+                                        !problem37.getSolution().equals(defaultLsg)
+                                                && problem37.solve().equals(problem37.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem38() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem38 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem38).findFirst()
-                .get();
-
-        assertTrue(problem38.getSolution().equals(defaultLsg) == false && problem38.solve().equals(problem38.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem38.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem38 ->
+                                Assertions.assertTrue(
+                                        !problem38.getSolution().equals(defaultLsg)
+                                                && problem38.solve().equals(problem38.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem39() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem39 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem39).findFirst()
-                .get();
-
-        assertTrue(problem39.getSolution().equals(defaultLsg) == false && problem39.solve().equals(problem39.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem39.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem39 ->
+                                Assertions.assertTrue(
+                                        !problem39.getSolution().equals(defaultLsg)
+                                                && problem39.solve().equals(problem39.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem40() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem40 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem40).findFirst()
-                .get();
-
-        assertTrue(problem40.getSolution().equals(defaultLsg) == false && problem40.solve().equals(problem40.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem40.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem40 ->
+                                Assertions.assertTrue(
+                                        !problem40.getSolution().equals(defaultLsg)
+                                                && problem40.solve().equals(problem40.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem41() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem41 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem41).findFirst()
-                .get();
-
-        assertTrue(problem41.getSolution().equals(defaultLsg) == false && problem41.solve().equals(problem41.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem41.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem41 ->
+                                Assertions.assertTrue(
+                                        !problem41.getSolution().equals(defaultLsg)
+                                                && problem41.solve().equals(problem41.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem42() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem42 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem42).findFirst()
-                .get();
-
-        assertTrue(problem42.getSolution().equals(defaultLsg) == false && problem42.solve().equals(problem42.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem42.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem42 ->
+                                Assertions.assertTrue(
+                                        !problem42.getSolution().equals(defaultLsg)
+                                                && problem42.solve().equals(problem42.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem43() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem43 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem43).findFirst()
-                .get();
-
-        assertTrue(problem43.getSolution().equals(defaultLsg) == false && problem43.solve().equals(problem43.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem43.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem43 ->
+                                Assertions.assertTrue(
+                                        !problem43.getSolution().equals(defaultLsg)
+                                                && problem43.solve().equals(problem43.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem44() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem44 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem44).findFirst()
-                .get();
-
-        assertTrue(problem44.getSolution().equals(defaultLsg) == false && problem44.solve().equals(problem44.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem44.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem44 ->
+                                Assertions.assertTrue(
+                                        !problem44.getSolution().equals(defaultLsg)
+                                                && problem44.solve().equals(problem44.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem45() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem45 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem45).findFirst()
-                .get();
-
-        assertTrue(problem45.getSolution().equals(defaultLsg) == false && problem45.solve().equals(problem45.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem45.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem45 ->
+                                Assertions.assertTrue(
+                                        !problem45.getSolution().equals(defaultLsg)
+                                                && problem45.solve().equals(problem45.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem46() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem46 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem46).findFirst()
-                .get();
-
-        assertTrue(problem46.getSolution().equals(defaultLsg) == false && problem46.solve().equals(problem46.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem46.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem46 ->
+                                Assertions.assertTrue(
+                                        !problem46.getSolution().equals(defaultLsg)
+                                                && problem46.solve().equals(problem46.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem47() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem47 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem47).findFirst()
-                .get();
-
-        assertTrue(problem47.getSolution().equals(defaultLsg) == false && problem47.solve().equals(problem47.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem47.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem47 ->
+                                Assertions.assertTrue(
+                                        !problem47.getSolution().equals(defaultLsg)
+                                                && problem47.solve().equals(problem47.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem48() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem48 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem48).findFirst()
-                .get();
-
-        assertTrue(problem48.getSolution().equals(defaultLsg) == false && problem48.solve().equals(problem48.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem48.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem48 ->
+                                Assertions.assertTrue(
+                                        !problem48.getSolution().equals(defaultLsg)
+                                                && problem48.solve().equals(problem48.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem49() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem49 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem49).findFirst()
-                .get();
-
-        assertTrue(problem49.getSolution().equals(defaultLsg) == false && problem49.solve().equals(problem49.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem49.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem49 ->
+                                Assertions.assertTrue(
+                                        !problem49.getSolution().equals(defaultLsg)
+                                                && problem49.solve().equals(problem49.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem50() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem50 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem50).findFirst()
-                .get();
-
-        assertTrue(problem50.getSolution().equals(defaultLsg) == false && problem50.solve().equals(problem50.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem50.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem50 ->
+                                Assertions.assertTrue(
+                                        !problem50.getSolution().equals(defaultLsg)
+                                                && problem50.solve().equals(problem50.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem51() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem51 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem51).findFirst()
-                .get();
-
-        assertTrue(problem51.getSolution().equals(defaultLsg) == false && problem51.solve().equals(problem51.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem51.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem51 ->
+                                Assertions.assertTrue(
+                                        !problem51.getSolution().equals(defaultLsg)
+                                                && problem51.solve().equals(problem51.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem52() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem52 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem52).findFirst()
-                .get();
-
-        assertTrue(problem52.getSolution().equals(defaultLsg) == false && problem52.solve().equals(problem52.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem52.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem52 ->
+                                Assertions.assertTrue(
+                                        !problem52.getSolution().equals(defaultLsg)
+                                                && problem52.solve().equals(problem52.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem53() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem53 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem53).findFirst()
-                .get();
-
-        assertTrue(problem53.getSolution().equals(defaultLsg) == false && problem53.solve().equals(problem53.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem53.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem53 ->
+                                Assertions.assertTrue(
+                                        !problem53.getSolution().equals(defaultLsg)
+                                                && problem53.solve().equals(problem53.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem55() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem55 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem55).findFirst()
-                .get();
-
-        assertTrue(problem55.getSolution().equals(defaultLsg) == false && problem55.solve().equals(problem55.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem55.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem55 ->
+                                Assertions.assertTrue(
+                                        !problem55.getSolution().equals(defaultLsg)
+                                                && problem55.solve().equals(problem55.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem56() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem56 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem56).findFirst()
-                .get();
-
-        assertTrue(problem56.getSolution().equals(defaultLsg) == false && problem56.solve().equals(problem56.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem56.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem56 ->
+                                Assertions.assertTrue(
+                                        !problem56.getSolution().equals(defaultLsg)
+                                                && problem56.solve().equals(problem56.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem57() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem57 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem57).findFirst()
-                .get();
-
-        assertTrue(problem57.getSolution().equals(defaultLsg) == false && problem57.solve().equals(problem57.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem57.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem57 ->
+                                Assertions.assertTrue(
+                                        !problem57.getSolution().equals(defaultLsg)
+                                                && problem57.solve().equals(problem57.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem58() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem58 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem58).findFirst()
-                .get();
-
-        assertTrue(problem58.getSolution().equals(defaultLsg) == false && problem58.solve().equals(problem58.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem58.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem58 ->
+                                Assertions.assertTrue(
+                                        !problem58.getSolution().equals(defaultLsg)
+                                                && problem58.solve().equals(problem58.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem59() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem59 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem59).findFirst()
-                .get();
-
-        assertTrue(problem59.getSolution().equals(defaultLsg) == false && problem59.solve().equals(problem59.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem59.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem59 ->
+                                Assertions.assertTrue(
+                                        !problem59.getSolution().equals(defaultLsg)
+                                                && problem59.solve().equals(problem59.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem60() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem60 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem60).findFirst()
-                .get();
-
-        assertTrue(problem60.getSolution().equals(defaultLsg) == false && problem60.solve().equals(problem60.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem60.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem60 ->
+                                Assertions.assertTrue(
+                                        !problem60.getSolution().equals(defaultLsg)
+                                                && problem60.solve().equals(problem60.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem61() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem61 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem61).findFirst()
-                .get();
-
-        assertTrue(problem61.getSolution().equals(defaultLsg) == false && problem61.solve().equals(problem61.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem61.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem61 ->
+                                Assertions.assertTrue(
+                                        !problem61.getSolution().equals(defaultLsg)
+                                                && problem61.solve().equals(problem61.getSolution())),
+                        Assertions::fail);
     }
     @Test
     public void testProblem62() {
-
-        List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);
-
-        IProblem problem62 = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof Problem62).findFirst()
-                .get();
-
-        assertTrue(problem62.getSolution().equals(defaultLsg) == false && problem62.solve().equals(problem62.getSolution()));
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem62.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem62 ->
+                                Assertions.assertTrue(
+                                        !problem62.getSolution().equals(defaultLsg)
+                                                && problem62.solve().equals(problem62.getSolution())),
+                        Assertions::fail);
+    }
+    @Test
+    public void testProblem63() {
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Problem63.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(problem63 ->
+                                Assertions.assertTrue(
+                                        !problem63.getSolution().equals(defaultLsg)
+                                                && problem63.solve().equals(problem63.getSolution())),
+                        Assertions::fail);
     }}

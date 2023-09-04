@@ -64,18 +64,20 @@ public class DTestWriter {
 		String varName = problemName.toLowerCase();
 		String testOrNot = problemKinder.contains(problemName) == false ? "\n	@Test\r\n" : "\n//	@Test\r\n";
 
-		// @formatter:off
-		strBu.append(""+testOrNot
-				+ "	public void test"+problemName+"() {\r\n"
-				+ "\r\n"
-				+ "		List<IProblem> allProblems = DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class);\r\n"
-				+ "\r\n"
-				+ "		IProblem "+varName+" = allProblems.stream().filter(tmpProbelem -> tmpProbelem instanceof "+problemName+").findFirst()\r\n"
-				+ "				.get();\r\n"
-				+ "\r\n"
-				+ "		assertTrue("+varName+".getSolution().equals(defaultLsg) == false && "+varName+".solve().equals("+varName+".getSolution()));\r\n"
-				+ "	}");
-		// @formatter:on
+		strBu.append(""+testOrNot+
+				"	public void test"+problemName+"() {\n"+
+				"        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)\n" +
+				"                .stream()\n" +
+				"                .filter("+problemName+".class::isInstance)\n" +
+				"                .findFirst()\n" +
+				"                .ifPresentOrElse("+varName+" ->\n" +
+				"                        Assertions.assertTrue(\n" +
+				"                                  !"+varName+".getSolution().equals(defaultLsg)\n" +
+				"                                        && "+varName+".solve().equals("+varName+".getSolution())),\n" +
+				"                          Assertions::fail);\n"+
+				"	}");
+
+
 
 		return strBu;
 	}
