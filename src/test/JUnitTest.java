@@ -1,14 +1,8 @@
 package test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import problems.*;
+import problems.PathSlave;
 import problems.p001TOp010.p001.Problem1;
 import problems.p001TOp010.p002.Problem2;
 import problems.p001TOp010.p003.Problem3;
@@ -73,9 +67,11 @@ import problems.p061TOp070.p062.Problem62;
 import problems.p061TOp070.p063.Problem63;
 import util.DLoader;
 import util.IProblem;
+
 public class JUnitTest {
 
     private String defaultLsg = String.valueOf(Integer.MIN_VALUE);
+
     @Test
     public void testProblem1() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -88,6 +84,7 @@ public class JUnitTest {
                                                 && problem1.solve().equals(problem1.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem2() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -100,6 +97,7 @@ public class JUnitTest {
                                                 && problem2.solve().equals(problem2.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem3() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -112,6 +110,7 @@ public class JUnitTest {
                                                 && problem3.solve().equals(problem3.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem4() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -124,6 +123,7 @@ public class JUnitTest {
                                                 && problem4.solve().equals(problem4.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem5() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -136,6 +136,7 @@ public class JUnitTest {
                                                 && problem5.solve().equals(problem5.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem6() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -148,6 +149,7 @@ public class JUnitTest {
                                                 && problem6.solve().equals(problem6.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem7() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -160,6 +162,7 @@ public class JUnitTest {
                                                 && problem7.solve().equals(problem7.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem8() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -172,6 +175,7 @@ public class JUnitTest {
                                                 && problem8.solve().equals(problem8.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem9() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -184,6 +188,7 @@ public class JUnitTest {
                                                 && problem9.solve().equals(problem9.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem10() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -196,6 +201,7 @@ public class JUnitTest {
                                                 && problem10.solve().equals(problem10.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem11() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -208,6 +214,7 @@ public class JUnitTest {
                                                 && problem11.solve().equals(problem11.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem12() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -220,6 +227,7 @@ public class JUnitTest {
                                                 && problem12.solve().equals(problem12.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem13() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -232,6 +240,7 @@ public class JUnitTest {
                                                 && problem13.solve().equals(problem13.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem14() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -244,6 +253,7 @@ public class JUnitTest {
                                                 && problem14.solve().equals(problem14.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem15() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -256,6 +266,7 @@ public class JUnitTest {
                                                 && problem15.solve().equals(problem15.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem16() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -268,6 +279,7 @@ public class JUnitTest {
                                                 && problem16.solve().equals(problem16.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem17() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -280,6 +292,7 @@ public class JUnitTest {
                                                 && problem17.solve().equals(problem17.getSolution())),
                         Assertions::fail);
     }
+
     //	@Test
     public void testProblem18() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -292,6 +305,7 @@ public class JUnitTest {
                                                 && problem18.solve().equals(problem18.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem19() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -304,6 +318,7 @@ public class JUnitTest {
                                                 && problem19.solve().equals(problem19.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem20() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -316,6 +331,7 @@ public class JUnitTest {
                                                 && problem20.solve().equals(problem20.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem21() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -328,6 +344,7 @@ public class JUnitTest {
                                                 && problem21.solve().equals(problem21.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem22() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -340,6 +357,7 @@ public class JUnitTest {
                                                 && problem22.solve().equals(problem22.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem23() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -352,6 +370,7 @@ public class JUnitTest {
                                                 && problem23.solve().equals(problem23.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem24() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -364,6 +383,7 @@ public class JUnitTest {
                                                 && problem24.solve().equals(problem24.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem25() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -376,6 +396,7 @@ public class JUnitTest {
                                                 && problem25.solve().equals(problem25.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem26() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -388,6 +409,7 @@ public class JUnitTest {
                                                 && problem26.solve().equals(problem26.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem27() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -400,6 +422,7 @@ public class JUnitTest {
                                                 && problem27.solve().equals(problem27.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem28() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -412,6 +435,7 @@ public class JUnitTest {
                                                 && problem28.solve().equals(problem28.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem29() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -424,6 +448,7 @@ public class JUnitTest {
                                                 && problem29.solve().equals(problem29.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem30() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -436,6 +461,7 @@ public class JUnitTest {
                                                 && problem30.solve().equals(problem30.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem31() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -448,6 +474,7 @@ public class JUnitTest {
                                                 && problem31.solve().equals(problem31.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem32() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -460,6 +487,7 @@ public class JUnitTest {
                                                 && problem32.solve().equals(problem32.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem33() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -472,6 +500,7 @@ public class JUnitTest {
                                                 && problem33.solve().equals(problem33.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem34() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -484,6 +513,7 @@ public class JUnitTest {
                                                 && problem34.solve().equals(problem34.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem35() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -496,6 +526,7 @@ public class JUnitTest {
                                                 && problem35.solve().equals(problem35.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem36() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -508,6 +539,7 @@ public class JUnitTest {
                                                 && problem36.solve().equals(problem36.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem37() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -520,6 +552,7 @@ public class JUnitTest {
                                                 && problem37.solve().equals(problem37.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem38() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -532,6 +565,7 @@ public class JUnitTest {
                                                 && problem38.solve().equals(problem38.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem39() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -544,6 +578,7 @@ public class JUnitTest {
                                                 && problem39.solve().equals(problem39.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem40() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -556,6 +591,7 @@ public class JUnitTest {
                                                 && problem40.solve().equals(problem40.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem41() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -568,6 +604,7 @@ public class JUnitTest {
                                                 && problem41.solve().equals(problem41.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem42() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -580,6 +617,7 @@ public class JUnitTest {
                                                 && problem42.solve().equals(problem42.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem43() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -592,6 +630,7 @@ public class JUnitTest {
                                                 && problem43.solve().equals(problem43.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem44() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -604,6 +643,7 @@ public class JUnitTest {
                                                 && problem44.solve().equals(problem44.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem45() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -616,6 +656,7 @@ public class JUnitTest {
                                                 && problem45.solve().equals(problem45.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem46() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -628,6 +669,7 @@ public class JUnitTest {
                                                 && problem46.solve().equals(problem46.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem47() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -640,6 +682,7 @@ public class JUnitTest {
                                                 && problem47.solve().equals(problem47.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem48() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -652,6 +695,7 @@ public class JUnitTest {
                                                 && problem48.solve().equals(problem48.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem49() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -664,6 +708,7 @@ public class JUnitTest {
                                                 && problem49.solve().equals(problem49.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem50() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -676,6 +721,7 @@ public class JUnitTest {
                                                 && problem50.solve().equals(problem50.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem51() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -688,6 +734,7 @@ public class JUnitTest {
                                                 && problem51.solve().equals(problem51.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem52() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -700,6 +747,7 @@ public class JUnitTest {
                                                 && problem52.solve().equals(problem52.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem53() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -712,6 +760,7 @@ public class JUnitTest {
                                                 && problem53.solve().equals(problem53.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem55() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -724,6 +773,7 @@ public class JUnitTest {
                                                 && problem55.solve().equals(problem55.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem56() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -736,6 +786,7 @@ public class JUnitTest {
                                                 && problem56.solve().equals(problem56.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem57() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -748,6 +799,7 @@ public class JUnitTest {
                                                 && problem57.solve().equals(problem57.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem58() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -760,6 +812,7 @@ public class JUnitTest {
                                                 && problem58.solve().equals(problem58.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem59() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -772,6 +825,7 @@ public class JUnitTest {
                                                 && problem59.solve().equals(problem59.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem60() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -784,6 +838,7 @@ public class JUnitTest {
                                                 && problem60.solve().equals(problem60.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem61() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -796,6 +851,7 @@ public class JUnitTest {
                                                 && problem61.solve().equals(problem61.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem62() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -808,6 +864,7 @@ public class JUnitTest {
                                                 && problem62.solve().equals(problem62.getSolution())),
                         Assertions::fail);
     }
+
     @Test
     public void testProblem63() {
         DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
@@ -819,4 +876,5 @@ public class JUnitTest {
                                         !problem63.getSolution().equals(defaultLsg)
                                                 && problem63.solve().equals(problem63.getSolution())),
                         Assertions::fail);
-    }}
+    }
+}
