@@ -1,11 +1,8 @@
 package util;
 
+import calendar.y23.d02.Door23_02;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
-import problems.p051TOp060.p060.Problem60;
-import problems.p061TOp070.p061.Problem61;
-import problems.p061TOp070.p062.Problem62;
-import problems.p061TOp070.p063.Problem63;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,7 +16,7 @@ public class TestEuler {
 
         final Runtime rt = Runtime.getRuntime();
 
-        final IProblem problem = new Problem63();
+        final IProblem problem = new Door23_02();
 
         final int iterations = problem.getIterations();
         final String averageString = iterations > 1 ? "Average " : "";
