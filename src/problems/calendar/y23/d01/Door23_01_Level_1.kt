@@ -1,13 +1,11 @@
-package calendar.y23.d01
+package problems.calendar.y23.d01
 
 import util.IProblem
 import java.io.File
 
-class Door23_01 : IProblem {
+class Door23_01_Level_1 : IProblem {
 
-   override fun getSolution(): String {
-      return "54632"
-   }
+   override fun getSolution() = "54632"
 
    override fun solve() = File(this.javaClass.getResource("input.txt")!!.file)
       .readText()
