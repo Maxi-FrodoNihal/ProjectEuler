@@ -14,7 +14,14 @@ class Door23_03_Level_2 : IProblem {
       val inputFile = File(this.javaClass.getResource("input.txt")!!.file)
       val digitGroups = generateDigitGroups(inputFile)
 
-      val gearCoordinates = digitGroups.map { digitGroup ->
+      val digitGroupsWithGears = digitGroups.filter { digitGroup ->
+         digitGroup.any { coordinateWithNeighbour ->
+            coordinateWithNeighbour.getNeighbours()
+               .any(CoordinatesWithNeighbours::isGear)
+         }
+      }
+
+      val gearCoordinates = digitGroupsWithGears.map { digitGroup ->
          digitGroup.map { coordinateWithNeighbour ->
             coordinateWithNeighbour.getNeighbours()
                .filter(CoordinatesWithNeighbours::isGear)
@@ -23,16 +30,17 @@ class Door23_03_Level_2 : IProblem {
       }.flatten()
          .toSet()
 
-      return gearCoordinates.map{gearCoordinate ->
-         digitGroups.filter { digitGroup ->
+      return gearCoordinates.parallelStream().map{gearCoordinate ->
+         digitGroupsWithGears.filter { digitGroup ->
             digitGroup.any { coordinateWithNeighbour ->
                coordinateWithNeighbour.getNeighbours().any { neighbour ->
                   neighbour.x == gearCoordinate.first &&
-                          neighbour.y == gearCoordinate.second
+                  neighbour.y == gearCoordinate.second
                }
             }
          }.map(::digitGroupToInt)
       }.filter { it.size > 1 }
+         .toList()
          .sumOf { it.reduce { acc, num -> acc * num }}
          .toString()
    }
