@@ -3,10 +3,10 @@ package problems.calendar.y23.d03
 import util.IProblem
 import java.io.File
 
-class Door23_03_Level_1 : IProblem {
+class Door23_03_Level_2 : IProblem {
 
    override fun getSolution(): String {
-      return "539590"
+      return "80703636"
    }
 
    override fun solve(): String {
@@ -14,13 +14,27 @@ class Door23_03_Level_1 : IProblem {
       val inputFile = File(this.javaClass.getResource("input.txt")!!.file)
       val digitGroups = generateDigitGroups(inputFile)
 
-      val signNeighbourDigitGroups = digitGroups.filter { digitGroup ->
-         digitGroup.any { digitElement ->
-            digitElement.getNeighbours().any(CoordinatesWithNeighbours::isSign)
-         }
-      }
+      val gearCoordinates = digitGroups.map { digitGroup ->
+         digitGroup.map { coordinateWithNeighbour ->
+            coordinateWithNeighbour.getNeighbours()
+               .filter(CoordinatesWithNeighbours::isGear)
+               .map { Pair(it.x, it.y) }
+         }.flatten()
+      }.flatten()
+         .toSet()
 
-      return signNeighbourDigitGroups.map(::digitGroupToInt).sum().toString()
+      return gearCoordinates.map{gearCoordinate ->
+         digitGroups.filter { digitGroup ->
+            digitGroup.any { coordinateWithNeighbour ->
+               coordinateWithNeighbour.getNeighbours().any { neighbour ->
+                  neighbour.x == gearCoordinate.first &&
+                          neighbour.y == gearCoordinate.second
+               }
+            }
+         }.map(::digitGroupToInt)
+      }.filter { it.size > 1 }
+         .sumOf { it.reduce { acc, num -> acc * num }}
+         .toString()
    }
 
    private fun generateDigitGroups(inputFile: File): MutableList<List<CoordinatesWithNeighbours>> {

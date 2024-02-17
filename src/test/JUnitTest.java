@@ -8,6 +8,8 @@ import problems.calendar.y23.d01.Door23_01_Level_1;
 import problems.calendar.y23.d01.Door23_01_Level_2;
 import problems.calendar.y23.d02.Door23_02_Level_1;
 import problems.calendar.y23.d02.Door23_02_Level_2;
+import problems.calendar.y23.d03.Door23_03_Level_1;
+import problems.calendar.y23.d03.Door23_03_Level_2;
 import problems.p001TOp010.p001.Problem1;
 import problems.p001TOp010.p002.Problem2;
 import problems.p001TOp010.p003.Problem3;
@@ -121,6 +123,30 @@ public class JUnitTest {
                                 Assertions.assertTrue(
                                         !door23_02_level_2.getSolution().equals(defaultLsg)
                                                 && door23_02_level_2.solve().equals(door23_02_level_2.getSolution())),
+                        Assertions::fail);
+    }
+    @Test
+    public void testDoor23_03_Level_1() {
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Door23_03_Level_1.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(door23_03_level_1 ->
+                                Assertions.assertTrue(
+                                        !door23_03_level_1.getSolution().equals(defaultLsg)
+                                                && door23_03_level_1.solve().equals(door23_03_level_1.getSolution())),
+                        Assertions::fail);
+    }
+    @Test
+    public void testDoor23_03_Level_2() {
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Door23_03_Level_2.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(door23_03_level_2 ->
+                                Assertions.assertTrue(
+                                        !door23_03_level_2.getSolution().equals(defaultLsg)
+                                                && door23_03_level_2.solve().equals(door23_03_level_2.getSolution())),
                         Assertions::fail);
     }
     @Test

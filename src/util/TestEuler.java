@@ -1,10 +1,12 @@
 package util;
 
+import kotlin.KotlinVersion;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 import problems.calendar.y23.d02.Door23_02_Level_1;
 import problems.calendar.y23.d02.Door23_02_Level_2;
 import problems.calendar.y23.d03.Door23_03_Level_1;
+import problems.calendar.y23.d03.Door23_03_Level_2;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,7 +20,7 @@ public class TestEuler {
 
         final Runtime rt = Runtime.getRuntime();
 
-        final IProblem problem = new Door23_03_Level_1();
+        final IProblem problem = new Door23_03_Level_2();
 
         final int iterations = problem.getIterations();
         final String averageString = iterations > 1 ? "Average " : "";
@@ -49,7 +51,7 @@ public class TestEuler {
                 + timeList.stream().collect(Collectors.averagingLong(Long::longValue)));
         System.out.println(averageString + "Used RAM: "
                 + ramList.stream().collect(Collectors.averagingDouble(Double::doubleValue)) + " MB");
-
+        System.out.println("JV/KV: "+System.getProperty("java.version")+" / "+KotlinVersion.CURRENT);
     }
 
     public static Triple<Long, Double, String> solveProblemWithMetrics(final IProblem problem, final Runtime rt) {
