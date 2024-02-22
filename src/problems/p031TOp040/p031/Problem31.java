@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 import util.IProblem;
 
@@ -38,42 +39,39 @@ public class Problem31 implements IProblem {
 					for (int twenty = 0; twenty <= 10; ++twenty) {
 
 						final int realTwenty = Money.TwentyPennys.getPennys();
-						for (int ten = 0; ten <= 20; ++ten) {
+						int finalTwoH = twoH;
+						int finalOneH = oneH;
+						int finalFifty = fifty;
+						int finalTwenty = twenty;
+						IntStream.rangeClosed(0, 20).forEach(ten -> {
+							int realTen = Money.TenPennys.getPennys();
+							for (int five = 0; five <= 40; five++) {
+								int realFive = Money.FivePennys.getPennys();
+								for (int two = 0; two <= 100; two++) {
+									int realTwo = Money.TwoPennys.getPennys();
+									for (int one = 0; one <= 200; one++) {
+										int realOne = Money.OnePenny.getPennys();
 
-							final int realTen = Money.TenPennys.getPennys();
-							for (int five = 0; five <= 40; ++five) {
-
-								final int realFive = Money.FivePennys.getPennys();
-								for (int two = 0; two <= 100; ++two) {
-
-									final int realTwo = Money.TwoPennys.getPennys();
-									for (int one = 0; one <= 200; ++one) {
-
-										final int realOne = Money.OnePenny.getPennys();
-
-										final int functionValue = realTwoH * twoH + realOneH * oneH + realFifty * fifty
-												+ realTwenty * twenty + realTen * ten + realFive * five + realTwo * two
-												+ realOne * one;
+										int functionValue = realTwoH * finalTwoH + realOneH * finalOneH + realFifty * finalFifty + realTwenty * finalTwenty + realTen * ten + realFive * five + realTwo * two + realOne * one;
 
 										if (functionValue == Money.TwoPounds.getPennys()) {
+											Map<Money, Integer> targetMap = new EnumMap<>(Money.class);
 
-											final Map<Money, Integer> targetMap = new EnumMap<>(Money.class);
-
-											targetMap.put(Money.TwoPounds, twoH);
-											targetMap.put(Money.OnePound, oneH);
-											targetMap.put(Money.FiftyPennys, fifty);
-											targetMap.put(Money.TwentyPennys, twenty);
+											targetMap.put(Money.TwoPounds, finalTwoH);
+											targetMap.put(Money.OnePound, finalOneH);
+											targetMap.put(Money.FiftyPennys, finalFifty);
+											targetMap.put(Money.TwentyPennys, finalTwenty);
 											targetMap.put(Money.TenPennys, ten);
 											targetMap.put(Money.FivePennys, five);
 											targetMap.put(Money.TwoPennys, two);
 											targetMap.put(Money.OnePenny, one);
 
-											this.possibleCollections.add(targetMap);
+											possibleCollections.add(targetMap);
 										}
 									}
 								}
 							}
-						}
+						});
 					}
 				}
 			}
