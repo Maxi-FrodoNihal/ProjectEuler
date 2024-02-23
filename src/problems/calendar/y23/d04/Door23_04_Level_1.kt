@@ -6,6 +6,10 @@ import java.io.File
 
 class Door23_04_Level_1 : IProblem {
 
+   override fun getSolution(): String {
+      return "25004"
+   }
+
    private fun lineToInts(line:String) =
       line.split(" ")
           .filter(String::isNotEmpty)
