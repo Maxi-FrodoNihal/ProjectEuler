@@ -1,6 +1,5 @@
 package test;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +11,7 @@ import problems.calendar.y23.d02.Door23_02_Level_2;
 import problems.calendar.y23.d03.Door23_03_Level_1;
 import problems.calendar.y23.d03.Door23_03_Level_2;
 import problems.calendar.y23.d04.Door23_04_Level_1;
+import problems.calendar.y23.d04.Door23_04_Level_2;
 import problems.p001TOp010.p001.Problem1;
 import problems.p001TOp010.p002.Problem2;
 import problems.p001TOp010.p003.Problem3;
@@ -161,6 +161,18 @@ public class JUnitTest {
                                 Assertions.assertTrue(
                                         !door23_04_level_1.getSolution().equals(defaultLsg)
                                                 && door23_04_level_1.solve().equals(door23_04_level_1.getSolution())),
+                        Assertions::fail);
+    }
+    @Test
+    public void testDoor23_04_Level_2() {
+        DLoader.loadInterfaceObjectsFromT(PathSlave.class, IProblem.class)
+                .stream()
+                .filter(Door23_04_Level_2.class::isInstance)
+                .findFirst()
+                .ifPresentOrElse(door23_04_level_2 ->
+                                Assertions.assertTrue(
+                                        !door23_04_level_2.getSolution().equals(defaultLsg)
+                                                && door23_04_level_2.solve().equals(door23_04_level_2.getSolution())),
                         Assertions::fail);
     }
     @Test
