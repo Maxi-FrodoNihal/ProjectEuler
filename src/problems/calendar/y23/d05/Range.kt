@@ -1,6 +1,6 @@
 package problems.calendar.y23.d05
 
-class Range(private val from:Long, private val to: Long) {
+class Range(val from:Long, val to: Long) {
 
    fun isInRange(value:Long) = value in from..to
 
