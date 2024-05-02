@@ -9,6 +9,9 @@ import problems.calendar.y23.d02.Door23_02_Level_2
 import problems.calendar.y23.d03.Door23_03_Level_1
 import problems.calendar.y23.d03.Door23_03_Level_2
 import problems.calendar.y23.d04.Door23_04_Level_1
+import problems.calendar.y23.d04.Door23_04_Level_2
+import problems.calendar.y23.d05.Door23_05_Level_1
+import problems.calendar.y23.d05.Door23_05_Level_2
 import problems.p001TOp010.p001.Problem1
 import problems.p001TOp010.p002.Problem2
 import problems.p001TOp010.p003.Problem3
@@ -159,6 +162,42 @@ class JUnitTest {
             Assertions.assertTrue(
                door23_04_level_1.getSolution() != defaultLsg
                        && door23_04_level_1.solve() == door23_04_level_1.getSolution()
+            )
+         }?: Assertions.fail()
+
+   @Test
+   fun testDoor23_04_Level_2() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door23_04_Level_2>()
+         .firstOrNull()
+         ?.let {door23_04_level_2 ->
+            Assertions.assertTrue(
+               door23_04_level_2.getSolution() != defaultLsg
+                       && door23_04_level_2.solve() == door23_04_level_2.getSolution()
+            )
+         }?: Assertions.fail()
+
+   @Test
+   fun testDoor23_05_Level_1() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door23_05_Level_1>()
+         .firstOrNull()
+         ?.let {door23_05_level_1 ->
+            Assertions.assertTrue(
+               door23_05_level_1.getSolution() != defaultLsg
+                       && door23_05_level_1.solve() == door23_05_level_1.getSolution()
+            )
+         }?: Assertions.fail()
+
+   @Test
+   fun testDoor23_05_Level_2() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door23_05_Level_2>()
+         .firstOrNull()
+         ?.let {door23_05_level_2 ->
+            Assertions.assertTrue(
+               door23_05_level_2.getSolution() != defaultLsg
+                       && door23_05_level_2.solve() == door23_05_level_2.getSolution()
             )
          }?: Assertions.fail()
 
