@@ -2,6 +2,8 @@
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.*
 import problems.PathSlave
+import problems.calendar.y22.d01.Door22_01_Level_1
+import problems.calendar.y22.d01.Door22_01_Level_2
 import problems.calendar.y23.d01.Door23_01_Level_1
 import problems.calendar.y23.d01.Door23_01_Level_2
 import problems.calendar.y23.d02.Door23_02_Level_1
@@ -80,6 +82,30 @@ import util.IProblem
 class JUnitTest {
 
    private val defaultLsg = Int.MIN_VALUE.toString()
+
+   @Test
+   fun testDoor22_01_Level_1() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door22_01_Level_1>()
+         .firstOrNull()
+         ?.let {door22_01_level_1 ->
+            Assertions.assertTrue(
+               door22_01_level_1.getSolution() != defaultLsg
+                       && door22_01_level_1.solve() == door22_01_level_1.getSolution()
+            )
+         }?: Assertions.fail()
+
+   @Test
+   fun testDoor22_01_Level_2() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door22_01_Level_2>()
+         .firstOrNull()
+         ?.let {door22_01_level_2 ->
+            Assertions.assertTrue(
+               door22_01_level_2.getSolution() != defaultLsg
+                       && door22_01_level_2.solve() == door22_01_level_2.getSolution()
+            )
+         }?: Assertions.fail()
 
    @Test
    fun testDoor23_01_Level_1() =

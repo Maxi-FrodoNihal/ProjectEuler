@@ -10,7 +10,7 @@ class Door22_01_Level_1 : IProblem {
    override fun solve() =
       File(this.javaClass.getResource("input.txt")!!.file)
          .readText()
-         .split(regex = Regex("""\r?\n\s*\r?\n"""))
+         .split("\n\n")
          .maxOfOrNull { it.lines().sumOf(String::toInt) }
          .toString()
 }
