@@ -3,6 +3,8 @@ package util;
 import kotlin.KotlinVersion;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
+import problems.calendar.y22.d01.Door22_01_Level_1;
+import problems.calendar.y22.d01.Door22_01_Level_2;
 import problems.calendar.y23.d05.Door23_05_Level_2;
 
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ public class TestEuler {
 
         final Runtime rt = Runtime.getRuntime();
 
-        final IProblem problem = new Door23_05_Level_2();
+        final IProblem problem = new Door22_01_Level_2();
 
         final int iterations = problem.getIterations();
         final String averageString = iterations > 1 ? "Average " : "";
