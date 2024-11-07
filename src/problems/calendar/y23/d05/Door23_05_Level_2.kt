@@ -3,24 +3,23 @@ package problems.calendar.y23.d05
 import util.IProblem
 import java.io.File
 
-class Door23_05_Level_2 :IProblem {
+class Door23_05_Level_2 : IProblem {
 
    override fun getSolution(): String {
       return "81956384"
    }
 
-   class FromToElement(val description:String , val from:Long, val to:Long)
+   class FromToElement(val description: String, val from: Long, val to: Long)
    class MasterLink(val description: String, val linkRangeList: List<LinkRange>)
-   class LinkRange(var srcRange:Range, var destRange:Range)
+   class LinkRange(var srcRange: Range, var destRange: Range)
 
    override fun solve(): String {
 
-      var rawLines = File(this.javaClass.getResource("input.txt")!!.file)
-         .readText()
+      var rawLines = this.readLocalFile("input.txt")
          .lines()
 
       val seeds = getSeeds(rawLines)
-      rawLines = rawLines.subList(2,rawLines.size)
+      rawLines = rawLines.subList(2, rawLines.size)
 
       var masterLinks = splitByElement(rawLines, "").map { list ->
          MasterLink(
@@ -37,12 +36,12 @@ class Door23_05_Level_2 :IProblem {
       do {
          ++returnLocation
          val currentSeed = getFromToList(returnLocation, masterLinks).last().to
-      }while (seeds.firstOrNull{it.isInRange(currentSeed)} == null)
+      } while (seeds.firstOrNull { it.isInRange(currentSeed) } == null)
 
       return returnLocation.toString()
    }
 
-   private fun getSeeds(rawLines:List<String>): List<Range> {
+   private fun getSeeds(rawLines: List<String>): List<Range> {
 
       val seeds = rawLines.get(0)
          .replace("seeds:", "")
@@ -52,32 +51,33 @@ class Door23_05_Level_2 :IProblem {
 
       val rangeList = mutableListOf<Range>()
 
-      for (i in seeds.indices step 2){
-         rangeList.add(Range(seeds.get(i), seeds.get(i)+seeds.get(i+1)))
+      for (i in seeds.indices step 2) {
+         rangeList.add(Range(seeds.get(i), seeds.get(i) + seeds.get(i + 1)))
       }
 
       return rangeList
    }
 
 
-   private fun <T> splitByElement(rawLines:List<T>, element:T): List<List<T>> {
+   private fun <T> splitByElement(rawLines: List<T>, element: T): List<List<T>> {
 
       val splitList = mutableListOf<List<T>>()
       var lastIndex = 0
 
-      rawLines.forEachIndexed{index, e ->
-         if(e == element){
-            splitList.add(rawLines.subList(lastIndex,index))
-            lastIndex=index+1
+      rawLines.forEachIndexed { index, e ->
+         if (e == element) {
+            splitList.add(rawLines.subList(lastIndex, index))
+            lastIndex = index + 1
          }
       }
 
       return splitList
    }
 
-   private fun convertToLinkRange(src:Long, dest:Long, step:Long) = LinkRange(Range(src, src+step),Range(dest, dest+step))
+   private fun convertToLinkRange(src: Long, dest: Long, step: Long) =
+      LinkRange(Range(src, src + step), Range(dest, dest + step))
 
-   private fun getFromToList(seed:Long, masterLinks:List<MasterLink>): List<FromToElement> {
+   private fun getFromToList(seed: Long, masterLinks: List<MasterLink>): List<FromToElement> {
 
       val fromToList = mutableListOf<FromToElement>()
       var currentKey = seed
@@ -87,7 +87,7 @@ class Door23_05_Level_2 :IProblem {
          var nextKey = currentKey
          val linkRange = masterLink.linkRangeList.firstOrNull { it.srcRange.isInRange(currentKey) }
 
-         if(linkRange != null){
+         if (linkRange != null) {
             nextKey = linkRange.destRange.getValueWithIndex(linkRange.srcRange.getRangeIndex(currentKey))
          }
 
@@ -101,9 +101,8 @@ class Door23_05_Level_2 :IProblem {
 
    private fun invertMasterLinks(masterLinks: List<MasterLink>): List<MasterLink> {
 
-      masterLinks.forEach {
-         masterLink -> masterLink.linkRangeList.forEach {
-            linkRange ->
+      masterLinks.forEach { masterLink ->
+         masterLink.linkRangeList.forEach { linkRange ->
 
             val copySrcRange = Range(linkRange.srcRange.from, linkRange.srcRange.to)
             val copyDestRange = Range(linkRange.destRange.from, linkRange.destRange.to)

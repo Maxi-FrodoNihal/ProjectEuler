@@ -10,8 +10,7 @@ class Door23_02_Level_2 : IProblem {
    override fun getSolution() = "87984"
 
    override fun solve() =
-    File(this.javaClass.getResource("input.txt")!!.file)
-      .readText()
+      this.readLocalFile("input.txt")
       .lines().map {it.split(":")[1].split(";")}
       .map { line ->
          line.map { section ->

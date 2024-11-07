@@ -22,8 +22,7 @@ class Door23_01_Level_2 : IProblem {
    override fun getSolution() = "54019"
 
    override fun solve() =
-      File(this.javaClass.getResource("input.txt")!!.file)
-         .readText()
+      this.readLocalFile("input.txt")
          .lines()
          .map(this::replaceNumberWord)
          .sumOf { e ->

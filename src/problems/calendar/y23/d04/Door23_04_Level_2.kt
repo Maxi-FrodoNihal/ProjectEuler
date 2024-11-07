@@ -16,8 +16,7 @@ class Door23_04_Level_2 : IProblem {
 
    override fun solve(): String {
 
-      val cardLines = File(this.javaClass.getResource("input.txt")!!.file)
-         .readText()
+      val cardLines = this.readLocalFile("input.txt")
          .lines()
 
       val copyList = MutableList(cardLines.size) { 1 }

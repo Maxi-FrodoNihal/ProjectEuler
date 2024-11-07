@@ -16,8 +16,7 @@ class Door23_04_Level_1 : IProblem {
           .map(String::toInt)
 
    override fun solve() =
-      File(this.javaClass.getResource("input.txt")!!.file)
-         .readText()
+      this.readLocalFile("input.txt")
          .lines() // Example Line: Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
          .map {
             val leftList = it.substring(10)

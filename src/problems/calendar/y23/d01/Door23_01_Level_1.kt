@@ -7,8 +7,7 @@ class Door23_01_Level_1 : IProblem {
 
    override fun getSolution() = "54632"
 
-   override fun solve() = File(this.javaClass.getResource("input.txt")!!.file)
-      .readText()
+   override fun solve() = this.readLocalFile("input.txt")
       .lines()
       .sumOf { e ->
          val letters = e.toList().map { it.toString() }

@@ -15,8 +15,7 @@ class Door23_05_Level_1 :IProblem {
 
    override fun solve(): String {
 
-      var rawLines = File(this.javaClass.getResource("input.txt")!!.file)
-         .readText()
+      var rawLines = this.readLocalFile("input.txt")
          .lines()
 
       val seeds = getSeeds(rawLines)
