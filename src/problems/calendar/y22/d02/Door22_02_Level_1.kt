@@ -27,36 +27,36 @@ class Door22_02_Level_1 : IProblem {
 
          }.toString()
    }
-}
+   private enum class RPC(val codeEnemy: String, val codeOwn: String, val score: Int) {
 
-enum class RPC(val codeEnemy: String, val codeOwn: String, val score: Int) {
+      ROCK("A", "X", 1),
+      PAPER("B", "Y", 2),
+      SCISSORS("C", "Z", 3);
 
-   ROCK("A", "X", 1),
-   PAPER("B", "Y", 2),
-   SCISSORS("C", "Z", 3);
-
-   companion object {
-      fun getRPCByString(letter: String): RPC? {
-         return RPC.values().firstOrNull { it.codeEnemy == letter || it.codeOwn == letter }
-      }
-
-      fun versus(input1: RPC, input2: RPC): Output {
-         if (input1 == input2) {
-            return Output.DRAW
+      companion object {
+         fun getRPCByString(letter: String): RPC? {
+            return RPC.values().firstOrNull { it.codeEnemy == letter || it.codeOwn == letter }
          }
-         if (input1 == ROCK && input2 == SCISSORS
-            || input1 == PAPER && input2 == ROCK
-            || input1 == SCISSORS && input2 == PAPER
-         ) {
-            return Output.WIN
+
+         fun versus(input1: RPC, input2: RPC): Output {
+            if (input1 == input2) {
+               return Output.DRAW
+            }
+            if (input1 == ROCK && input2 == SCISSORS
+               || input1 == PAPER && input2 == ROCK
+               || input1 == SCISSORS && input2 == PAPER
+            ) {
+               return Output.WIN
+            }
+            return Output.LOSE
          }
-         return Output.LOSE
       }
+   }
+
+   private enum class Output(val score: Int) {
+      WIN(6),
+      LOSE(0),
+      DRAW(3);
    }
 }
 
-enum class Output(val score: Int) {
-   WIN(6),
-   LOSE(0),
-   DRAW(3);
-}
