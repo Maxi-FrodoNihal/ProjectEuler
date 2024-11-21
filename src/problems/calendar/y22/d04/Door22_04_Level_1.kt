@@ -9,9 +9,9 @@ class Door22_04_Level_1 : IProblem {
    }
 
    override fun solve(): String {
-     return this.readLocalFile("input.txt")
-        .lines()
-        .map { it.split(",") }
+      return this.readLocalFile("input.txt")
+         .lines()
+         .map { it.split(",") }
          .flatten()
          .map { it.split("-") }
          .map { it.map(String::toInt) }

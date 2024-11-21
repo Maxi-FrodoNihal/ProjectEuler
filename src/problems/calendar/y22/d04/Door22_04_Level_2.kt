@@ -23,12 +23,12 @@ class Door22_04_Level_2 : IProblem {
 
    private class Section(val from: Int, val to: Int) {
 
-     private fun getElementSet():Set<Int> {
+      private fun getElementSet(): Set<Int> {
          return (from..to).toSet()
       }
 
       companion object {
-         fun getOverlappingElements(s1: Section, s2: Section):Set<Int>{
+         fun getOverlappingElements(s1: Section, s2: Section): Set<Int> {
             return s1.getElementSet().intersect(s2.getElementSet())
          }
       }
