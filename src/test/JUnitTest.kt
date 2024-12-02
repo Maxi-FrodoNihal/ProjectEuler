@@ -21,6 +21,8 @@ import problems.calendar.y23.d04.Door23_04_Level_1
 import problems.calendar.y23.d04.Door23_04_Level_2
 import problems.calendar.y23.d05.Door23_05_Level_1
 import problems.calendar.y23.d05.Door23_05_Level_2
+import problems.calendar.y24.d01.Door24_01_Level_1
+import problems.calendar.y24.d01.Door24_01_Level_2
 import problems.p001TOp010.p001.Problem1
 import problems.p001TOp010.p002.Problem2
 import problems.p001TOp010.p003.Problem3
@@ -315,6 +317,30 @@ class JUnitTest {
             Assertions.assertTrue(
                door23_05_level_2.getSolution() != defaultLsg
                        && door23_05_level_2.solve() == door23_05_level_2.getSolution()
+            )
+         }?: Assertions.fail()
+
+   @Test
+   fun testDoor24_01_Level_1() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door24_01_Level_1>()
+         .firstOrNull()
+         ?.let {door24_01_level_1 ->
+            Assertions.assertTrue(
+               door24_01_level_1.getSolution() != defaultLsg
+                       && door24_01_level_1.solve() == door24_01_level_1.getSolution()
+            )
+         }?: Assertions.fail()
+
+   @Test
+   fun testDoor24_01_Level_2() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door24_01_Level_2>()
+         .firstOrNull()
+         ?.let {door24_01_level_2 ->
+            Assertions.assertTrue(
+               door24_01_level_2.getSolution() != defaultLsg
+                       && door24_01_level_2.solve() == door24_01_level_2.getSolution()
             )
          }?: Assertions.fail()
 
