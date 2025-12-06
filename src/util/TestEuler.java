@@ -11,6 +11,7 @@ import problems.calendar.y22.d04.Door22_04_Level_2;
 import problems.calendar.y22.d05.Door22_05_Level_1;
 import problems.calendar.y24.d01.Door24_01_Level_1;
 import problems.calendar.y24.d01.Door24_01_Level_2;
+import problems.calendar.y25.d01.Door25_01_Level_1;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -24,7 +25,7 @@ public class TestEuler {
 
         final Runtime rt = Runtime.getRuntime();
 
-        final IProblem problem = new Door24_01_Level_2();
+        final IProblem problem = new Door25_01_Level_1();
 
         final int iterations = problem.getIterations();
         final String averageString = iterations > 1 ? "Average " : "";
