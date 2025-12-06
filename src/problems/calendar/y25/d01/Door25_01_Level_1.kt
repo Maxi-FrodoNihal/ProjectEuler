@@ -4,6 +4,8 @@ import util.IProblem
 
 class Door25_01_Level_1 : IProblem {
 
+   override fun getSolution() = "1023"
+
    override fun solve(): String {
 
       val circleDial = CircleDial()
@@ -25,30 +27,44 @@ class Door25_01_Level_1 : IProblem {
       var zeroCounter = 0
 
       fun doInstruction(instruction: Instruction) {
+
          when (instruction.direction) {
             "L" -> doLeft(instruction.amount)
             "R" -> doRight(instruction.amount)
          }
 
-         if(pointer == 0){
+         if (pointer == 0) {
             zeroCounter++
          }
       }
 
-      private fun doLeft(amount: Int){
+      private fun doLeft(amount: Int) {
          pointer -= amount
-         while (pointer < 0){
-            ++pointer
-            pointer+=max
+         while (pointer < 0) {
+            pointer += max + 1
          }
       }
 
-      private fun doRight(amount: Int){
+      private fun doRight(amount: Int) {
          pointer += amount
-         while (pointer > max){
-            --pointer
-            pointer -= max
+         while (pointer > max) {
+            pointer -= max + 1
          }
+      }
+
+      /**
+       * modulo math style
+       */
+      private fun doInstructionMathematically(instruction: Instruction) {
+         var movement = instruction.amount
+
+         if (instruction.direction == "L") {
+            movement *= -1
+         }
+
+         val moduloMaxBorder = max + 1
+
+         pointer = ((pointer + movement) % moduloMaxBorder + moduloMaxBorder) % moduloMaxBorder
       }
    }
 }

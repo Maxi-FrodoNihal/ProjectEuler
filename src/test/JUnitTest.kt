@@ -23,6 +23,7 @@ import problems.calendar.y23.d05.Door23_05_Level_1
 import problems.calendar.y23.d05.Door23_05_Level_2
 import problems.calendar.y24.d01.Door24_01_Level_1
 import problems.calendar.y24.d01.Door24_01_Level_2
+import problems.calendar.y25.d01.Door25_01_Level_1
 import problems.p001TOp010.p001.Problem1
 import problems.p001TOp010.p002.Problem2
 import problems.p001TOp010.p003.Problem3
@@ -341,6 +342,18 @@ class JUnitTest {
             Assertions.assertTrue(
                door24_01_level_2.getSolution() != defaultLsg
                        && door24_01_level_2.solve() == door24_01_level_2.getSolution()
+            )
+         }?: Assertions.fail()
+
+   @Test
+   fun testDoor25_01_Level_1() =
+      DLoader.loadInterfaceObjectsFromT(PathSlave::class.java, IProblem::class.java)
+         .filterIsInstance<Door25_01_Level_1>()
+         .firstOrNull()
+         ?.let {door25_01_level_1 ->
+            Assertions.assertTrue(
+               door25_01_level_1.getSolution() != defaultLsg
+                       && door25_01_level_1.solve() == door25_01_level_1.getSolution()
             )
          }?: Assertions.fail()
 
