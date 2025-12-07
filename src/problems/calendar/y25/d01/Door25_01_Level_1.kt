@@ -28,9 +28,13 @@ class Door25_01_Level_1 : IProblem {
 
       fun doInstruction(instruction: Instruction) {
 
+         // the raw instruction amount would be also possible for the functions but then the while loops must work
+         // more than they should, we can prevent this with modulo beforehand
+         val normalizedMovement = instruction.amount % (max + 1)
+
          when (instruction.direction) {
-            "L" -> doLeft(instruction.amount)
-            "R" -> doRight(instruction.amount)
+            "L" -> doLeft(normalizedMovement)
+            "R" -> doRight(normalizedMovement)
          }
 
          if (pointer == 0) {
@@ -50,21 +54,6 @@ class Door25_01_Level_1 : IProblem {
          while (pointer > max) {
             pointer -= max + 1
          }
-      }
-
-      /**
-       * modulo math style
-       */
-      private fun doInstructionMathematically(instruction: Instruction) {
-         var movement = instruction.amount
-
-         if (instruction.direction == "L") {
-            movement *= -1
-         }
-
-         val moduloMaxBorder = max + 1
-
-         pointer = ((pointer + movement) % moduloMaxBorder + moduloMaxBorder) % moduloMaxBorder
       }
    }
 }
