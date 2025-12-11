@@ -12,13 +12,11 @@ class Door25_01_Level_1 : IProblem {
 
       this.readLocalFile("input.txt")
          .lines()
-         .map { Instruction(it.substring(0, 1), it.substring(1).toInt()) }
+         .map { Instruction(0,it.substring(0, 1), it.substring(1).toInt()) }
          .forEach { circleDial.doInstruction(it) }
 
       return circleDial.zeroCounter.toString()
    }
-
-   data class Instruction(val direction: String, val amount: Int)
 
    private class CircleDial() {
 
