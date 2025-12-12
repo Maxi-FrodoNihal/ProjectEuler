@@ -1,89 +1,86 @@
 package problems.calendar.y25.d01
 
 import util.IProblem
-import kotlin.random.Random
 
 class Door25_01_Level_2 : IProblem {
 
    override fun getSolution() = "5899"
 
    override fun solve(): String {
-//      val mathCircleDial = MathCircleDial(50,0)
-//      val simuCircleDial = SimuCircleDial(50,0)
-//
-//      val instruction = Instruction(54,"R",50)
-//
-//      println("instruction: $instruction")
-//      simuCircleDial.doInstruction(instruction)
-//      logCircleDial(simuCircleDial)
-//      mathCircleDial.doInstruction(instruction)
-//      logCircleDial(mathCircleDial)
 
-//
-//      mainTest1(mathCircleDial, simuCircleDial)
-      while (randomMainTest(MathCircleDial(), SimuCircleDial(), 10000, false)){
+      val circleDial = CircleDial()
 
-      }
-
-
-
-      return ""
-   }
-
-   private fun mainTest1(mathCircleDial: MathCircleDial, simuCircleDial: SimuCircleDial){
-
-      var counter = 0
-
-      val instructionList = this.readLocalFile("input.txt")
+      this.readLocalFile("input.txt")
          .lines()
-         .map { Instruction(++counter, it.substring(0, 1), it.substring(1).toInt()) }
+         .map { Instruction(0,it.substring(0, 1), it.substring(1).toInt()) }
+         .forEach { circleDial.doInstruction(it) }
 
-      for (instruction in instructionList) {
-         println("instruction: $instruction")
-         simuCircleDial.doInstruction(instruction)
-         logCircleDial(simuCircleDial)
-         mathCircleDial.doInstruction(instruction)
-         logCircleDial(mathCircleDial)
+      return circleDial.zeroCounter.toString()
+   }
 
-         if(!mathCircleDial.equals(simuCircleDial)) {
-            break
+   private class CircleDial{
+
+      private var pointer = 50
+      private val max = 99
+      var zeroCounter = 0
+
+      fun doInstruction(instruction: Instruction) {
+         when (instruction.direction) {
+            "L" -> doLeft(instruction)
+            "R" -> doRight(instruction)
          }
       }
-   }
 
-
-   private fun randomMainTest(mathCircleDial: MathCircleDial, simuCircleDial: SimuCircleDial, simuSteps: Int, logStuff: Boolean): Boolean{
-
-      val instructionList =List(simuSteps) { nextRandomInstruction(it+1) }
-
-      for (instruction in instructionList) {
-
-            simuCircleDial.doInstruction(instruction)
-            mathCircleDial.doInstruction(instruction)
-
-         if(logStuff) {
-            println("instruction: $instruction")
-            logCircleDial(simuCircleDial)
-            logCircleDial(mathCircleDial)
+      private fun doLeft(instruction: Instruction) {
+         // special anti symmetric advent of code rule:
+         // first letf side wrap up will not be counted if the pointer was on start at 0
+         var pointerWasAtZeroOnce = pointer == 0
+         pointer -= instruction.amount
+         while (pointer < 0) {
+            if(pointerWasAtZeroOnce){
+               pointerWasAtZeroOnce=false
+            }else{
+               ++zeroCounter
+            }
+            pointer += max + 1
          }
-
-         if(!mathCircleDial.equals(simuCircleDial)) {
-            return false
+         if (pointer == 0) {
+            ++zeroCounter
          }
       }
-      return true
-   }
 
-   private fun nextRandomInstruction(counter: Int): Instruction{
+      private fun doRight(instruction: Instruction) {
+         pointer += instruction.amount
+         while (pointer > max) {
+            ++zeroCounter
+            pointer -= max + 1
+         }
+      }
 
-      val isR = Random.nextBoolean()
-      val direction = if (isR) "R" else "L"
+      // raw simulation implementation
 
-      return Instruction(counter+1,  direction,Random.nextInt(1, 1000))
-   }
+      private fun goRight(instruction:Instruction) {
+         for(i in 1..instruction.amount){
+            ++pointer
+            if(pointer > max){
+               pointer-=max+1
+            }
+            if(pointer == 0){
+               ++zeroCounter
+            }
+         }
+      }
 
-   private fun logCircleDial(abstractCircleDial: AbstractCircleDial){
-      val className = abstractCircleDial.javaClass.simpleName
-      println("$className pointer -> ${abstractCircleDial.pointer} zerocounter -> ${abstractCircleDial.zeroCounter}")
+      private fun goLeft(instruction: Instruction) {
+         for(i in 1..instruction.amount){
+            --pointer
+            if(pointer < 0){
+               pointer+=max+1
+            }
+            if(pointer == 0){
+               ++zeroCounter
+            }
+         }
+      }
    }
 }

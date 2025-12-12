@@ -3,16 +3,8 @@ package util;
 import kotlin.KotlinVersion;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
-import problems.calendar.y22.d02.Door22_02_Level_2;
-import problems.calendar.y22.d03.Door22_03_Level_1;
-import problems.calendar.y22.d03.Door22_03_Level_2;
-import problems.calendar.y22.d04.Door22_04_Level_1;
-import problems.calendar.y22.d04.Door22_04_Level_2;
-import problems.calendar.y22.d05.Door22_05_Level_1;
-import problems.calendar.y24.d01.Door24_01_Level_1;
-import problems.calendar.y24.d01.Door24_01_Level_2;
-import problems.calendar.y25.d01.Door25_01_Level_1;
 import problems.calendar.y25.d01.Door25_01_Level_2;
+import problems.p001TOp010.p001.Problem1;
 
 import java.util.ArrayList;
 import java.util.HashSet;
